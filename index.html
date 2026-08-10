@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REMI Data | AI Training Data Collection</title>
+    <meta name="description" content="Licensed, consent-verified human data for AI training. Speech, face, motion, and environmental datasets from 50+ countries.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --accent: #E8531E;
+            --accent-light: #FF6B35;
+            --dark: #1a1a1a;
+            --gray: #6b7280;
+            --light-gray: #f9fafb;
+            --border: #e5e7eb;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: #fff;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* NAV */
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--dark);
+        }
+        .logo span { color: var(--accent); }
+        nav a.cta {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        nav a.cta:hover { background: var(--accent-light); }
+        
+        /* HERO */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+        .hero h1 span { color: var(--accent); }
+        .hero p {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 640px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .hero-cta {
+            display: inline-flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+        .btn-primary:hover { background: var(--accent-light); }
+        .btn-outline {
+            border: 2px solid var(--border);
+            color: var(--dark);
+        }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+        
+        /* STATS */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .stat { text-align: center; }
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 14px;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+        
+        /* DATA TYPES */
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            transition: border-color 0.2s;
+        }
+        .card:hover { border-color: var(--accent); }
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        .card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .card p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        /* LANGUAGES */
+        .languages {
+            background: var(--light-gray);
+            padding: 80px 0;
+        }
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        .lang-tag {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .lang-tag .flag {
+            display: none;
+        }
+        
+        /* WHY */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        .feature {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: #FEF2EC;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .feature h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .feature p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: var(--dark);
+            color: #fff;
+        }
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .cta-section p {
+            color: #9ca3af;
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+        .cta-section .btn-primary {
+            font-size: 18px;
+            padding: 16px 40px;
+        }
+        
+        /* FOOTER */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 17px; }
+            .stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .lang-grid { grid-template-columns: repeat(2, 1fr); }
+            .features { grid-template-columns: 1fr; }
+            .hero { padding: 60px 0 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="/" class="logo">REMI <span>DATA</span></a>
+        <a href="mailto:aa@remidata.co" class="cta">Get in Touch</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>Licensed Human Data<br>for <span>AI Training</span></h1>
+        <p>We collect consent-verified speech, face, motion, and environmental data from native contributors worldwide. Ethically sourced. AI-ready. Commercially licensed.</p>
+        <div class="hero-cta">
+            <a href="mailto:sales@remidata.co" class="btn btn-primary">Request a Dataset</a>
+            <a href="#data-types" class="btn btn-outline">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-number">13+</div>
+            <div class="stat-label">Languages</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Continents</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Data Types</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Consent-Verified</div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="data-types">
+    <div class="container">
+        <h2 class="section-title">Data Types</h2>
+        <p class="section-subtitle">Comprehensive human data collection through a single contributor session.</p>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon" style="font-size:14px;font-weight:700;color:var(--accent);background:#FEF2EC;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;">01</div>
+                <h3>Speech & Voice</h3>
+                <p>Prompted and spontaneous speech, digits, voice commands. Multiple dialects per language. WAV 16kHz+, full transcriptions.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="font-size:14px;font-weight:700;color:var(--accent);background:#FEF2EC;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;">02</div>
+                <h3>Face & Emotion</h3>
+                <p>20+ facial expressions, 360° head rotation, diverse demographics. AI-ready face meshes and landmarks.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="font-size:14px;font-weight:700;color:var(--accent);background:#FEF2EC;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;">03</div>
+                <h3>Motion & Gestures</h3>
+                <p>Full-body movement, hand gestures, culturally-specific actions. Pose estimation data via MediaPipe.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="font-size:14px;font-weight:700;color:var(--accent);background:#FEF2EC;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;">04</div>
+                <h3>Street & Environment</h3>
+                <p>Street-level imagery, signage, storefronts from regions underrepresented in existing mapping databases.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="font-size:14px;font-weight:700;color:var(--accent);background:#FEF2EC;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;">05</div>
+                <h3>Handwriting & OCR</h3>
+                <p>Handwritten text samples across scripts: Cyrillic, Latin, Arabic, Devanagari, and more.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="font-size:14px;font-weight:700;color:var(--accent);background:#FEF2EC;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;">06</div>
+                <h3>Body & Skin Imagery</h3>
+                <p>Photographs of body parts, skin conditions, and physical features. Diverse demographics and skin tones for computer vision training.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="languages">
+    <div class="container">
+        <h2 class="section-title">Languages & Regions</h2>
+        <p class="section-subtitle">Active contributor networks with native speakers.</p>
+        <h3 style="font-size:16px;font-weight:600;color:var(--gray);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">Europe</h3>
+        <div class="lang-grid" style="margin-bottom:32px;">
+            <div class="lang-tag">Ukrainian<br><small style="color:var(--gray);font-size:12px">Central + Western dialects</small></div>
+            <div class="lang-tag">Russian</div>
+            <div class="lang-tag">German (AT)</div>
+            <div class="lang-tag">Armenian</div>
+        </div>
+        <h3 style="font-size:16px;font-weight:600;color:var(--gray);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">South America</h3>
+        <div class="lang-grid" style="margin-bottom:32px;">
+            <div class="lang-tag">Spanish (AR)</div>
+            <div class="lang-tag">Portuguese (BR)</div>
+        </div>
+        <h3 style="font-size:16px;font-weight:600;color:var(--gray);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">Asia</h3>
+        <div class="lang-grid" style="margin-bottom:32px;">
+            <div class="lang-tag">Tagalog</div>
+            <div class="lang-tag">Kazakh</div>
+            <div class="lang-tag">Hindi</div>
+            <div class="lang-tag">Bengali</div>
+        </div>
+        <h3 style="font-size:16px;font-weight:600;color:var(--gray);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">Africa</h3>
+        <div class="lang-grid" style="margin-bottom:16px;">
+            <div class="lang-tag">Swahili</div>
+            <div class="lang-tag">Yoruba</div>
+            <div class="lang-tag">Amharic</div>
+        </div>
+        <p style="text-align:center;color:var(--gray);margin-top:24px;font-size:15px;">Custom language collection available on request</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Why REMI Data</h2>
+        <p class="section-subtitle">Built for AI teams who need reliable, diverse, and legally cleared training data.</p>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h4>Fully Licensed</h4>
+                    <p>Every contributor signs a commercial consent agreement. No scraping, no gray areas.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h4>Quality Controlled</h4>
+                    <p>Automated QC pipeline: SNR analysis, language verification, format validation.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h4>Rich Metadata</h4>
+                    <p>Gender, age, region, dialect — every data point comes with full demographic context.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h4>Custom Collection</h4>
+                    <p>Need 500 Kazakh speakers under 30? 200 Argentine Spanish dialogs? We build to spec.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h4>Underrepresented Languages</h4>
+                    <p>Focus on languages AI still struggles with. Fill the gaps in your training data.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h4>Fast Turnaround</h4>
+                    <p>Active contributor networks in 6 countries. Datasets delivered in days, not months.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to improve your AI?</h2>
+        <p>Tell us what data you need. We'll build it.</p>
+        <a href="mailto:sales@remidata.co" class="btn btn-primary">Contact Sales</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 REMI FS LLC &middot; Miami, Florida &middot; +1 786-695-1465<br>
+        <a href="mailto:sales@remidata.co">sales@remidata.co</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
