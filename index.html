@@ -60,14 +60,15 @@
             align-items: center;
         }
         .logo {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
             text-decoration: none;
-            display: flex;
-            align-items: center;
+            color: var(--dark);
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
+        .logo span { color: var(--accent); }
         .nav-links { display: flex; gap: 32px; align-items: center; }
         .nav-links a {
             font-size: 13px;
@@ -370,7 +371,7 @@
 
 <nav>
     <div class="container">
-        <a href="/" class="logo"><img src="logo.jpg" alt="REMI Data"></a>
+        <a href="/" class="logo">REMI <span>Data</span></a>
         <div class="nav-links">
             <a href="#data-types">Services</a>
             <a href="#languages">Languages</a>
