@@ -63,15 +63,22 @@
             align-items: center;
         }
         .logo {
-            font-family: 'Inter', sans-serif;
-            font-size: 24px;
-            font-weight: 600;
             text-decoration: none;
-            color: var(--dark);
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
         }
-        .logo span { color: var(--accent); }
+        .logo img {
+            height: 36px;
+            width: auto;
+        }
+        .nvidia-badge {
+            display: inline-block;
+            margin-left: 20px;
+        }
+        .nvidia-badge img {
+            height: 28px;
+            width: auto;
+        }
         .nav-links { display: flex; gap: 32px; align-items: center; }
         .nav-links a {
             font-size: 13px;
@@ -374,7 +381,8 @@
 
 <nav>
     <div class="container">
-        <a href="/" class="logo">REMI <span>Data</span></a>
+        <a href="/" class="logo"><img src="logo-remi.jpg" alt="REMI Data"></a>
+        <span class="nvidia-badge"><img src="nvidia-inception-badge-bw.svg" alt="NVIDIA Inception Program Member"></span>
         <div class="nav-links">
             <a href="#data-types">Services</a>
             <a href="#languages">Languages</a>
@@ -587,7 +595,7 @@
         <div style="max-width: 720px; margin: 0 auto; line-height: 1.8; color: #ccc;">
             <p>REMI Data is an AI data infrastructure project of REMI FS LLC, a Florida-registered company based in Miami. We collect, process, and deliver licensed human data for AI/ML training — speech recordings, facial expressions, body motion, medical imagery, handwriting, and more.</p>
             
-            <p>Founded in 2024 by Alexander Adamov, a serial entrepreneur with 25+ years of international business experience across Europe, Asia, Latin America, and Africa. REMI Data combines deep operational expertise in managing distributed teams with scalable data collection technology.</p>
+            <p>Founded in 2024 by Alexander Adamov, an entrepreneur with 25+ years of business experience in Ukraine and the United States. REMI Data combines deep operational expertise in managing distributed teams with scalable data collection technology. REMI Data is a member of the NVIDIA Inception program.</p>
             
             <p>We operate contributor networks across 6 countries and 4 continents, covering 13+ languages — with a focus on underrepresented languages that AI still struggles with.</p>
         </div>
