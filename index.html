@@ -48,13 +48,8 @@
         /* NAV */
         nav {
             padding: 24px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255,255,255,0.97);
-            backdrop-filter: blur(12px);
-            z-index: 100;
+            position: relative;
+            background: var(--white);
             border-bottom: 1px solid rgba(0,0,0,0.06);
         }
         nav .container {
@@ -100,7 +95,7 @@
         
         /* HERO */
         .hero {
-            padding: 180px 0 120px;
+            padding: 80px 0 120px;
             text-align: center;
             background: linear-gradient(180deg, var(--white) 0%, var(--light) 100%);
         }
@@ -362,7 +357,7 @@
         /* RESPONSIVE */
         @media (max-width: 900px) {
             .nav-links { display: none; }
-            .hero { padding: 140px 0 80px; }
+            .hero { padding: 60px 0 80px; }
             .hero h1 { font-size: 34px; }
             .hero-desc p { font-size: 15px; }
             .stats { grid-template-columns: repeat(2, 1fr); gap: 32px; }
