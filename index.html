@@ -380,9 +380,10 @@
         <span class="nvidia-badge"><img src="nvidia-inception-badge-bw.svg" alt="NVIDIA Inception Program Member"></span>
         <div class="nav-links">
             <a href="#data-types">Services</a>
+            <a href="#how-it-works">How It Works</a>
             <a href="#languages">Languages</a>
             <a href="#why">Why Us</a>
-            <a href="mailto:sales@remidata.co" class="nav-cta">Contact</a>
+            <a href="#contact" class="nav-cta">Request a Quote</a>
         </div>
     </div>
 </nav>
@@ -529,6 +530,37 @@
     </div>
 </section>
 
+<!-- HOW IT WORKS -->
+<section class="section" id="how-it-works">
+    <div class="container">
+        <div class="section-label">Process</div>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-desc">From brief to delivery in four steps.</p>
+        <div class="grid-3" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="card">
+                <div class="card-num">01</div>
+                <h3>Brief</h3>
+                <p>You tell us what data you need — language, format, volume, demographics, recording conditions. We scope the project and send a quote.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">02</div>
+                <h3>Collect</h3>
+                <p>Our distributed contributor network records, photographs, or annotates according to your specifications. Every contributor signs a commercial consent form.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">03</div>
+                <h3>Validate</h3>
+                <p>Automated QC pipeline checks every file: SNR analysis, language verification, format compliance, metadata validation. Failed files are re-collected.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">04</div>
+                <h3>Deliver</h3>
+                <p>Clean, labeled datasets delivered via secure cloud transfer with full documentation: consent records, metadata, and quality reports.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="section" id="why">
     <div class="container">
         <div class="section-label">Our Approach</div>
@@ -620,12 +652,60 @@
     </div>
 </section>
 
-<section class="cta-section">
+<!-- TEAM -->
+<section class="section" id="team">
+    <div class="container">
+        <div class="section-label">Team</div>
+        <h2 class="section-title">Leadership</h2>
+        <div style="max-width: 600px; margin: 2rem auto; padding: 2rem; border: 1px solid var(--border); border-radius: 8px;">
+            <h3 style="margin-bottom: 0.5rem;">Alexander Adamov</h3>
+            <p style="color: var(--accent); font-size: 14px; margin-bottom: 1rem;">Founder & CEO</p>
+            <p style="line-height: 1.8; color: var(--gray);">Entrepreneur with 25+ years of business experience in Ukraine and the United States. Background in managing distributed international teams, real estate development, and technology operations. Based in Miami, FL.</p>
+            <div style="margin-top: 1rem;">
+                <a href="https://linkedin.com/in/abadamov" style="color: var(--accent); text-decoration: none; font-size: 14px;">LinkedIn →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- REQUEST A QUOTE -->
+<section class="section" id="contact" style="background: var(--light);">
     <div class="container">
         <div class="section-label">Get Started</div>
-        <h2>Ready to improve your AI?</h2>
-        <p>Tell us what data you need. We'll build it.</p>
-        <a href="mailto:sales@remidata.co" class="btn btn-primary">Contact Sales</a>
+        <h2 class="section-title">Request a Quote</h2>
+        <p class="section-desc">Tell us what data you need. We'll scope, price, and deliver.</p>
+        <form id="quoteForm" style="max-width: 600px; margin: 2rem auto;" onsubmit="submitQuote(event)">
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text);">Name *</label>
+                <input type="text" name="name" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; font-size: 15px; font-family: 'Inter', sans-serif;">
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text);">Company *</label>
+                <input type="text" name="company" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; font-size: 15px; font-family: 'Inter', sans-serif;">
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text);">Email *</label>
+                <input type="email" name="email" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; font-size: 15px; font-family: 'Inter', sans-serif;">
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text);">What data do you need? *</label>
+                <textarea name="message" required rows="5" placeholder="Describe the data type, language(s), volume, format, and any specific requirements." style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; font-size: 15px; font-family: 'Inter', sans-serif; resize: vertical;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer; font-size: 14px;">Submit Request</button>
+        </form>
+        <script>
+        function submitQuote(e) {
+            e.preventDefault();
+            var f = e.target;
+            var name = f.querySelector('[name=name]').value;
+            var company = f.querySelector('[name=company]').value;
+            var email = f.querySelector('[name=email]').value;
+            var msg = f.querySelector('[name=message]').value;
+            var subject = encodeURIComponent('Quote Request from ' + name + ' (' + company + ')');
+            var body = encodeURIComponent('Name: ' + name + '\nCompany: ' + company + '\nEmail: ' + email + '\n\n' + msg);
+            window.location.href = 'mailto:sales@remidata.co?subject=' + subject + '&body=' + body;
+        }
+        </script>
     </div>
 </section>
 
