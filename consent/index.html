@@ -307,40 +307,7 @@
                 </div>
             </div>
 
-            <div class="card">
-                <h2>Compensation / Compensación</h2>
-                <div class="row">
-                    <div class="form-group">
-                        <label>Amount / <span class="sublabel">Monto</span> *</label>
-                        <input type="text" name="compensation" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Currency / <span class="sublabel">Moneda</span> *</label>
-                        <select name="currency" required>
-                            <option value="">—</option>
-                            <option value="USD">USD</option>
-                            <option value="EUR">EUR</option>
-                            <option value="COP">COP</option>
-                            <option value="MXN">MXN</option>
-                            <option value="ARS">ARS</option>
-                            <option value="PEN">PEN</option>
-                            <option value="CLP">CLP</option>
-                            <option value="UYU">UYU</option>
-                            <option value="BRL">BRL</option>
-                            <option value="PHP">PHP</option>
-                            <option value="UAH">UAH</option>
-                            <option value="GBP">GBP</option>
-                            <option value="CNY">CNY</option>
-                            <option value="HKD">HKD</option>
-                            <option value="other">Other / Otra</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Payment method / <span class="sublabel">Método de pago</span> *</label>
-                    <input type="text" name="paymentMethod" required placeholder="PayPal, Wise, bank transfer...">
-                </div>
-            </div>
+
 
             <div class="card">
                 <h2>Signature / Firma</h2>
@@ -469,8 +436,7 @@
                 'Email: ' + data.email + '\n' +
                 'Languages: ' + data.languages + '\n' +
                 'Native: ' + data.nativeLanguage + '\n' +
-                'Compensation: ' + data.compensation + ' ' + data.currency + '\n' +
-                'Payment: ' + data.paymentMethod + '\n' +
+
                 'Date: ' + data.signDate + '\n' +
                 'Timestamp: ' + data.timestamp
             );
