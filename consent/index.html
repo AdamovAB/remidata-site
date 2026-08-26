@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Consentimiento — REMI Data</title>
+    <title>Consent Form / Formulario de Consentimiento — REMI Data</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -22,8 +22,14 @@
             padding: 30px 0 20px;
         }
         .header h1 {
-            font-size: 22px;
+            font-size: 20px;
             color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+        .header h2 {
+            font-size: 17px;
+            color: #6b7280;
+            font-weight: 400;
             margin-bottom: 5px;
         }
         .header p {
@@ -44,7 +50,7 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         .card h2 {
-            font-size: 16px;
+            font-size: 15px;
             color: #2563eb;
             margin-bottom: 16px;
             padding-bottom: 8px;
@@ -59,6 +65,10 @@
             font-weight: 600;
             margin-bottom: 6px;
             color: #374151;
+        }
+        .form-group .sublabel {
+            font-weight: 400;
+            color: #6b7280;
         }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
@@ -88,10 +98,14 @@
             padding-left: 20px;
         }
         .terms li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .terms strong {
             color: #1a1a1a;
+        }
+        .bilingual {
+            color: #6b7280;
+            font-style: italic;
         }
         .checkbox-group {
             display: flex;
@@ -135,6 +149,7 @@
             color: #9ca3af;
             font-size: 14px;
             pointer-events: none;
+            text-align: center;
         }
         .clear-btn {
             font-size: 12px;
@@ -205,149 +220,163 @@
     <div class="container" id="formContainer">
         <div class="header">
             <div class="logo">REMI Data</div>
-            <h1>Formulario de Consentimiento</h1>
-            <p>REMI FS LLC — Recopilación de Datos para Inteligencia Artificial</p>
+            <h1>Data Contributor Consent Form</h1>
+            <h2>Formulario de Consentimiento del Contribuidor</h2>
+            <p>REMI FS LLC</p>
         </div>
 
         <form id="consentForm" onsubmit="submitForm(event)">
 
             <div class="card">
-                <h2>Información del Participante</h2>
-                <div class="form-group">
-                    <label>Nombre completo *</label>
-                    <input type="text" name="fullName" required placeholder="Ej: María García López">
+                <h2>Personal Information / Información Personal</h2>
+                <div class="row">
+                    <div class="form-group">
+                        <label>First Name / <span class="sublabel">Nombre</span> *</label>
+                        <input type="text" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name / <span class="sublabel">Apellido</span> *</label>
+                        <input type="text" name="lastName" required>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
-                        <label>Fecha de nacimiento *</label>
-                        <input type="date" name="dob" required>
+                        <label>Age / <span class="sublabel">Edad</span> *</label>
+                        <input type="number" name="age" required min="18" max="120">
                     </div>
                     <div class="form-group">
-                        <label>Género *</label>
+                        <label>Gender / <span class="sublabel">Género</span> *</label>
                         <select name="gender" required>
-                            <option value="">Seleccionar...</option>
-                            <option value="male">Masculino</option>
-                            <option value="female">Femenino</option>
-                            <option value="other">Otro</option>
-                            <option value="prefer_not">Prefiero no decir</option>
+                            <option value="">—</option>
+                            <option value="male">Male / Masculino</option>
+                            <option value="female">Female / Femenino</option>
+                            <option value="other">Other / Otro</option>
+                            <option value="prefer_not">Prefer not to say / Prefiero no decir</option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
-                        <label>País *</label>
-                        <input type="text" name="country" required placeholder="Ej: Colombia">
+                        <label>Country / <span class="sublabel">País</span> *</label>
+                        <input type="text" name="country" required>
                     </div>
                     <div class="form-group">
-                        <label>Ciudad / Región *</label>
-                        <input type="text" name="city" required placeholder="Ej: Bogotá">
+                        <label>City / <span class="sublabel">Ciudad</span> *</label>
+                        <input type="text" name="city" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Phone / <span class="sublabel">Teléfono</span> *</label>
+                        <input type="tel" name="phone" required placeholder="+1 ...">
+                    </div>
+                    <div class="form-group">
+                        <label>Email / <span class="sublabel">Correo</span> *</label>
+                        <input type="email" name="email" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Idioma(s) que habla *</label>
-                    <input type="text" name="languages" required placeholder="Ej: Español, Inglés, Portugués">
+                    <label>Languages spoken / <span class="sublabel">Idiomas que habla</span> *</label>
+                    <input type="text" name="languages" required placeholder="English, Spanish, ...">
                 </div>
                 <div class="form-group">
-                    <label>Idioma(s) nativo(s) *</label>
-                    <input type="text" name="nativeLanguage" required placeholder="Ej: Español">
-                </div>
-                <div class="form-group">
-                    <label>Correo electrónico *</label>
-                    <input type="email" name="email" required placeholder="tu@email.com">
-                </div>
-                <div class="form-group">
-                    <label>Teléfono (opcional)</label>
-                    <input type="tel" name="phone" placeholder="+57 300 123 4567">
+                    <label>Native language / <span class="sublabel">Idioma nativo</span> *</label>
+                    <input type="text" name="nativeLanguage" required>
                 </div>
             </div>
 
             <div class="card">
-                <h2>Términos y Condiciones</h2>
+                <h2>Terms and Conditions / Términos y Condiciones</h2>
                 <div class="terms">
-                    <p style="margin-bottom: 12px;">REMI FS LLC ("la Empresa") recopila datos proporcionados por los participantes — incluyendo, pero no limitado a, grabaciones de voz, grabaciones de video, imágenes, fotografías, textos escritos, datos biométricos, datos de movimiento corporal y cualquier otro material — con el fin de desarrollar, entrenar, evaluar y mejorar sistemas de inteligencia artificial y aprendizaje automático.</p>
-                    <p style="margin-bottom: 8px;"><strong>Al firmar este formulario, acepto voluntariamente lo siguiente:</strong></p>
+                    <p style="margin-bottom: 12px;">REMI FS LLC ("the Company" / "la Empresa") collects data provided by participants — including but not limited to voice recordings, video recordings, images, photographs, written text, biometric data, body motion data, and any other materials — for the purpose of developing, training, evaluating, and improving artificial intelligence and machine learning systems.</p>
+                    <p style="margin-bottom: 4px;" class="bilingual">REMI FS LLC recopila datos proporcionados por los participantes — incluyendo grabaciones de voz, video, imágenes, textos, datos biométricos, datos de movimiento y cualquier otro material — con el fin de desarrollar, entrenar, evaluar y mejorar sistemas de inteligencia artificial y aprendizaje automático.</p>
+                    <br>
+                    <p style="margin-bottom: 8px;"><strong>By signing this form, I voluntarily agree to the following:</strong></p>
+                    <p style="margin-bottom: 8px;" class="bilingual"><em>Al firmar este formulario, acepto voluntariamente lo siguiente:</em></p>
                     <ol>
-                        <li><strong>DATOS:</strong> Autorizo la recopilación, grabación y uso de todos los datos que proporcione a la Empresa como parte de este proyecto, en cualquier formato y en cualquier idioma.</li>
-                        <li><strong>USO DE DATOS:</strong> Otorgo a la Empresa una licencia perpetua, mundial, irrevocable, no exclusiva y libre de regalías para usar, almacenar, procesar, modificar, distribuir, sublicenciar y vender los datos proporcionados y cualquier dato derivado de los mismos, para cualquier fin comercial o de investigación relacionado con el desarrollo de inteligencia artificial y aprendizaje automático.</li>
-                        <li><strong>TERCEROS:</strong> Entiendo que los datos pueden ser compartidos, sublicenciados o vendidos a terceros (clientes, socios o compradores de la Empresa) para fines de desarrollo, entrenamiento y mejora de sistemas de IA/ML. Mi información personal identificable (nombre, datos de contacto) NO será compartida con terceros — solo metadatos anónimos (edad, género, idioma, país, región).</li>
-                        <li><strong>PROPIEDAD INTELECTUAL:</strong> Renuncio a cualquier reclamación de propiedad intelectual, derechos de autor, derechos de imagen o cualquier otro derecho sobre los datos proporcionados una vez entregados a la Empresa.</li>
-                        <li><strong>SIN OBLIGACIÓN CONTINUA:</strong> Entiendo que la Empresa no tiene obligación de usar mis datos y que no tengo derecho a regalías, residuales, compensaciones adicionales ni participación en beneficios más allá de la compensación acordada por la sesión de recopilación.</li>
-                        <li><strong>RETIRO:</strong> Puedo retirar mi consentimiento antes de que los datos sean entregados a terceros o incorporados en productos de la Empresa, contactando por escrito a aa@remidata.co. Después de la entrega a terceros o incorporación en productos, el retiro no es posible.</li>
-                        <li><strong>PROTECCIÓN DE DATOS:</strong> La Empresa almacenará mi información personal de forma segura y en cumplimiento con las leyes de protección de datos aplicables. Mi información identificable se mantendrá separada de los datos proporcionados.</li>
-                        <li><strong>EDAD:</strong> Confirmo que tengo al menos 18 años de edad.</li>
-                        <li><strong>VOLUNTARIEDAD:</strong> Confirmo que mi participación es completamente voluntaria, que no he sido coaccionado/a y que he leído y comprendido todos los términos de este formulario.</li>
+                        <li><strong>DATA:</strong> I authorize the collection, recording, and use of all data I provide to the Company as part of this project, in any format and in any language.<br><span class="bilingual">Autorizo la recopilación, grabación y uso de todos los datos que proporcione a la Empresa, en cualquier formato y en cualquier idioma.</span></li>
+                        <li><strong>LICENSE:</strong> I grant the Company a perpetual, worldwide, irrevocable, non-exclusive, royalty-free license to use, store, process, modify, distribute, sublicense, and sell the provided data and any data derived from it, for any commercial or research purpose related to AI/ML development.<br><span class="bilingual">Otorgo a la Empresa una licencia perpetua, mundial, irrevocable, no exclusiva y libre de regalías para usar, almacenar, procesar, modificar, distribuir, sublicenciar y vender los datos proporcionados y cualquier dato derivado.</span></li>
+                        <li><strong>THIRD PARTIES:</strong> I understand that the data may be shared, sublicensed, or sold to third parties for AI/ML development purposes. My personally identifiable information (name, contact details) will NOT be shared with third parties — only anonymized metadata (age, gender, language, country).<br><span class="bilingual">Entiendo que los datos pueden ser compartidos o vendidos a terceros. Mi información personal identificable NO será compartida — solo metadatos anónimos.</span></li>
+                        <li><strong>INTELLECTUAL PROPERTY:</strong> I waive any intellectual property claims, copyrights, image rights, or any other rights over the data provided once delivered to the Company.<br><span class="bilingual">Renuncio a cualquier reclamación de propiedad intelectual o derechos sobre los datos proporcionados.</span></li>
+                        <li><strong>NO ONGOING OBLIGATION:</strong> I understand that the Company has no obligation to use my data and that I am not entitled to royalties, residuals, or additional compensation beyond the agreed payment.<br><span class="bilingual">Entiendo que no tengo derecho a regalías ni compensaciones adicionales más allá del pago acordado.</span></li>
+                        <li><strong>WITHDRAWAL:</strong> I may withdraw my consent before the data is delivered to third parties by contacting aa@remidata.co in writing. After delivery to third parties, withdrawal is not possible.<br><span class="bilingual">Puedo retirar mi consentimiento antes de la entrega a terceros contactando a aa@remidata.co. Después de la entrega, el retiro no es posible.</span></li>
+                        <li><strong>DATA PROTECTION:</strong> The Company will store my personal information securely. My identifiable information will be kept separate from the provided data.<br><span class="bilingual">La Empresa almacenará mi información personal de forma segura y separada de los datos proporcionados.</span></li>
+                        <li><strong>AGE:</strong> I confirm that I am at least 18 years of age.<br><span class="bilingual">Confirmo que tengo al menos 18 años de edad.</span></li>
+                        <li><strong>VOLUNTARY:</strong> I confirm that my participation is completely voluntary, that I have not been coerced, and that I have read and understood all terms.<br><span class="bilingual">Confirmo que mi participación es voluntaria, que no he sido coaccionado/a y que he comprendido todos los términos.</span></li>
                     </ol>
                 </div>
             </div>
 
             <div class="card">
-                <h2>Compensación</h2>
+                <h2>Compensation / Compensación</h2>
                 <div class="row">
                     <div class="form-group">
-                        <label>Monto acordado *</label>
-                        <input type="text" name="compensation" required placeholder="Ej: 25">
+                        <label>Amount / <span class="sublabel">Monto</span> *</label>
+                        <input type="text" name="compensation" required>
                     </div>
                     <div class="form-group">
-                        <label>Moneda *</label>
+                        <label>Currency / <span class="sublabel">Moneda</span> *</label>
                         <select name="currency" required>
-                            <option value="">Seleccionar...</option>
-                            <option value="USD">USD (Dólar)</option>
-                            <option value="EUR">EUR (Euro)</option>
-                            <option value="COP">COP (Peso colombiano)</option>
-                            <option value="MXN">MXN (Peso mexicano)</option>
-                            <option value="ARS">ARS (Peso argentino)</option>
-                            <option value="PEN">PEN (Sol peruano)</option>
-                            <option value="CLP">CLP (Peso chileno)</option>
-                            <option value="UYU">UYU (Peso uruguayo)</option>
-                            <option value="BRL">BRL (Real brasileño)</option>
-                            <option value="PHP">PHP (Peso filipino)</option>
-                            <option value="UAH">UAH (Grivna ucraniana)</option>
-                            <option value="GBP">GBP (Libra esterlina)</option>
-                            <option value="other">Otra</option>
+                            <option value="">—</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="COP">COP</option>
+                            <option value="MXN">MXN</option>
+                            <option value="ARS">ARS</option>
+                            <option value="PEN">PEN</option>
+                            <option value="CLP">CLP</option>
+                            <option value="UYU">UYU</option>
+                            <option value="BRL">BRL</option>
+                            <option value="PHP">PHP</option>
+                            <option value="UAH">UAH</option>
+                            <option value="GBP">GBP</option>
+                            <option value="CNY">CNY</option>
+                            <option value="HKD">HKD</option>
+                            <option value="other">Other / Otra</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Método de pago *</label>
-                    <input type="text" name="paymentMethod" required placeholder="Ej: PayPal, Wise, transferencia bancaria">
+                    <label>Payment method / <span class="sublabel">Método de pago</span> *</label>
+                    <input type="text" name="paymentMethod" required placeholder="PayPal, Wise, bank transfer...">
                 </div>
             </div>
 
             <div class="card">
-                <h2>Firma</h2>
+                <h2>Signature / Firma</h2>
                 <div class="form-group">
-                    <label>Dibuje su firma abajo *</label>
+                    <label>Sign below / <span class="sublabel">Firme abajo</span> *</label>
                     <div class="signature-pad" id="signaturePad">
                         <canvas id="sigCanvas"></canvas>
-                        <span class="placeholder" id="sigPlaceholder">Firme aquí con el dedo o mouse</span>
+                        <span class="placeholder" id="sigPlaceholder">Sign here / Firme aquí</span>
                     </div>
-                    <button type="button" class="clear-btn" onclick="clearSignature()">Borrar firma</button>
+                    <button type="button" class="clear-btn" onclick="clearSignature()">Clear / Borrar</button>
                 </div>
 
                 <div class="checkbox-group">
                     <input type="checkbox" id="agreeTerms" required>
-                    <label for="agreeTerms">He leído y acepto todos los términos y condiciones descritos anteriormente. Confirmo que tengo al menos 18 años y que mi participación es voluntaria.</label>
+                    <label for="agreeTerms">I have read and agree to all terms and conditions. I confirm I am at least 18 years old.<br><span class="bilingual">He leído y acepto todos los términos. Confirmo que tengo al menos 18 años.</span></label>
                 </div>
 
                 <div class="form-group">
-                    <label>Fecha *</label>
+                    <label>Date / <span class="sublabel">Fecha</span> *</label>
                     <input type="date" name="signDate" required>
                 </div>
             </div>
 
-            <button type="submit" class="submit-btn" id="submitBtn">Enviar Consentimiento</button>
+            <button type="submit" class="submit-btn">Submit / Enviar</button>
         </form>
 
         <div class="success-msg" id="successMsg">
             <div class="checkmark">✅</div>
-            <h2>¡Consentimiento Enviado!</h2>
-            <p>Gracias por completar el formulario. Sus datos han sido registrados.</p>
-            <p style="margin-top: 16px; color: #6b7280; font-size: 14px;">Puede cerrar esta página.</p>
+            <h2>Consent Submitted! / ¡Consentimiento Enviado!</h2>
+            <p>Thank you. Your consent has been recorded.<br>Gracias. Su consentimiento ha sido registrado.</p>
+            <p style="margin-top: 16px; color: #6b7280; font-size: 14px;">You may close this page. / Puede cerrar esta página.</p>
         </div>
 
         <div class="footer">
             <p>REMI FS LLC — <a href="https://remidata.co">remidata.co</a></p>
-            <p>Contacto: <a href="mailto:aa@remidata.co">aa@remidata.co</a> | +1 786-695-1465</p>
+            <p><a href="mailto:aa@remidata.co">aa@remidata.co</a> | +1 786-695-1465</p>
         </div>
     </div>
 
@@ -372,10 +401,7 @@
         function getPos(e) {
             const rect = canvas.getBoundingClientRect();
             const touch = e.touches ? e.touches[0] : e;
-            return {
-                x: touch.clientX - rect.left,
-                y: touch.clientY - rect.top
-            };
+            return { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
         }
 
         canvas.addEventListener('mousedown', (e) => { startDraw(e); });
@@ -412,9 +438,8 @@
 
         function submitForm(e) {
             e.preventDefault();
-            
             if (!hasSigned) {
-                alert('Por favor, firme el formulario antes de enviarlo.');
+                alert('Please sign the form. / Por favor firme el formulario.');
                 return;
             }
 
@@ -425,32 +450,29 @@
             data.signature = canvas.toDataURL('image/png');
             data.timestamp = new Date().toISOString();
 
-            // Download JSON copy
             const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'consent_' + data.fullName.replace(/\s/g, '_') + '_' + new Date().toISOString().slice(0,10) + '.json';
+            a.download = 'consent_' + data.lastName + '_' + data.firstName + '_' + new Date().toISOString().slice(0,10) + '.json';
             a.click();
 
-            // Send via mailto
-            const subject = encodeURIComponent('Consent Form - ' + data.fullName);
+            const subject = encodeURIComponent('Consent - ' + data.firstName + ' ' + data.lastName);
             const body = encodeURIComponent(
-                'CONSENT FORM SUBMISSION\n\n' +
-                'Name: ' + data.fullName + '\n' +
-                'DOB: ' + data.dob + '\n' +
+                'CONSENT FORM\n\n' +
+                'Name: ' + data.firstName + ' ' + data.lastName + '\n' +
+                'Age: ' + data.age + '\n' +
                 'Gender: ' + data.gender + '\n' +
                 'Country: ' + data.country + '\n' +
                 'City: ' + data.city + '\n' +
-                'Languages: ' + data.languages + '\n' +
-                'Native Language: ' + data.nativeLanguage + '\n' +
+                'Phone: ' + data.phone + '\n' +
                 'Email: ' + data.email + '\n' +
-                'Phone: ' + (data.phone || 'N/A') + '\n' +
+                'Languages: ' + data.languages + '\n' +
+                'Native: ' + data.nativeLanguage + '\n' +
                 'Compensation: ' + data.compensation + ' ' + data.currency + '\n' +
                 'Payment: ' + data.paymentMethod + '\n' +
                 'Date: ' + data.signDate + '\n' +
-                'Timestamp: ' + data.timestamp + '\n\n' +
-                'Signature and full data saved in downloaded JSON file.'
+                'Timestamp: ' + data.timestamp
             );
             window.location.href = 'mailto:aa@remidata.co?subject=' + subject + '&body=' + body;
 
