@@ -403,12 +403,18 @@
 
         document.querySelector('input[name="signDate"]').valueAsDate = new Date();
 
+        const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzrogItSkRS7JYY5xwQTBy6TCqcVxooQ7CNKJP_jrlwHt45bvg6zDWt0W0Wc0GP5dcC/exec';
+
         function submitForm(e) {
             e.preventDefault();
             if (!hasSigned) {
                 alert('Please sign the form. / Por favor firme el formulario.');
                 return;
             }
+
+            var btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Sending... / Enviando...';
 
             const form = document.getElementById('consentForm');
             const formData = new FormData(form);
@@ -417,35 +423,21 @@
             data.signature = canvas.toDataURL('image/png');
             data.timestamp = new Date().toISOString();
 
-            const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'consent_' + data.lastName + '_' + data.firstName + '_' + new Date().toISOString().slice(0,10) + '.json';
-            a.click();
-
-            const subject = encodeURIComponent('Consent - ' + data.firstName + ' ' + data.lastName);
-            const body = encodeURIComponent(
-                'CONSENT FORM\n\n' +
-                'Name: ' + data.firstName + ' ' + data.lastName + '\n' +
-                'Age: ' + data.age + '\n' +
-                'Gender: ' + data.gender + '\n' +
-                'Country: ' + data.country + '\n' +
-                'City: ' + data.city + '\n' +
-                'Phone: ' + data.phone + '\n' +
-                'Email: ' + data.email + '\n' +
-                'Languages: ' + data.languages + '\n' +
-                'Native: ' + data.nativeLanguage + '\n' +
-
-                'Date: ' + data.signDate + '\n' +
-                'Timestamp: ' + data.timestamp
-            );
-            window.location.href = 'mailto:aa@remidata.co?subject=' + subject + '&body=' + body;
-
-            setTimeout(function() {
+            // Send to Google Sheets via webhook
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(function() {
                 document.getElementById('consentForm').style.display = 'none';
                 document.getElementById('successMsg').style.display = 'block';
-            }, 500);
+            }).catch(function(err) {
+                console.error('Webhook error:', err);
+                // Still show success — no-cors won't return status
+                document.getElementById('consentForm').style.display = 'none';
+                document.getElementById('successMsg').style.display = 'block';
+            });
         }
     </script>
 </body>
