@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Consentimiento — REMI Data</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0 20px;
+        }
+        .header h1 {
+            font-size: 22px;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            font-size: 16px;
+            color: #2563eb;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #374151;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #fff;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+        }
+        .terms {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.7;
+        }
+        .terms ol {
+            padding-left: 20px;
+        }
+        .terms li {
+            margin-bottom: 10px;
+        }
+        .terms strong {
+            color: #1a1a1a;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 16px 0;
+            padding: 12px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .checkbox-group label {
+            font-size: 14px;
+            color: #374151;
+            cursor: pointer;
+        }
+        .signature-pad {
+            border: 2px dashed #d1d5db;
+            border-radius: 8px;
+            height: 120px;
+            position: relative;
+            background: #fafafa;
+            cursor: crosshair;
+            touch-action: none;
+        }
+        .signature-pad canvas {
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+        }
+        .signature-pad .placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #9ca3af;
+            font-size: 14px;
+            pointer-events: none;
+        }
+        .clear-btn {
+            font-size: 12px;
+            color: #ef4444;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 6px;
+            padding: 4px 0;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+        .submit-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #9ca3af;
+            font-size: 12px;
+        }
+        .footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .success-msg {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .success-msg .checkmark {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        .success-msg h2 {
+            color: #059669;
+            margin-bottom: 8px;
+        }
+        .row {
+            display: flex;
+            gap: 12px;
+        }
+        .row .form-group {
+            flex: 1;
+        }
+        @media (max-width: 480px) {
+            .row { flex-direction: column; gap: 0; }
+            .container { padding: 12px; }
+            .card { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="formContainer">
+        <div class="header">
+            <div class="logo">REMI Data</div>
+            <h1>Formulario de Consentimiento para Grabación de Voz</h1>
+            <p>REMI FS LLC — Datos de Entrenamiento para IA</p>
+        </div>
+
+        <form id="consentForm" onsubmit="submitForm(event)">
+
+            <div class="card">
+                <h2>📋 Información del Participante</h2>
+                <div class="form-group">
+                    <label>Nombre completo *</label>
+                    <input type="text" name="fullName" required placeholder="Ej: María García López">
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Fecha de nacimiento *</label>
+                        <input type="date" name="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Género *</label>
+                        <select name="gender" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="male">Masculino</option>
+                            <option value="female">Femenino</option>
+                            <option value="other">Otro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>País *</label>
+                        <input type="text" name="country" required placeholder="Ej: Colombia">
+                    </div>
+                    <div class="form-group">
+                        <label>Ciudad / Región *</label>
+                        <input type="text" name="city" required placeholder="Ej: Bogotá">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Idioma(s) nativo(s) *</label>
+                    <input type="text" name="nativeLanguage" required placeholder="Ej: Español">
+                </div>
+                <div class="form-group">
+                    <label>Correo electrónico *</label>
+                    <input type="email" name="email" required placeholder="tu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Teléfono (opcional)</label>
+                    <input type="tel" name="phone" placeholder="+57 300 123 4567">
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📄 Términos y Condiciones</h2>
+                <div class="terms">
+                    <p style="margin-bottom: 12px;">REMI FS LLC ("la Empresa") recopila grabaciones de voz con el fin de desarrollar, entrenar y mejorar sistemas de inteligencia artificial y aprendizaje automático, incluyendo reconocimiento de voz, procesamiento de lenguaje natural e identificación por voz.</p>
+                    <p style="margin-bottom: 8px;"><strong>Al firmar este formulario, acepto voluntariamente lo siguiente:</strong></p>
+                    <ol>
+                        <li><strong>GRABACIÓN:</strong> Autorizo la grabación de mi voz como parte del proyecto de recopilación de datos de la Empresa.</li>
+                        <li><strong>USO DE DATOS:</strong> Otorgo a la Empresa una licencia perpetua, mundial, irrevocable, no exclusiva y libre de regalías para usar, almacenar, procesar, modificar, distribuir, sublicenciar y vender mis grabaciones de voz y datos derivados para cualquier fin comercial o de investigación relacionado con el desarrollo de IA/ML.</li>
+                        <li><strong>TERCEROS:</strong> Entiendo que las grabaciones pueden ser compartidas o vendidas a clientes de la Empresa para fines de entrenamiento de IA/ML. Mi información personal identificable (nombre, datos de contacto) NO será compartida con terceros — solo metadatos anónimos (edad, género, idioma, país).</li>
+                        <li><strong>SIN OBLIGACIÓN CONTINUA:</strong> Entiendo que la Empresa no tiene obligación de usar mis grabaciones y que no tengo derecho a regalías, residuales o pagos adicionales más allá de la compensación acordada.</li>
+                        <li><strong>RETIRO:</strong> Puedo retirar mi consentimiento antes de que las grabaciones sean entregadas a terceros, contactando a la Empresa por escrito a aa@remidata.co. Después de la entrega a terceros, el retiro no es posible.</li>
+                        <li><strong>PROTECCIÓN DE DATOS:</strong> La Empresa almacenará mi información personal de forma segura. Mi información identificable se mantendrá separada de las grabaciones.</li>
+                        <li><strong>EDAD:</strong> Confirmo que tengo al menos 18 años de edad.</li>
+                        <li><strong>VOLUNTARIEDAD:</strong> Confirmo que mi participación es voluntaria y que no he sido coaccionado/a.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>💰 Compensación</h2>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Monto acordado *</label>
+                        <input type="text" name="compensation" required placeholder="Ej: 25">
+                    </div>
+                    <div class="form-group">
+                        <label>Moneda *</label>
+                        <select name="currency" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="COP">COP (Peso colombiano)</option>
+                            <option value="MXN">MXN (Peso mexicano)</option>
+                            <option value="ARS">ARS (Peso argentino)</option>
+                            <option value="PEN">PEN (Sol peruano)</option>
+                            <option value="CLP">CLP (Peso chileno)</option>
+                            <option value="UYU">UYU (Peso uruguayo)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Método de pago</label>
+                    <input type="text" name="paymentMethod" placeholder="Ej: PayPal, transferencia bancaria">
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>✍️ Firma</h2>
+                <div class="form-group">
+                    <label>Dibuje su firma abajo *</label>
+                    <div class="signature-pad" id="signaturePad">
+                        <canvas id="sigCanvas"></canvas>
+                        <span class="placeholder" id="sigPlaceholder">Firme aquí con el dedo o mouse</span>
+                    </div>
+                    <button type="button" class="clear-btn" onclick="clearSignature()">✕ Borrar firma</button>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <label for="agreeTerms">He leído y acepto todos los términos y condiciones descritos anteriormente. Confirmo que tengo al menos 18 años.</label>
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha *</label>
+                    <input type="date" name="signDate" required>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">Enviar Consentimiento</button>
+        </form>
+
+        <div class="success-msg" id="successMsg">
+            <div class="checkmark">✅</div>
+            <h2>¡Consentimiento Enviado!</h2>
+            <p>Gracias por completar el formulario. Recibirá una copia por correo electrónico.</p>
+            <p style="margin-top: 16px; color: #6b7280; font-size: 14px;">Puede cerrar esta página.</p>
+        </div>
+
+        <div class="footer">
+            <p>REMI FS LLC — <a href="https://remidata.co">remidata.co</a></p>
+            <p>Contacto: <a href="mailto:aa@remidata.co">aa@remidata.co</a> | +1 786-695-1465</p>
+        </div>
+    </div>
+
+    <script>
+        // Signature pad
+        const canvas = document.getElementById('sigCanvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let hasSigned = false;
+
+        function resizeCanvas() {
+            const pad = document.getElementById('signaturePad');
+            canvas.width = pad.offsetWidth;
+            canvas.height = pad.offsetHeight;
+            ctx.strokeStyle = '#1a1a1a';
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const touch = e.touches ? e.touches[0] : e;
+            return {
+                x: touch.clientX - rect.left,
+                y: touch.clientY - rect.top
+            };
+        }
+
+        canvas.addEventListener('mousedown', (e) => { startDraw(e); });
+        canvas.addEventListener('mousemove', (e) => { draw(e); });
+        canvas.addEventListener('mouseup', () => { isDrawing = false; });
+        canvas.addEventListener('mouseleave', () => { isDrawing = false; });
+
+        canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startDraw(e); });
+        canvas.addEventListener('touchmove', (e) => { e.preventDefault(); draw(e); });
+        canvas.addEventListener('touchend', () => { isDrawing = false; });
+
+        function startDraw(e) {
+            isDrawing = true;
+            hasSigned = true;
+            document.getElementById('sigPlaceholder').style.display = 'none';
+            const pos = getPos(e);
+            ctx.beginPath();
+            ctx.moveTo(pos.x, pos.y);
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            const pos = getPos(e);
+            ctx.lineTo(pos.x, pos.y);
+            ctx.stroke();
+        }
+
+        function clearSignature() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            hasSigned = false;
+            document.getElementById('sigPlaceholder').style.display = 'block';
+        }
+
+        // Set today's date
+        document.querySelector('input[name="signDate"]').valueAsDate = new Date();
+
+        // Form submission
+        function submitForm(e) {
+            e.preventDefault();
+            
+            if (!hasSigned) {
+                alert('Por favor, firme el formulario antes de enviarlo.');
+                return;
+            }
+
+            const form = document.getElementById('consentForm');
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((val, key) => { data[key] = val; });
+            data.signature = canvas.toDataURL('image/png');
+            data.timestamp = new Date().toISOString();
+
+            // Send via email
+            const subject = encodeURIComponent('Consent Form - ' + data.fullName);
+            const body = encodeURIComponent(
+                'CONSENT FORM SUBMISSION\n\n' +
+                'Name: ' + data.fullName + '\n' +
+                'DOB: ' + data.dob + '\n' +
+                'Gender: ' + data.gender + '\n' +
+                'Country: ' + data.country + '\n' +
+                'City: ' + data.city + '\n' +
+                'Language: ' + data.nativeLanguage + '\n' +
+                'Email: ' + data.email + '\n' +
+                'Phone: ' + (data.phone || 'N/A') + '\n' +
+                'Compensation: ' + data.compensation + ' ' + data.currency + '\n' +
+                'Payment: ' + (data.paymentMethod || 'N/A') + '\n' +
+                'Date: ' + data.signDate + '\n' +
+                'Timestamp: ' + data.timestamp + '\n\n' +
+                '(Signature image attached as data URL in console)'
+            );
+
+            // Store locally + show success
+            console.log('Form data:', JSON.stringify(data, null, 2));
+            
+            // Try to send via mailto as backup
+            const mailLink = document.createElement('a');
+            mailLink.href = 'mailto:aa@remidata.co?subject=' + subject + '&body=' + body;
+            
+            document.getElementById('consentForm').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+
+            // Also download a copy
+            const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'consent_' + data.fullName.replace(/\s/g, '_') + '.json';
+            a.click();
+        }
+    </script>
+</body>
+</html>
