@@ -423,27 +423,20 @@
             data.signature = canvas.toDataURL('image/png');
             data.timestamp = new Date().toISOString();
 
-            // Send to Google Sheets via webhook (form POST for CORS compatibility)
-            var form2 = document.createElement('form');
-            form2.method = 'POST';
-            form2.action = WEBHOOK_URL;
-            form2.target = 'hidden_iframe';
+            // Send to Google Sheets via GET (CORS-safe for Apps Script)
+            var encodedData = encodeURIComponent(JSON.stringify(data));
+            var url = WEBHOOK_URL + '?data=' + encodedData;
             
-            var input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'data';
-            input.value = JSON.stringify(data);
-            form2.appendChild(input);
-            
-            var iframe = document.createElement('iframe');
-            iframe.name = 'hidden_iframe';
-            iframe.style.display = 'none';
-            document.body.appendChild(iframe);
-            document.body.appendChild(form2);
-            form2.submit();
+            var btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Sending... / Enviando...';
 
-            document.getElementById('consentForm').style.display = 'none';
-            document.getElementById('successMsg').style.display = 'block';
+            var img = new Image();
+            img.onload = img.onerror = function() {
+                document.getElementById('consentForm').style.display = 'none';
+                document.getElementById('successMsg').style.display = 'block';
+            };
+            img.src = url;
         }
     </script>
 </body>
