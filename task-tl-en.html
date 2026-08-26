@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recording Task / Tarea de Grabación — REMI Data</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            color: #1a1a1a;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0 20px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            font-size: 20px;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+        .header h2 {
+            font-size: 16px;
+            color: #6b7280;
+            font-weight: 400;
+        }
+        .header .time {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #2563eb;
+            font-weight: 600;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            font-size: 16px;
+            color: #2563eb;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .card h3 {
+            font-size: 14px;
+            color: #374151;
+            margin: 16px 0 8px;
+        }
+        .script-line {
+            background: #f9fafb;
+            border-left: 3px solid #2563eb;
+            padding: 8px 12px;
+            margin: 6px 0;
+            font-size: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        .script-line .num {
+            color: #9ca3af;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+        .tip {
+            background: #fef3c7;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 12px 0;
+            font-size: 13px;
+            color: #92400e;
+        }
+        .tip strong {
+            color: #78350f;
+        }
+        .warning {
+            background: #fee2e2;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 12px 0;
+            font-size: 13px;
+            color: #991b1b;
+        }
+        .bilingual {
+            color: #6b7280;
+            font-style: italic;
+            font-size: 13px;
+        }
+        ul {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+        li {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #9ca3af;
+            font-size: 12px;
+        }
+        .footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .consent-link {
+            display: block;
+            text-align: center;
+            background: #2563eb;
+            color: #fff;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 16px;
+        }
+        .consent-link:hover {
+            background: #1d4ed8;
+        }
+        .section-num {
+            display: inline-block;
+            background: #2563eb;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 13px;
+            line-height: 24px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">REMI Data</div>
+            <h1>Gawain sa Pag-record ng Boses</h1>
+            <h2>Voice Recording Task</h2>
+            <div class="time">⏱ Tinatayang oras / Estimated time: ~30 min</div>
+        </div>
+
+        <div class="card">
+            <h2>📋 Bago magsimula / Before you start</h2>
+            <ul>
+                <li>Humanap ng <strong>tahimik na lugar</strong> — walang musika, TV, o ingay mula sa kalye<br><span class="bilingual">Find a quiet room — no music, TV, street noise</span></li>
+                <li>Gamitin ang <strong>voice recorder</strong> ng iyong telepono o computer<br><span class="bilingual">Use your phone or computer voice recorder</span></li>
+                <li>Hawakan ang telepono <strong>15-20 cm</strong> mula sa iyong bibig<br><span class="bilingual">Hold the phone 15-20 cm from your mouth</span></li>
+                <li>Format: <strong>WAV o M4A</strong> (kahit ano ang ma-produce ng recorder mo)<br><span class="bilingual">Format: WAV or M4A (whatever your recorder produces)</span></li>
+                <li>Magsalita ng <strong>natural</strong>, parang nasa phone call ka<br><span class="bilingual">Speak naturally, as if on a phone call</span></li>
+            </ul>
+            <div class="tip">
+                <strong>💡 Tip:</strong> Pwede mong i-record ang bawat section bilang hiwalay na file, o lahat sa isa.<br>
+                <span class="bilingual">You can record each section as a separate file, or all in one — your choice.</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><span class="section-num">1</span> Alphanumeric — Tagalog (~3 min)</h2>
+            <p style="font-size:14px; margin-bottom:12px;">Basahin ang bawat linya na parang nagdi-dictate ka sa telepono. Mag-pause ng 2-3 segundo sa pagitan.<br><span class="bilingual">Read each line as if dictating over the phone. Pause 2-3 seconds between lines.</span></p>
+            
+            <div class="script-line"><span class="num">1.</span> R X Y walong daan anim tatlo D</div>
+            <div class="script-line"><span class="num">2.</span> Z Z pitumpu't dalawa lima anim U tatlo anim O P siyam</div>
+            <div class="script-line"><span class="num">3.</span> dalawampu't walo siyamnapu F H siyam W V pito pitumpu</div>
+            <div class="script-line"><span class="num">4.</span> P Z M apat K Q limampu pito dalawampu't pito sero</div>
+            <div class="script-line"><span class="num">5.</span> limampu't walo anim triple isa limampu O pito isa</div>
+            <div class="script-line"><span class="num">6.</span> lima Y doble dos T isa Z S doble apat</div>
+            <div class="script-line"><span class="num">7.</span> lima A K dalawampu't pito Q H N M F C C</div>
+            <div class="script-line"><span class="num">8.</span> E U apatnapu't tatlo doble anim dalawa U U</div>
+            <div class="script-line"><span class="num">9.</span> walo walo siyamnapu lima anim walumpu labindalawa</div>
+        </div>
+
+        <div class="card">
+            <h2><span class="section-num">2</span> Customer Service — Tagalog (~8 min)</h2>
+            <p style="font-size:14px; margin-bottom:12px;">Isipin mo na ikaw ay isang call center agent. Magsalita ng malaya, mag-improvise. Gumamit ng natural na mga pause.<br><span class="bilingual">Imagine you are a call center agent. Speak freely, improvise. Use natural pauses.</span></p>
+            
+            <h3>a) Pagbati / Greeting:</h3>
+            <div class="script-line">"Magandang hapon po, salamat sa pagtawag, paano ko po kayo matutulungan?"</div>
+            
+            <h3>b) Verification / Pag-verify:</h3>
+            <div class="script-line">"Para ma-access po ang iyong account, kailangan ko pong i-verify ang ilang impormasyon..."</div>
+            
+            <h3>c) Reklamo / Complaint:</h3>
+            <div class="script-line">"Naiintindihan ko po ang inyong frustration, hayaan po ninyong i-review ko ang mga charges..."</div>
+            
+            <h3>d) Paglipat / Transfer:</h3>
+            <div class="script-line">"Ililipat ko po kayo sa technical department, huwag po kayong mag-hang up..."</div>
+            
+            <h3>e) Naayos na / Problem solved:</h3>
+            <div class="script-line">"Nakita ko na po ang problema, aayusin ko na po ito ngayon..."</div>
+            
+            <h3>f) Pagsara / Closing:</h3>
+            <div class="script-line">"May iba pa po ba akong maitutulong sa inyo? Magandang araw po sa inyo."</div>
+            
+            <div class="tip"><strong>💡</strong> Huwag basahin nang literal — gamitin ang sarili mong mga salita, mag-improvise ng buong conversation para sa bawat scenario.<br><span class="bilingual">Don't read these word for word — use your own words, improvise a full conversation for each scenario.</span></div>
+        </div>
+
+        <div class="card">
+            <h2><span class="section-num">3</span> Customer Service — English / Ingles (~8 min)</h2>
+            <p style="font-size:14px; margin-bottom:12px;">Pareho lang na mga scenario, pero sa Ingles. Magsalita ng natural — HUWAG itago ang iyong accent.<br><span class="bilingual">Same scenarios, but in English. Speak naturally — do NOT try to hide your accent.</span></p>
+            
+            <h3>a) Greeting:</h3>
+            <div class="script-line">"Thank you for calling, how may I help you today?"</div>
+            
+            <h3>b) Verification:</h3>
+            <div class="script-line">"I need to verify your identity. Can you please provide your date of birth and the last four digits of your account number?"</div>
+            
+            <h3>c) Complaint:</h3>
+            <div class="script-line">"I understand your concern about the charges on your bill. Let me pull up your account and take a look."</div>
+            
+            <h3>d) Transfer:</h3>
+            <div class="script-line">"I'm going to transfer you to our technical support team. Please stay on the line."</div>
+            
+            <h3>e) Resolution:</h3>
+            <div class="script-line">"I found the issue. It looks like there was a duplicate charge. I'm processing the refund now."</div>
+            
+            <h3>f) Closing:</h3>
+            <div class="script-line">"Is there anything else I can help you with? Thank you for calling, have a great day."</div>
+            
+            <div class="tip"><strong>💡</strong> Magsalita gamit ang sarili mong mga salita. Ang natural mong accent ang kailangan namin.<br><span class="bilingual">Speak in your own words. Your natural accent is exactly what we need.</span></div>
+        </div>
+
+        <div class="card">
+            <h2><span class="section-num">4</span> Mga Numero at Address — Tagalog (~5 min)</h2>
+            <p style="font-size:14px; margin-bottom:12px;">Sabihin ang bawat item nang malakas, parang nagdi-dictate ka sa operator.<br><span class="bilingual">Say each item out loud, as if dictating to an operator.</span></p>
+            
+            <h3>📞 Mga Telepono / Phone numbers (5 numbers):</h3>
+            <div class="script-line">"Ang number ko po ay zero nine one seven, lima tatlo dalawa, siyam walo isa apat"</div>
+            <p style="font-size:13px; color:#6b7280; margin:4px 0 12px;">+ Mag-imbento at mag-dictate ng 4 pang numero / Invent and dictate 4 more</p>
+            
+            <h3>🏠 Mga Address / Addresses (4 addresses):</h3>
+            <div class="script-line">"Number one twenty-three, Rizal Avenue, unit four B, Makati City"</div>
+            <p style="font-size:13px; color:#6b7280; margin:4px 0 12px;">+ Mag-imbento ng 3 pang address / Invent 3 more</p>
+            
+            <h3>📅 Mga Petsa / Dates (4 dates):</h3>
+            <div class="script-line">"Ika-dalawampu't lima ng Agosto, dalawang libo at dalawampu't anim"</div>
+            <p style="font-size:13px; color:#6b7280; margin:4px 0 12px;">+ Mag-imbento ng 3 pang petsa / Invent 3 more</p>
+            
+            <h3>📧 Email (i-spell ang 3 email / spell 3 emails):</h3>
+            <p style="font-size:13px; color:#6b7280;">Deletree 3 direcciones de email letra por letra / Spell 3 email addresses letter by letter</p>
+        </div>
+
+        <div class="card">
+            <h2><span class="section-num">5</span> Mga Numero at Address — English / Ingles (~5 min)</h2>
+            <p style="font-size:14px; margin-bottom:12px;">Pareho lang, pero sa Ingles.<br><span class="bilingual">Same as above, but in English.</span></p>
+            
+            <h3>📞 Phone numbers (4):</h3>
+            <div class="script-line">"My phone number is three zero five, four five two, seven eight nine one"</div>
+            <p style="font-size:13px; color:#6b7280; margin:4px 0 12px;">+ Invent 3 more</p>
+            
+            <h3>🏠 Direcciones / Addresses (4):</h3>
+            <div class="script-line">"One twenty-three Main Street, apartment four B, Miami, Florida, three three one two seven"</div>
+            <p style="font-size:13px; color:#6b7280; margin:4px 0 12px;">+ Invent 3 more</p>
+            
+            <h3>📅 Dates (4):</h3>
+            <div class="script-line">"August twenty-fifth, twenty twenty-six"</div>
+            <p style="font-size:13px; color:#6b7280; margin:4px 0 12px;">+ Invent 3 more</p>
+            
+            <h3>📧 Email (spell 3):</h3>
+            <p style="font-size:13px; color:#6b7280;">Spell 3 email addresses letter by letter</p>
+        </div>
+
+        <div class="card">
+            <h2><span class="section-num">6</span> Malayang Pagsasalita / Free Speech (~5 min)</h2>
+            <p style="font-size:14px; margin-bottom:12px;">Magsalita ng malaya tungkol sa kahit ano: ang araw mo, trabaho, hobbies, pagkain, weekend plans.<br><span class="bilingual">Talk freely about anything: your day, work, hobbies, food, weekend plans.</span></p>
+            <ul>
+                <li>~3 minuto sa <strong>Tagalog</strong> / ~3 minutes in Tagalog</li>
+                <li>~2 minuto sa <strong>Ingles</strong> / ~2 minutes in English</li>
+            </ul>
+            <div class="tip"><strong>💡</strong> Magsalita lang ng natural. Mga pause, pag-aalinlangan, pag-correct sa sarili — lahat okay lang.<br><span class="bilingual">Just talk naturally. Pauses, hesitations, self-corrections — all perfectly fine.</span></div>
+        </div>
+
+        <div class="card">
+            <h2>📤 Pagkatapos mag-record / After recording</h2>
+            <ul>
+                <li>Ipadala ang audio file(s) sa: <strong><a href="mailto:aa@remidata.co">aa@remidata.co</a></strong></li>
+                <li>O sa Telegram: <strong><a href="https://t.me/aadamov">@aadamov</a></strong></li>
+            </ul>
+            
+            <a href="https://remidata.co/consent/" class="consent-link">✍️ Pumirma ng Consent / Sign Consent Form</a>
+            
+            <div class="warning">
+                <strong>⚠️ Importante:</strong> Hindi magagamit ang iyong recording kung walang signed consent form.<br>
+                <span class="bilingual">Your recording cannot be used without a signed consent form.</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>REMI FS LLC — <a href="https://remidata.co">remidata.co</a></p>
+            <p><a href="mailto:aa@remidata.co">aa@remidata.co</a> | +1 786-695-1465</p>
+        </div>
+    </div>
+</body>
+</html>
