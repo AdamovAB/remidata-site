@@ -74,6 +74,7 @@
             height: 60px;
             width: auto;
         }
+        .hamburger { display: none; }
         .nav-links { display: flex; gap: 32px; align-items: center; }
         .nav-links a {
             font-size: 13px;
@@ -356,7 +357,10 @@
         
         /* RESPONSIVE */
         @media (max-width: 900px) {
-            .nav-links { display: none; }
+            .hamburger { display: block; background: none; border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 20px; cursor: pointer; color: var(--dark); }
+            .hamburger { display: none; }
+        .nav-links { display: none; position: absolute; top: 70px; right: 32px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); flex-direction: column; gap: 12px; z-index: 100; }
+            .nav-links.open { display: flex; }
             .hero { padding: 60px 0 80px; }
             .hero h1 { font-size: 34px; }
             .hero-desc p { font-size: 15px; }
@@ -378,6 +382,7 @@
     <div class="container">
         <a href="/" class="logo"><img src="logo-remi.jpg" alt="REMI Data"></a>
         <span class="nvidia-badge"><img src="nvidia-inception-badge-bw.svg" alt="NVIDIA Inception Program Member"></span>
+        <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
         <div class="nav-links">
             <a href="#data-types">Services</a>
             <a href="#how-it-works">How It Works</a>

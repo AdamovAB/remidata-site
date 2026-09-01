@@ -55,6 +55,7 @@
             justify-content: space-between;
         }
         .logo img { height: 36px; }
+        .hamburger { display: none; }
         .nav-links { display: flex; gap: 28px; align-items: center; }
         .nav-links a {
             text-decoration: none;
@@ -278,7 +279,9 @@
             .sample-header { flex-direction: column; gap: 8px; }
             .sample-stats { gap: 20px; }
             .detail-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+            .hamburger { display: block; background: none; border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 20px; cursor: pointer; color: var(--dark); }
+            .nav-links { display: none; position: absolute; top: 70px; right: 32px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); flex-direction: column; gap: 12px; z-index: 100; }
+            .nav-links.open { display: flex; }
         }
     </style>
 </head>
@@ -287,6 +290,7 @@
 <nav>
     <div class="container">
         <a href="/" class="logo"><img src="../logo-remi.jpg" alt="REMI Data"></a>
+        <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
         <div class="nav-links">
             <a href="/#data-types">Services</a>
             <a href="/#how-it-works">How It Works</a>
