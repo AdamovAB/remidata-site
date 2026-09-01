@@ -961,8 +961,8 @@
                 <input type="text" id="leadName" required placeholder="John Smith">
             </div>
             <div class="form-group">
-                <label for="leadEmail">Work Email *</label>
-                <input type="email" id="leadEmail" required placeholder="john@company.com">
+                <label for="leadEmail">Work Email * <span style="font-weight:400;color:var(--gray);font-size:11px;">(no personal email)</span></label>
+                <input type="email" id="leadEmail" required placeholder="john@yourcompany.com">
             </div>
             <div class="form-group">
                 <label for="leadCompany">Company *</label>
@@ -1026,7 +1026,26 @@ function submitLeadForm(e) {
     var dataset = document.getElementById('leadDataset').value;
     
     if (!name || !email || !company) {
+        document.getElementById('formError').textContent = 'Please fill in all required fields.';
         document.getElementById('formError').style.display = 'block';
+        return;
+    }
+    
+    // Block personal email providers
+    var blockedDomains = [
+        'gmail.com','yahoo.com','hotmail.com','outlook.com','aol.com',
+        'icloud.com','mail.com','protonmail.com','zoho.com','yandex.com',
+        'yandex.ru','mail.ru','rambler.ru','ukr.net','i.ua','meta.ua',
+        'live.com','msn.com','me.com','inbox.com','gmx.com','gmx.net',
+        'fastmail.com','tutanota.com','pm.me','hey.com','duck.com',
+        'qq.com','163.com','126.com','sina.com','foxmail.com',
+        'yahoo.co.uk','yahoo.co.jp','hotmail.co.uk','googlemail.com'
+    ];
+    var emailDomain = email.split('@')[1].toLowerCase();
+    if (blockedDomains.indexOf(emailDomain) !== -1) {
+        document.getElementById('formError').textContent = 'Please use your work email address.';
+        document.getElementById('formError').style.display = 'block';
+        document.getElementById('leadEmail').focus();
         return;
     }
     
