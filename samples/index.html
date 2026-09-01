@@ -1072,11 +1072,11 @@ function submitLeadForm(e) {
 
     
     // Send to Google Sheets webhook
+    var payload = JSON.stringify({name: name, email: email, company: company, role: role, dataset: dataset, time: new Date().toISOString()});
     fetch('https://script.google.com/macros/s/AKfycbyu5gqZ5imORLDkfOrh7uSY98bJlC60uVAerVaypHNsJOFmaZNgKyZ0dJioHV1X4v0U8Q/exec', {
         method: 'POST',
-        mode: 'no-cors',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({name: name, email: email, company: company, role: role, dataset: dataset, time: new Date().toISOString()})
+        body: payload,
+        redirect: 'follow'
     }).catch(function(err){ console.log('Webhook error:', err); });
     
     // Show success
