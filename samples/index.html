@@ -7,10 +7,18 @@
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180.png">
-    <meta name="description" content="Download sample datasets from REMI Data. Dental clinical cases, speech recordings, and more — structured, bilingual, ML-ready.">
+    <meta name="description" content="Download sample datasets from REMI Data. Dental clinical cases, speech recordings, nail imagery, face expressions — structured, bilingual, ML-ready.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -125,6 +133,18 @@
         .sample-badge.new {
             background: #e8f5e9;
             color: #2e7d32;
+        }
+        .sample-badge.medical {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        .sample-badge.speech {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        .sample-badge.multimodal {
+            background: #f3e5f5;
+            color: #7b1fa2;
         }
         
         .sample-card h2 {
@@ -248,6 +268,97 @@
         .json-string { color: #a0e0a0; }
         .json-num { color: #f0a0a0; }
         
+        .preview-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .preview-images img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        /* Lead Gate Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 480px;
+            width: 90%;
+            position: relative;
+        }
+        .modal h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .modal p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 16px; right: 16px;
+            background: none; border: none;
+            font-size: 24px; cursor: pointer;
+            color: var(--gray);
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .form-submit {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+        .form-submit:hover { background: var(--accent-hover); }
+        .form-error {
+            color: #d32f2f;
+            font-size: 13px;
+            margin-top: 8px;
+            display: none;
+        }
+        
         .cta-section {
             background: var(--dark);
             padding: 80px 0;
@@ -282,6 +393,7 @@
             .hamburger { display: block; background: none; border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 20px; cursor: pointer; color: var(--dark); }
             .nav-links { display: none; position: absolute; top: 70px; right: 32px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); flex-direction: column; gap: 12px; z-index: 100; }
             .nav-links.open { display: flex; }
+            .preview-images { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -296,6 +408,7 @@
             <a href="/#how-it-works">How It Works</a>
             <a href="/#languages">Languages</a>
             <a href="/#why">Why Us</a>
+            <a href="/samples/">Samples</a>
             <a href="/#contact" class="nav-cta">Request a Quote</a>
         </div>
     </div>
@@ -304,14 +417,14 @@
 <section class="page-hero">
     <div class="container">
         <h1>Dataset Samples</h1>
-        <p>Preview our data quality before you buy. Download structured samples in JSON, CSV, and PDF formats.</p>
+        <p>Preview our data quality before you buy. Download structured samples — leave your details and get instant access.</p>
     </div>
 </section>
 
 <section class="samples-grid">
     <div class="container">
 
-        <!-- DENTAL DATASET -->
+        <!-- ========== DENTAL ========== -->
         <div class="sample-card">
             <div class="sample-header">
                 <div>
@@ -352,7 +465,7 @@
                     </div>
                     <div class="detail-item">
                         <div class="detail-label">Format</div>
-                        <div class="detail-value">JSON, CSV, PDF</div>
+                        <div class="detail-value">JSON, CSV, PDF with clinical imagery</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-label">Coding</div>
@@ -364,7 +477,7 @@
                     </div>
                     <div class="detail-item">
                         <div class="detail-label">Deidentified</div>
-                        <div class="detail-value">Yes</div>
+                        <div class="detail-value">Yes — HIPAA-aligned</div>
                     </div>
                 </div>
             </div>
@@ -385,36 +498,337 @@
 <span class="json-key">"category"</span>: <span class="json-string">"adult"</span>,
 <span class="json-key">"specialty"</span>: <span class="json-string">"endodontics"</span>,
 <span class="json-key">"diagnosis"</span>: {
-  <span class="json-key">"en"</span>: <span class="json-string">"Post-endodontic secondary caries, chronic apical periodontitis. Broken instrument in apical third."</span>,
-  <span class="json-key">"uk"</span>: <span class="json-string">"Вторинний карієс, хронічний апікальний періодонтит..."</span>,
+  <span class="json-key">"en"</span>: <span class="json-string">"Post-endodontic secondary caries, chronic apical periodontitis"</span>,
+  <span class="json-key">"uk"</span>: <span class="json-string">"Вторинний карієс, хронічний апікальний періодонтит"</span>,
   <span class="json-key">"icd_10"</span>: <span class="json-string">"K04.5"</span>
 },
 <span class="json-key">"teeth"</span>: [<span class="json-num">11</span>, <span class="json-num">12</span>],
 <span class="json-key">"visits"</span>: <span class="json-num">2</span>,
 <span class="json-key">"treatment"</span>: {
-  <span class="json-key">"visit_1"</span>: {
-    <span class="json-key">"anesthesia"</span>: <span class="json-string">"infiltration — Septanest"</span>,
-    <span class="json-key">"isolation"</span>: <span class="json-string">"rubber dam"</span>,
-    <span class="json-key">"tooth_12"</span>: { <span class="json-key">"canal_size"</span>: <span class="json-string">"SOCO 35.06"</span>, <span class="json-key">"working_length_mm"</span>: <span class="json-num">23</span> }
-  }
-},
-<span class="json-key">"complications_en"</span>: [<span class="json-string">"post-treatment pain"</span>, <span class="json-string">"periapical inflammation"</span>, ...]</div>
+  <span class="json-key">"anesthesia"</span>: <span class="json-string">"infiltration — Septanest"</span>,
+  <span class="json-key">"isolation"</span>: <span class="json-string">"rubber dam"</span>,
+  <span class="json-key">"canal_size"</span>: <span class="json-string">"SOCO 35.06"</span>,
+  <span class="json-key">"working_length_mm"</span>: <span class="json-num">23</span>
+}</div>
             
             <div class="sample-actions">
-                <a href="dental-sample.json" download class="btn btn-primary">⬇ Download JSON Sample</a>
-                <a href="dental-sample.csv" download class="btn btn-outline">⬇ Download CSV</a>
-                <a href="mailto:aa@remidata.co?subject=Dental%20Dataset%20Inquiry&body=Hi%2C%20I%27d%20like%20to%20discuss%20the%20dental%20clinical%20dataset.%20Please%20send%20the%20full%20sample%20package." class="btn btn-outline">📧 Request Full Package</a>
+                <a href="#" onclick="openLeadGate('dental-json', 'Dental JSON Sample'); return false;" class="btn btn-primary">⬇ Download JSON Sample</a>
+                <a href="#" onclick="openLeadGate('dental-csv', 'Dental CSV Sample'); return false;" class="btn btn-outline">⬇ Download CSV</a>
+                <a href="#" onclick="openLeadGate('dental-pdf', 'Full Dental Package (PDF)'); return false;" class="btn btn-outline">📋 Full Sample Package</a>
             </div>
         </div>
 
-        <!-- SPEECH DATASETS -->
+        <!-- ========== NAIL IMAGERY ========== -->
+        <div class="sample-card">
+            <div class="sample-header">
+                <div>
+                    <h2>Fingernail Imagery Dataset</h2>
+                    <div class="subtitle">High-Resolution Nail Photos for Dermatology & Health AI</div>
+                </div>
+                <span class="sample-badge medical">Medical</span>
+            </div>
+            
+            <div class="sample-stats">
+                <div class="stat">
+                    <div class="stat-num">20+</div>
+                    <div class="stat-label">Sample Images</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">High-Res</div>
+                    <div class="stat-label">Quality</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">Scalable</div>
+                    <div class="stat-label">Collection</div>
+                </div>
+            </div>
+            
+            <div class="sample-details">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Content</div>
+                        <div class="detail-value">Fingernail close-up photography</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Format</div>
+                        <div class="detail-value">JPEG / HEIC, high-resolution</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Use Cases</div>
+                        <div class="detail-value">Nail pathology detection, health screening AI</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Consent</div>
+                        <div class="detail-value">Licensed, consent-verified</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sample-tags">
+                <span class="tag">Dermatology</span>
+                <span class="tag">Health Screening</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Medical Imaging</span>
+            </div>
+            
+            <h3 style="font-size: 16px; margin-bottom: 12px;">Sample Preview</h3>
+            <div class="preview-images">
+                <img src="nail-sample-1.jpg" alt="Fingernail sample 1" loading="lazy">
+                <img src="nail-sample-2.jpg" alt="Fingernail sample 2" loading="lazy">
+            </div>
+            
+            <div class="sample-actions">
+                <a href="#" onclick="openLeadGate('nail-samples', 'Fingernail Imagery Samples'); return false;" class="btn btn-primary">⬇ Download Samples</a>
+                <a href="#" onclick="openLeadGate('nail-inquiry', 'Nail Dataset — Custom Collection'); return false;" class="btn btn-outline">📧 Discuss Custom Collection</a>
+            </div>
+        </div>
+
+        <!-- ========== UKRAINIAN SPEECH ========== -->
+        <div class="sample-card">
+            <div class="sample-header">
+                <div>
+                    <h2>Ukrainian Speech Recordings</h2>
+                    <div class="subtitle">Native Speaker — Conversational & Scripted</div>
+                </div>
+                <span class="sample-badge speech">Speech</span>
+            </div>
+            
+            <div class="sample-stats">
+                <div class="stat">
+                    <div class="stat-num">15+</div>
+                    <div class="stat-label">Minutes Available</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">WAV</div>
+                    <div class="stat-label">Format</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">16kHz</div>
+                    <div class="stat-label">Sample Rate</div>
+                </div>
+            </div>
+            
+            <div class="sample-details">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Language</div>
+                        <div class="detail-value">Ukrainian (native speaker, Kyiv)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quality</div>
+                        <div class="detail-value">Studio-quality, mono, 16-bit</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Content</div>
+                        <div class="detail-value">Conversational, scripted, read speech</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Consent</div>
+                        <div class="detail-value">Licensed, perpetual, worldwide</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sample-tags">
+                <span class="tag">ASR Training</span>
+                <span class="tag">Voice AI</span>
+                <span class="tag">TTS</span>
+                <span class="tag">Ukrainian NLP</span>
+            </div>
+            
+            <div class="sample-actions">
+                <a href="#" onclick="openLeadGate('uk-speech', 'Ukrainian Speech Sample'); return false;" class="btn btn-primary">⬇ Download Audio Sample</a>
+            </div>
+        </div>
+
+        <!-- ========== RUSSIAN SPEECH ========== -->
+        <div class="sample-card">
+            <div class="sample-header">
+                <div>
+                    <h2>Russian Speech Recordings</h2>
+                    <div class="subtitle">Native Speaker — Conversational & Scripted</div>
+                </div>
+                <span class="sample-badge speech">Speech</span>
+            </div>
+            
+            <div class="sample-stats">
+                <div class="stat">
+                    <div class="stat-num">15+</div>
+                    <div class="stat-label">Minutes Available</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">WAV</div>
+                    <div class="stat-label">Format</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">16kHz</div>
+                    <div class="stat-label">Sample Rate</div>
+                </div>
+            </div>
+            
+            <div class="sample-details">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Language</div>
+                        <div class="detail-value">Russian (native speaker, Kyiv)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quality</div>
+                        <div class="detail-value">Studio-quality, mono, 16-bit</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Content</div>
+                        <div class="detail-value">Conversational, scripted, read speech</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Consent</div>
+                        <div class="detail-value">Licensed, perpetual, worldwide</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sample-tags">
+                <span class="tag">ASR Training</span>
+                <span class="tag">Voice AI</span>
+                <span class="tag">TTS</span>
+                <span class="tag">Russian NLP</span>
+            </div>
+            
+            <div class="sample-actions">
+                <a href="#" onclick="openLeadGate('ru-speech', 'Russian Speech Sample'); return false;" class="btn btn-primary">⬇ Download Audio Sample</a>
+            </div>
+        </div>
+
+        <!-- ========== FACE EXPRESSIONS ========== -->
+        <div class="sample-card">
+            <div class="sample-header">
+                <div>
+                    <h2>Face Expression Dataset</h2>
+                    <div class="subtitle">Diverse Expressions — Emotion Recognition Training</div>
+                </div>
+                <span class="sample-badge multimodal">Vision</span>
+            </div>
+            
+            <div class="sample-stats">
+                <div class="stat">
+                    <div class="stat-num">15+</div>
+                    <div class="stat-label">Images</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">JPEG</div>
+                    <div class="stat-label">Format</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">Scalable</div>
+                    <div class="stat-label">Collection</div>
+                </div>
+            </div>
+            
+            <div class="sample-details">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Content</div>
+                        <div class="detail-value">Posed facial expressions (neutral, happy, sad, surprised, angry, etc.)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quality</div>
+                        <div class="detail-value">High-resolution, controlled lighting</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Use Cases</div>
+                        <div class="detail-value">Emotion recognition, facial analysis, affective computing</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Consent</div>
+                        <div class="detail-value">Licensed, perpetual, worldwide</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sample-tags">
+                <span class="tag">Emotion Recognition</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Affective Computing</span>
+                <span class="tag">Face Analysis</span>
+            </div>
+            
+            <h3 style="font-size: 16px; margin-bottom: 12px;">Sample Preview</h3>
+            <div class="preview-images">
+                <img src="face-sample-1.jpg" alt="Face expression sample 1" loading="lazy">
+                <img src="face-sample-2.jpg" alt="Face expression sample 2" loading="lazy">
+            </div>
+            
+            <div class="sample-actions">
+                <a href="#" onclick="openLeadGate('face-samples', 'Face Expression Samples'); return false;" class="btn btn-primary">⬇ Download Samples</a>
+            </div>
+        </div>
+
+        <!-- ========== BODY MOTION ========== -->
+        <div class="sample-card">
+            <div class="sample-header">
+                <div>
+                    <h2>Body Motion Video Dataset</h2>
+                    <div class="subtitle">Full-Body Movement Capture — 1080p 30fps</div>
+                </div>
+                <span class="sample-badge multimodal">Video</span>
+            </div>
+            
+            <div class="sample-stats">
+                <div class="stat">
+                    <div class="stat-num">4</div>
+                    <div class="stat-label">Full Videos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">1080p</div>
+                    <div class="stat-label">Resolution</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">30fps</div>
+                    <div class="stat-label">Frame Rate</div>
+                </div>
+            </div>
+            
+            <div class="sample-details">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Content</div>
+                        <div class="detail-value">Full-body movement sequences</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Format</div>
+                        <div class="detail-value">MP4, 1080p, 30fps</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Use Cases</div>
+                        <div class="detail-value">Pose estimation, action recognition, motion analysis</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Consent</div>
+                        <div class="detail-value">Licensed, perpetual, worldwide</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sample-tags">
+                <span class="tag">Pose Estimation</span>
+                <span class="tag">Action Recognition</span>
+                <span class="tag">Motion Analysis</span>
+                <span class="tag">Computer Vision</span>
+            </div>
+            
+            <div class="sample-actions">
+                <a href="#" onclick="openLeadGate('motion-video', 'Body Motion Video Sample'); return false;" class="btn btn-primary">⬇ Download Video Sample</a>
+            </div>
+        </div>
+
+        <!-- ========== ARGENTINE SPANISH ========== -->
         <div class="sample-card">
             <div class="sample-header">
                 <div>
                     <h2>Argentine Spanish Speech Dataset</h2>
                     <div class="subtitle">Native Speaker Recordings for ASR & Voice AI</div>
                 </div>
-                <span class="sample-badge">Speech</span>
+                <span class="sample-badge speech">Speech</span>
             </div>
             
             <div class="sample-stats">
@@ -461,18 +875,18 @@
             </div>
             
             <div class="sample-actions">
-                <a href="mailto:aa@remidata.co?subject=Argentine%20Spanish%20Speech%20Dataset&body=Hi%2C%20I%27d%20like%20to%20request%20a%20sample%20of%20the%20Argentine%20Spanish%20speech%20dataset." class="btn btn-primary">📧 Request Sample</a>
+                <a href="#" onclick="openLeadGate('es-ar-speech', 'Argentine Spanish Speech Sample'); return false;" class="btn btn-primary">⬇ Request Sample</a>
             </div>
         </div>
 
-        <!-- TAGALOG/ENGLISH -->
+        <!-- ========== TAGALOG/ENGLISH ========== -->
         <div class="sample-card">
             <div class="sample-header">
                 <div>
-                    <h2>Tagalog/English Bilingual Speech Dataset</h2>
+                    <h2>Tagalog/English Bilingual Speech</h2>
                     <div class="subtitle">Code-Switching Native Speaker Recordings</div>
                 </div>
-                <span class="sample-badge">Speech</span>
+                <span class="sample-badge speech">Speech</span>
             </div>
             
             <div class="sample-stats">
@@ -519,7 +933,7 @@
             </div>
             
             <div class="sample-actions">
-                <a href="mailto:aa@remidata.co?subject=Tagalog%20English%20Speech%20Dataset&body=Hi%2C%20I%27d%20like%20to%20request%20a%20sample%20of%20the%20Tagalog%2FEnglish%20bilingual%20speech%20dataset." class="btn btn-primary">📧 Request Sample</a>
+                <a href="#" onclick="openLeadGate('tl-en-speech', 'Tagalog/English Speech Sample'); return false;" class="btn btn-primary">⬇ Request Sample</a>
             </div>
         </div>
 
@@ -534,12 +948,139 @@
     </div>
 </section>
 
+<!-- Lead Gate Modal -->
+<div class="modal-overlay" id="leadModal">
+    <div class="modal">
+        <button class="modal-close" onclick="closeLeadGate()">&times;</button>
+        <h3>Get Sample Data</h3>
+        <p id="modalDesc">Enter your details to download the sample dataset.</p>
+        <form id="leadForm" onsubmit="submitLeadForm(event)">
+            <input type="hidden" id="leadDataset" value="">
+            <div class="form-group">
+                <label for="leadName">Full Name *</label>
+                <input type="text" id="leadName" required placeholder="John Smith">
+            </div>
+            <div class="form-group">
+                <label for="leadEmail">Work Email *</label>
+                <input type="email" id="leadEmail" required placeholder="john@company.com">
+            </div>
+            <div class="form-group">
+                <label for="leadCompany">Company *</label>
+                <input type="text" id="leadCompany" required placeholder="Acme AI Corp">
+            </div>
+            <div class="form-group">
+                <label for="leadRole">Role (optional)</label>
+                <input type="text" id="leadRole" placeholder="ML Engineer, Data Scientist...">
+            </div>
+            <button type="submit" class="form-submit">Download Sample</button>
+            <div class="form-error" id="formError">Please fill in all required fields.</div>
+        </form>
+        <div id="formSuccess" style="display:none; text-align:center; padding:20px 0;">
+            <div style="font-size:48px; margin-bottom:16px;">✅</div>
+            <h3 style="margin-bottom:8px;">Thank you!</h3>
+            <p style="color:var(--gray);">Check your email for the sample data. We'll follow up within 24 hours.</p>
+        </div>
+    </div>
+</div>
+
 <footer>
     <div class="container">
         <p>&copy; 2026 REMI FS LLC &middot; Miami, Florida<br>
         <a href="mailto:sales@remidata.co">sales@remidata.co</a> &middot; +1 786-695-1465</p>
     </div>
 </footer>
+
+<script>
+function openLeadGate(dataset, label) {
+    document.getElementById('leadDataset').value = dataset;
+    document.getElementById('modalDesc').textContent = 'Enter your details to access: ' + label;
+    document.getElementById('leadForm').style.display = 'block';
+    document.getElementById('formSuccess').style.display = 'none';
+    document.getElementById('formError').style.display = 'none';
+    document.getElementById('leadModal').classList.add('active');
+    
+    // GA event
+    if (typeof gtag === 'function') {
+        gtag('event', 'sample_click', {
+            'dataset': dataset,
+            'label': label
+        });
+    }
+}
+
+function closeLeadGate() {
+    document.getElementById('leadModal').classList.remove('active');
+}
+
+document.getElementById('leadModal').addEventListener('click', function(e) {
+    if (e.target === this) closeLeadGate();
+});
+
+function submitLeadForm(e) {
+    e.preventDefault();
+    
+    var name = document.getElementById('leadName').value.trim();
+    var email = document.getElementById('leadEmail').value.trim();
+    var company = document.getElementById('leadCompany').value.trim();
+    var role = document.getElementById('leadRole').value.trim();
+    var dataset = document.getElementById('leadDataset').value;
+    
+    if (!name || !email || !company) {
+        document.getElementById('formError').style.display = 'block';
+        return;
+    }
+    
+    // GA event for lead capture
+    if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+            'dataset': dataset,
+            'company': company
+        });
+    }
+    
+    // Send lead data via email using formspree or mailto fallback
+    var subject = encodeURIComponent('REMI Data Lead: ' + dataset);
+    var body = encodeURIComponent(
+        'New sample request:\n\n' +
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n' +
+        'Company: ' + company + '\n' +
+        'Role: ' + role + '\n' +
+        'Dataset: ' + dataset + '\n' +
+        'Time: ' + new Date().toISOString()
+    );
+    
+    // Open mailto in background
+    var mailLink = document.createElement('a');
+    mailLink.href = 'mailto:aa@remidata.co?subject=' + subject + '&body=' + body;
+    mailLink.style.display = 'none';
+    document.body.appendChild(mailLink);
+    
+    // Also send via fetch to a webhook (if configured)
+    var webhookUrl = window.REMI_WEBHOOK;
+    if (webhookUrl) {
+        fetch(webhookUrl, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({name, email, company, role, dataset, time: new Date().toISOString()})
+        }).catch(function(){});
+    }
+    
+    // Show success
+    document.getElementById('leadForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    
+    // Save to localStorage
+    try {
+        var leads = JSON.parse(localStorage.getItem('remi_leads') || '[]');
+        leads.push({name, email, company, role, dataset, time: new Date().toISOString()});
+        localStorage.setItem('remi_leads', JSON.stringify(leads));
+    } catch(e) {}
+    
+    // Auto-close after 3s
+    setTimeout(function() { closeLeadGate(); }, 3000);
+}
+</script>
 
 </body>
 </html>
