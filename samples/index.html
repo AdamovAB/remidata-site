@@ -997,7 +997,7 @@
         <div id="formSuccess" style="display:none; text-align:center; padding:20px 0;">
             <div style="font-size:48px; margin-bottom:16px;">✅</div>
             <h3 style="margin-bottom:8px;">Thank you!</h3>
-            <p style="color:var(--gray);">Check your email for the sample data. We'll follow up within 24 hours.</p>
+            <p style="color:var(--gray);">Your download has started. We'll follow up within 24 hours.</p>
         </div>
     </div>
 </div>
@@ -1098,16 +1098,33 @@ function submitLeadForm(e) {
         redirect: 'follow'
     }).catch(function(err){ console.log('Webhook error:', err); });
     
-    // Show success
-    document.getElementById('leadForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-    
     // Save to localStorage
     try {
         var leads = JSON.parse(localStorage.getItem('remi_leads') || '[]');
         leads.push({name, email, company, role, dataset, time: new Date().toISOString()});
         localStorage.setItem('remi_leads', JSON.stringify(leads));
     } catch(e) {}
+    
+    // Immediate download based on dataset type
+    var downloadMap = {
+        'dental-json': 'dental-sample.json',
+        'dental-csv': 'dental-sample.csv',
+        'dental-pdf': 'REMI_Data_Dental_Sample_Package.pdf'
+    };
+    
+    var file = downloadMap[dataset];
+    if (file) {
+        var a = document.createElement('a');
+        a.href = file;
+        a.download = file;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+    
+    // Show success
+    document.getElementById('leadForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
     
     // Auto-close after 3s
     setTimeout(function() { closeLeadGate(); }, 3000);
