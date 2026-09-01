@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Samples | REMI Data</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180.png">
+    <meta name="description" content="Download sample datasets from REMI Data. Dental clinical cases, speech recordings, and more — structured, bilingual, ML-ready.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --accent: #E8531E;
+            --accent-hover: #d14a18;
+            --dark: #1a1a1a;
+            --text: #3d3d3d;
+            --gray: #777;
+            --light: #f7f7f5;
+            --border: #e8e5e0;
+            --white: #fff;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        
+        nav {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo img { height: 36px; }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--dark); }
+        .nav-cta {
+            background: var(--accent) !important;
+            color: var(--white) !important;
+            padding: 10px 24px !important;
+            border-radius: 6px;
+            transition: background 0.2s !important;
+        }
+        .nav-cta:hover { background: var(--accent-hover) !important; }
+        
+        .page-hero {
+            padding: 80px 0 48px;
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+        }
+        .page-hero p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        
+        .samples-grid {
+            padding: 0 0 80px;
+        }
+        
+        .sample-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 32px;
+            transition: box-shadow 0.3s;
+        }
+        .sample-card:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+        
+        .sample-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+        .sample-badge {
+            display: inline-block;
+            background: var(--light);
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .sample-badge.new {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .sample-card h2 {
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+        .sample-card .subtitle {
+            color: var(--gray);
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .sample-stats {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .sample-details {
+            margin-bottom: 24px;
+        }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+        .detail-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .detail-label {
+            font-size: 12px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+        .detail-value {
+            font-size: 14px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .sample-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .tag {
+            background: var(--light);
+            color: var(--text);
+            font-size: 13px;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+        
+        .sample-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+        .btn-primary:hover { background: var(--accent-hover); }
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-outline:hover {
+            border-color: var(--dark);
+            color: var(--dark);
+        }
+        
+        .json-preview {
+            background: #1a1a2e;
+            color: #a0e0a0;
+            padding: 24px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            overflow-x: auto;
+            margin-bottom: 24px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .json-key { color: #7ec8e3; }
+        .json-string { color: #a0e0a0; }
+        .json-num { color: #f0a0a0; }
+        
+        .cta-section {
+            background: var(--dark);
+            padding: 80px 0;
+            text-align: center;
+            color: var(--white);
+        }
+        .cta-section h2 {
+            color: var(--white);
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        .cta-section p {
+            color: #aaa;
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+        
+        footer {
+            padding: 32px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray);
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 28px; }
+            .sample-card { padding: 24px; }
+            .sample-header { flex-direction: column; gap: 8px; }
+            .sample-stats { gap: 20px; }
+            .detail-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="/" class="logo"><img src="../logo-remi.jpg" alt="REMI Data"></a>
+        <div class="nav-links">
+            <a href="/#data-types">Services</a>
+            <a href="/#how-it-works">How It Works</a>
+            <a href="/#languages">Languages</a>
+            <a href="/#why">Why Us</a>
+            <a href="/#contact" class="nav-cta">Request a Quote</a>
+        </div>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <div class="container">
+        <h1>Dataset Samples</h1>
+        <p>Preview our data quality before you buy. Download structured samples in JSON, CSV, and PDF formats.</p>
+    </div>
+</section>
+
+<section class="samples-grid">
+    <div class="container">
+
+        <!-- DENTAL DATASET -->
+        <div class="sample-card">
+            <div class="sample-header">
+                <div>
+                    <h2>Ukrainian Dental Clinical Cases</h2>
+                    <div class="subtitle">Adult & Pediatric — Full-Spectrum Dental Clinic</div>
+                </div>
+                <span class="sample-badge new">New</span>
+            </div>
+            
+            <div class="sample-stats">
+                <div class="stat">
+                    <div class="stat-num">10,000+</div>
+                    <div class="stat-label">Clinical Histories</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">10</div>
+                    <div class="stat-label">Sample Cases</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">7</div>
+                    <div class="stat-label">Specialties</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">2</div>
+                    <div class="stat-label">Languages</div>
+                </div>
+            </div>
+            
+            <div class="sample-details">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Source</div>
+                        <div class="detail-value">Licensed dental clinic, Ukraine</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Population</div>
+                        <div class="detail-value">Adult + Pediatric</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Format</div>
+                        <div class="detail-value">JSON, CSV, PDF</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Coding</div>
+                        <div class="detail-value">ICD-10</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Languages</div>
+                        <div class="detail-value">Ukrainian + English</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Deidentified</div>
+                        <div class="detail-value">Yes</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sample-tags">
+                <span class="tag">Endodontics</span>
+                <span class="tag">Implantology</span>
+                <span class="tag">Prosthodontics</span>
+                <span class="tag">Restorative</span>
+                <span class="tag">Pediatric</span>
+                <span class="tag">Oral Surgery</span>
+                <span class="tag">Clinical Photography</span>
+                <span class="tag">Radiographs</span>
+            </div>
+            
+            <h3 style="font-size: 16px; margin-bottom: 12px;">Data Structure Preview</h3>
+            <div class="json-preview"><span class="json-key">"case_id"</span>: <span class="json-string">"DENT-UA-A002"</span>,
+<span class="json-key">"category"</span>: <span class="json-string">"adult"</span>,
+<span class="json-key">"specialty"</span>: <span class="json-string">"endodontics"</span>,
+<span class="json-key">"diagnosis"</span>: {
+  <span class="json-key">"en"</span>: <span class="json-string">"Post-endodontic secondary caries, chronic apical periodontitis. Broken instrument in apical third."</span>,
+  <span class="json-key">"uk"</span>: <span class="json-string">"Вторинний карієс, хронічний апікальний періодонтит..."</span>,
+  <span class="json-key">"icd_10"</span>: <span class="json-string">"K04.5"</span>
+},
+<span class="json-key">"teeth"</span>: [<span class="json-num">11</span>, <span class="json-num">12</span>],
+<span class="json-key">"visits"</span>: <span class="json-num">2</span>,
+<span class="json-key">"treatment"</span>: {
+  <span class="json-key">"visit_1"</span>: {
+    <span class="json-key">"anesthesia"</span>: <span class="json-string">"infiltration — Septanest"</span>,
+    <span class="json-key">"isolation"</span>: <span class="json-string">"rubber dam"</span>,
+    <span class="json-key">"tooth_12"</span>: { <span class="json-key">"canal_size"</span>: <span class="json-string">"SOCO 35.06"</span>, <span class="json-key">"working_length_mm"</span>: <span class="json-num">23</span> }
+  }
+},
+<span class="json-key">"complications_en"</span>: [<span class="json-string">"post-treatment pain"</span>, <span class="json-string">"periapical inflammation"</span>, ...]</div>
+            
+            <div class="sample-actions">
+                <a href="dental-sample.json" download class="btn btn-primary">⬇ Download JSON Sample</a>
+                <a href="dental-sample.csv" download class="btn btn-outline">⬇ Download CSV</a>
+                <a href="mailto:aa@remidata.co?subject=Dental%20Dataset%20Inquiry&body=Hi%2C%20I%27d%20like%20to%20discuss%20the%20dental%20clinical%20dataset.%20Please%20send%20the%20full%20sample%20package." class="btn btn-outline">📧 Request Full Package</a>
+            </div>
+        </div>
+
+        <!-- SPEECH DATASETS -->
+        <div class="sample-card">
+            <div class="sample-header">
+                <div>
+                    <h2>Argentine Spanish Speech Dataset</h2>
+                    <div class="subtitle">Native Speaker Recordings for ASR & Voice AI</div>
+                </div>
+                <span class="sample-badge">Speech</span>
+            </div>
+            
+            <div class="sample-stats">
+                <div class="stat">
+                    <div class="stat-num">10+</div>
+                    <div class="stat-label">Hours Available</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">WAV</div>
+                    <div class="stat-label">Format</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">16kHz</div>
+                    <div class="stat-label">Sample Rate</div>
+                </div>
+            </div>
+            
+            <div class="sample-details">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Language</div>
+                        <div class="detail-value">Spanish (Argentine dialect)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Content</div>
+                        <div class="detail-value">Conversational, scripted, commands</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quality</div>
+                        <div class="detail-value">Studio-quality, mono, 16-bit</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Consent</div>
+                        <div class="detail-value">Licensed, consent-verified</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sample-tags">
+                <span class="tag">ASR Training</span>
+                <span class="tag">Voice AI</span>
+                <span class="tag">TTS</span>
+                <span class="tag">Call Center</span>
+            </div>
+            
+            <div class="sample-actions">
+                <a href="mailto:aa@remidata.co?subject=Argentine%20Spanish%20Speech%20Dataset&body=Hi%2C%20I%27d%20like%20to%20request%20a%20sample%20of%20the%20Argentine%20Spanish%20speech%20dataset." class="btn btn-primary">📧 Request Sample</a>
+            </div>
+        </div>
+
+        <!-- TAGALOG/ENGLISH -->
+        <div class="sample-card">
+            <div class="sample-header">
+                <div>
+                    <h2>Tagalog/English Bilingual Speech Dataset</h2>
+                    <div class="subtitle">Code-Switching Native Speaker Recordings</div>
+                </div>
+                <span class="sample-badge">Speech</span>
+            </div>
+            
+            <div class="sample-stats">
+                <div class="stat">
+                    <div class="stat-num">10+</div>
+                    <div class="stat-label">Hours Available</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">WAV</div>
+                    <div class="stat-label">Format</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">16kHz</div>
+                    <div class="stat-label">Sample Rate</div>
+                </div>
+            </div>
+            
+            <div class="sample-details">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Language</div>
+                        <div class="detail-value">Tagalog + English (bilingual)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Content</div>
+                        <div class="detail-value">Conversational, code-switching</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quality</div>
+                        <div class="detail-value">Studio-quality, mono, 16-bit</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Consent</div>
+                        <div class="detail-value">Licensed, consent-verified</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sample-tags">
+                <span class="tag">ASR Training</span>
+                <span class="tag">Code-Switching</span>
+                <span class="tag">Bilingual AI</span>
+                <span class="tag">Voice AI</span>
+            </div>
+            
+            <div class="sample-actions">
+                <a href="mailto:aa@remidata.co?subject=Tagalog%20English%20Speech%20Dataset&body=Hi%2C%20I%27d%20like%20to%20request%20a%20sample%20of%20the%20Tagalog%2FEnglish%20bilingual%20speech%20dataset." class="btn btn-primary">📧 Request Sample</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <h2>Need Custom Data?</h2>
+        <p>We build datasets to your specification. Tell us what you need — modality, language, volume, format — and we'll scope a feasibility assessment.</p>
+        <a href="mailto:aa@remidata.co?subject=Custom%20Dataset%20Request" class="btn btn-primary" style="font-size: 16px; padding: 14px 32px;">Contact Us</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 REMI FS LLC &middot; Miami, Florida<br>
+        <a href="mailto:sales@remidata.co">sales@remidata.co</a> &middot; +1 786-695-1465</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,888 @@
+{
+  "dataset": "Ukrainian Dental Clinical Cases — Adult & Pediatric",
+  "version": "1.0",
+  "source_country": "UA",
+  "language": "uk",
+  "provider": "REMI Data (REMI FS LLC)",
+  "total_cases": 10,
+  "total_cases_available": "10,000+",
+  "description": "Structured dental clinical records from a full-spectrum Ukrainian dental clinic covering surgical, prosthetic, endodontic, restorative, and pediatric departments. All data deidentified, bilingual (Ukrainian/English), ICD-10 coded, ML-ready.",
+  "cases": [
+    {
+      "case_id": "DENT-UA-A001",
+      "category": "adult",
+      "specialty": "restorative_dentistry",
+      "diagnosis": {
+        "en": "Focal enamel demineralization after orthodontic treatment. Initial caries (white spot lesion) on vestibular surface of teeth 22, 23 — active course",
+        "uk": "Вогнищева демінералізація емалі після ортодонтичного лікування. Початковий карієс (карієс у стадії білої плями) вестибулярної поверхні 22 23 зуба, активний перебіг",
+        "icd_10": "K02.0"
+      },
+      "teeth": [
+        22,
+        23
+      ],
+      "surfaces": [
+        "vestibular"
+      ],
+      "visits": 1,
+      "chief_complaint_en": "Aesthetic defect — white spots and enamel destruction on upper anterior teeth after bracket orthodontic treatment",
+      "chief_complaint_uk": "Естетичний дефект, білі плями та руйнування емалі фронтальних зубів верхньої щелепи після ортодонтичного лікування брекет-системою",
+      "clinical_findings": {
+        "mucosa": "pale pink, moderately moist, no pathology",
+        "lesion": "demineralization and carious lesion within enamel and superficial dentin",
+        "enamel": "matte, chalky, centrally pigmented, rough on probing",
+        "adjacent": "demineralization foci on adjacent upper anterior teeth",
+        "hygiene": "unsatisfactory, soft plaque present"
+      },
+      "treatment": {
+        "anesthesia": "infiltration — Septanest",
+        "isolation": "retraction cord 00",
+        "procedures_en": [
+          "carious tissue preparation",
+          "caries marker quality control",
+          "adhesive protocol",
+          "composite restoration teeth 22/23",
+          "grinding/polishing",
+          "occlusal adjustment"
+        ],
+        "materials": [
+          "Estelite A01",
+          "Asteria NE",
+          "flowable composite A1"
+        ]
+      },
+      "recommendations_en": [
+        "thorough oral hygiene",
+        "fluoride toothpaste",
+        "remineralization therapy",
+        "carbohydrate control",
+        "professional hygiene every 6 months",
+        "follow-up in 6 months"
+      ],
+      "complications_en": [
+        "secondary caries",
+        "demineralization progression",
+        "marginal seal failure",
+        "tooth hypersensitivity"
+      ]
+    },
+    {
+      "case_id": "DENT-UA-A002",
+      "category": "adult",
+      "specialty": "endodontics",
+      "diagnosis": {
+        "en": "Teeth 11, 12: post-endodontic state, secondary caries, chronic apical periodontitis. Broken instrument fragment in apical third of tooth 11",
+        "uk": "11 зуб — стан після ендодонтичного лікування, вторинний карієс, хронічний апікальний періодонтит. 12 зуб — стан після ендодонтичного лікування, вторинний карієс, хронічний апікальний періодонтит",
+        "icd_10": "K04.5"
+      },
+      "teeth": [
+        11,
+        12
+      ],
+      "surfaces": [
+        "coronal"
+      ],
+      "visits": 2,
+      "chief_complaint_en": "Coronal destruction of teeth 11, 12; periodic eating discomfort; aesthetic deficiency",
+      "clinical_findings": {
+        "teeth_condition": "significantly destroyed",
+        "secondary_caries": "deep, extending below gingival margin",
+        "canals": "gutta-percha and dark sealer present",
+        "tooth_11": "post construction in canal, broken instrument fragment in apical third",
+        "tooth_12": "secondary caries with subgingival extension"
+      },
+      "treatment": {
+        "visit_1": {
+          "anesthesia": "infiltration — Septanest",
+          "isolation": "rubber dam",
+          "tooth_12": {
+            "canal_size": "SOCO 35.06",
+            "working_length_mm": 23,
+            "irrigation": "NaOCl + EDTA",
+            "obturation": "single condensation gutta-percha + AH Plus"
+          },
+          "tooth_11": {
+            "canal_size": "SOCO 35.06 to fragment",
+            "irrigation": "NaOCl + EDTA",
+            "medication": "Rootfill temporary dressing",
+            "temp_restoration": true
+          }
+        },
+        "visit_2": {
+          "anesthesia": "infiltration — Septanest",
+          "isolation": "rubber dam",
+          "tooth_11": {
+            "canal_size": "SOCO 35.06",
+            "working_length_mm": 21,
+            "irrigation": "NaOCl + EDTA",
+            "obturation": "single condensation gutta-percha + AH Plus",
+            "broken_instrument_note": "fragment remains, patient informed"
+          },
+          "restoration": {
+            "materials": [
+              "GRADIA BW",
+              "ESTELITE A02",
+              "SPECTRA A2",
+              "ASTERIA A1B",
+              "flowable A2",
+              "flowable A1"
+            ],
+            "finishing": "occlusal adjustment, grinding, polishing"
+          }
+        }
+      },
+      "complications_en": [
+        "post-treatment pain",
+        "pain on biting",
+        "periapical inflammation exacerbation",
+        "soft tissue swelling",
+        "incomplete old material removal",
+        "periapical lesion progression",
+        "root perforation",
+        "instrument fracture",
+        "need for retreatment/apicoectomy/extraction",
+        "root crack/fracture",
+        "restoration failure"
+      ],
+      "special_notes": "Patient informed about broken instrument fragment in apical canal of tooth 11 — cautious long-term prognosis"
+    },
+    {
+      "case_id": "DENT-UA-A003",
+      "category": "adult",
+      "specialty": "prosthodontics",
+      "diagnosis": {
+        "en": "Missing prosthetic construction on tooth 13. History of ceramic veneers on anterior teeth. Bruxism",
+        "uk": "Відсутність ортопедичної конструкції на 13 зубі. Бруксизм в анамнезі",
+        "icd_10": "K08.1"
+      },
+      "teeth": [
+        13
+      ],
+      "visits": 1,
+      "chief_complaint_en": "Compromised smile aesthetics due to missing permanent prosthetic on tooth 13",
+      "clinical_findings": {
+        "tooth_13": "temporary plastic crown present",
+        "anterior_group": "ceramic veneers present",
+        "tooth_12": "ceramic veneer crack on vestibular surface",
+        "occlusion": "significant palatal overlap, increased functional load due to bruxism"
+      },
+      "treatment": {
+        "anesthesia": "not specified",
+        "procedures_en": [
+          "tooth 13 preparation for permanent crown",
+          "gingival retraction (cord #0)",
+          "A-silicone impressions upper/lower",
+          "interocclusal registration (Futar)",
+          "temporary crown fabrication/cementation",
+          "permanent ceramic crown try-in",
+          "permanent crown cementation (Fuji Plus)",
+          "excess cement removal",
+          "occlusion check and polishing"
+        ],
+        "materials": [
+          "Futar",
+          "A-silicone impression material",
+          "Fuji Plus cement",
+          "ceramic crown"
+        ]
+      },
+      "outcome_en": "Tooth 13 form and aesthetics restored, harmonized with anterior group. Patient satisfied with aesthetic and functional result",
+      "complications_en": [
+        "veneer fracture on adjacent teeth",
+        "crown dislodgement",
+        "occlusal overload due to bruxism"
+      ]
+    },
+    {
+      "case_id": "DENT-UA-A004",
+      "category": "adult",
+      "specialty": "implantology",
+      "diagnosis": {
+        "en": "Partial secondary edentulism of mandible. Implant placement and prosthetic rehabilitation",
+        "uk": "Часткова вторинна адентія нижньої щелепи",
+        "icd_10": "K08.1"
+      },
+      "teeth": [
+        34,
+        35,
+        36,
+        37,
+        44,
+        45,
+        46,
+        47
+      ],
+      "visits": 4,
+      "chief_complaint_en": "Missing teeth in lateral segments of mandible",
+      "clinical_findings": {
+        "visit_3": "healing abutments in place, no implant mobility, mild peri-implant gingival hyperemia, significant soft plaque on healing abutments",
+        "visit_4": "oral mucosa pale pink, no inflammation, no peri-implant hyperemia/swelling/tenderness"
+      },
+      "treatment": {
+        "visit_1": {
+          "anesthesia": "Artiphrin local",
+          "implant_system": "Megagen AnyOne",
+          "implants_placed": [
+            34,
+            36,
+            44,
+            46
+          ],
+          "torque_ncm": 40,
+          "procedures": [
+            "implant placement",
+            "curettage",
+            "suturing (Golnit 5.0)"
+          ],
+          "medications": [
+            "Augmentin 875mg 2x/day 5 days",
+            "Nimesil 2x/day 3 days",
+            "probiotic 7 days",
+            "Loratadine 1x/day 7 days",
+            "Chlorhexidine 0.05% rinse 5-6x/day"
+          ],
+          "healing_abutments_timeline": "3 months"
+        },
+        "visit_2": {
+          "anesthesia": "Artiphrin local",
+          "procedures": [
+            "healing abutment placement 34/36/44/46",
+            "connective tissue graft from maxillary tuberosity to area 34",
+            "suturing (Golnit 5.0)"
+          ],
+          "medications": [
+            "Nimesil 2x/day 3 days",
+            "Chlorhexidine 0.05% rinse 5-6x/day"
+          ]
+        },
+        "visit_3": {
+          "procedures": [
+            "healing abutment removal",
+            "open-tray impression transfer placement",
+            "A-silicone impressions upper+lower simultaneously",
+            "bite registration blocks",
+            "healing abutment refixation"
+          ],
+          "shade": "A2/A3"
+        },
+        "visit_4": {
+          "prosthetics": "zirconia bridge restorations on implants",
+          "teeth_restored": [
+            35,
+            36,
+            37,
+            45,
+            46,
+            47
+          ],
+          "shade": "A2/A3",
+          "fixation": "screw-retained (30 N·cm torque)",
+          "screw_access": "Teflon tape isolation + Spectra A2 composite seal",
+          "radiographic_control": true,
+          "passive_fit_verified": true,
+          "occlusion": "even bilateral contacts, stable, no premature contacts, symmetric closure"
+        }
+      },
+      "recommendations_en": [
+        "soft/medium toothbrush",
+        "fluoride toothpaste",
+        "interdental brushes",
+        "dental floss",
+        "irrigator 1-2x/day at 45° angle",
+        "professional hygiene every 6 months",
+        "avoid hard foods (nuts, ice, candy)",
+        "no opening packages with teeth"
+      ],
+      "complications_en": [
+        "mucositis",
+        "peri-implantitis",
+        "marginal bone resorption",
+        "gingival bleeding",
+        "soft tissue swelling",
+        "plaque/calculus accumulation",
+        "screw loosening",
+        "veneer chipping",
+        "screw fracture",
+        "prosthesis fracture",
+        "occlusal overload",
+        "adaptation discomfort"
+      ]
+    },
+    {
+      "case_id": "DENT-UA-A005",
+      "category": "adult",
+      "specialty": "endodontics",
+      "diagnosis": {
+        "en": "Chronic fibrous pulpitis of tooth 35",
+        "uk": "Хронічний фіброзний пульпіт 35 зуба",
+        "icd_10": "K04.03"
+      },
+      "teeth": [
+        35
+      ],
+      "surfaces": [
+        "occlusal",
+        "distal"
+      ],
+      "visits": 3,
+      "chief_complaint_en": "Carious cavity presence and periodic mild pain from cold stimuli. No spontaneous pain",
+      "clinical_findings": {
+        "lesion": "carious cavity with softened dentin on occlusal and distal surfaces of tooth 35",
+        "probing": "painful at cavity floor",
+        "pulp": "pulp chamber opened during preparation — pulp hyperemic, bleeding",
+        "percussion": "painless",
+        "mucosa": "no pathological changes"
+      },
+      "treatment": {
+        "visit_1": {
+          "anesthesia": "mandibular + infiltration — Septanest",
+          "isolation": "rubber dam",
+          "procedures": [
+            "cavity opening",
+            "carious tissue removal",
+            "mechanical canal preparation (SOCO 35.04)",
+            "NaOCl + H2O2 irrigation",
+            "calcium hydroxide medication",
+            "temporary restoration"
+          ],
+          "radiographic_control": true
+        },
+        "visit_2": {
+          "complaints": "none",
+          "additional_note": "patient reports periodic left TMJ pain predating orthodontic treatment",
+          "anesthesia": "infiltration — Septanest",
+          "isolation": "rubber dam",
+          "canal_preparation": {
+            "instruments": "Dentsply files to 40.06",
+            "irrigation": "NaOCl + EDTA + citric acid"
+          },
+          "obturation": "gutta-percha + AH Plus to apex",
+          "radiographic_finding": "slight calcium/iodine material extrusion beyond apex from visit 1 — biocompatible, resorbable, no prognosis impact",
+          "temp_restoration": true
+        },
+        "visit_3": {
+          "complaints": "none",
+          "anesthesia": "infiltration — Septanest",
+          "isolation": "rubber dam",
+          "procedures": [
+            "temporary restoration removal",
+            "adhesive protocol",
+            "UltraBlend liner placement",
+            "composite restoration"
+          ],
+          "materials": [
+            "Asteria AO2",
+            "Estelite A2B",
+            "Asteria A1",
+            "flowable A1"
+          ],
+          "finishing": "occlusal adjustment, grinding, polishing"
+        }
+      },
+      "recommendations_en": [
+        "prosthetic crown restoration recommended (devitalized tooth — increased fracture risk)",
+        "avoid excessive chewing load",
+        "proper oral hygiene",
+        "professional hygiene every 6 months",
+        "next visit 17.09.2025"
+      ],
+      "complications_en": [
+        "pain on biting 2-7 days",
+        "aching pain or heaviness sensation",
+        "need for canal revision if severe pain/swelling"
+      ]
+    },
+    {
+      "case_id": "DENT-UA-P001",
+      "category": "pediatric",
+      "specialty": "pediatric_endodontics",
+      "diagnosis": {
+        "en": "Periodontitis of deciduous tooth 75",
+        "uk": "Періодонтит 75 зуба",
+        "icd_10": "K04.5"
+      },
+      "teeth": [
+        75
+      ],
+      "teeth_type": "deciduous",
+      "surfaces": [
+        "contact"
+      ],
+      "visits": 1,
+      "chief_complaint_en": "Pain on biting",
+      "chief_complaint_uk": "Біль при накусуванні",
+      "clinical_findings": {
+        "cavity": "contact surface tooth 75, communicating with pulp chamber",
+        "radiograph": "pathological changes in periodontium area",
+        "probing": "positive",
+        "percussion": "negative"
+      },
+      "treatment": {
+        "anesthesia": "topical + infiltration — Artiphrin",
+        "procedures_en": [
+          "cavity preparation",
+          "pulp chamber access",
+          "root canal mechanical/irrigation preparation (NaOCl 3% + rotary files)",
+          "root canal obturation with Metapex",
+          "radiographic control",
+          "Riva insulating liner",
+          "Estelite composite restoration",
+          "grinding/polishing"
+        ],
+        "materials": [
+          "Artiphrin",
+          "NaOCl 3%",
+          "rotary files",
+          "Metapex",
+          "Riva",
+          "Estelite"
+        ]
+      },
+      "recommendations_en": [
+        "monitor for lip/cheek biting post-anesthesia",
+        "no eating for 2 hours",
+        "possible post-op sensitivity up to 14 days",
+        "mother informed of all possible complications and chipping risks",
+        "return to clinic if complications arise"
+      ],
+      "parent_informed": true
+    },
+    {
+      "case_id": "DENT-UA-P002",
+      "category": "pediatric",
+      "specialty": "pediatric_dentistry",
+      "diagnoses": [
+        {
+          "condition_en": "Acute medium caries of deciduous teeth 54, 64, 74, 84",
+          "condition_uk": "Гострий середній карієс 54, 64, 74, 84",
+          "icd_10": "K02.1",
+          "teeth": [
+            54,
+            64,
+            74,
+            84
+          ],
+          "surfaces": [
+            "occlusal"
+          ],
+          "findings": "cavity within mantle dentin, dentin softened, mildly pigmented",
+          "treatment": {
+            "procedures": [
+              "cavity preparation",
+              "chlorhexidine 2% antiseptic",
+              "Estelite Asteria A1B composite restoration",
+              "grinding/polishing"
+            ],
+            "materials": [
+              "Chlorhexidine 2%",
+              "Estelite Asteria A1B"
+            ]
+          }
+        },
+        {
+          "condition_en": "Chronic fibrous pulpitis of deciduous teeth 55, 65, 75",
+          "condition_uk": "Хронічний фіброзний пульпіт 55, 65, 75",
+          "icd_10": "K04.03",
+          "teeth": [
+            55,
+            65,
+            75
+          ],
+          "surfaces": [
+            "occlusal"
+          ],
+          "findings": "cavity within parapulpal dentin; tooth 75 — old filling with secondary caries signs; radiograph: <1mm to pulp chamber",
+          "treatment": {
+            "anesthesia": "infiltration — Artiphrin",
+            "procedures": [
+              "cavity preparation",
+              "pulp chamber access",
+              "pulp amputation (pulpotomy)",
+              "hemostasis",
+              "NaOCl 3% antiseptic",
+              "WellRoot medicament",
+              "Riva LC insulating liner",
+              "Estelite Asteria A1B composite restoration",
+              "grinding/polishing"
+            ],
+            "materials": [
+              "Artiphrin",
+              "NaOCl 3%",
+              "WellRoot",
+              "Riva LC",
+              "Estelite Asteria A1B"
+            ]
+          }
+        },
+        {
+          "condition_en": "Pulpitis complicated by periodontitis of deciduous tooth 85",
+          "condition_uk": "Пульпіт, ускладнений періодонтитом 85",
+          "icd_10": "K04.5",
+          "teeth": [
+            85
+          ],
+          "surfaces": [
+            "occlusal"
+          ],
+          "findings": "cavity communicating with pulp chamber; radiograph: no pathological changes in periodontium; probing +, percussion -",
+          "treatment": {
+            "anesthesia": "infiltration — Artiphrin",
+            "procedures": [
+              "cavity preparation",
+              "pulp chamber access",
+              "root canal mechanical/irrigation preparation (NaOCl 3% + rotary files)",
+              "Rootfill canal obturation",
+              "radiographic control",
+              "ZOE + iodoform medicament",
+              "Riva insulating liner",
+              "Estelite Asteria A1B composite restoration",
+              "grinding/polishing"
+            ],
+            "materials": [
+              "Artiphrin",
+              "NaOCl 3%",
+              "rotary files",
+              "Rootfill",
+              "ZOE + iodoform",
+              "Riva",
+              "Estelite Asteria A1B"
+            ]
+          }
+        }
+      ],
+      "medications": [
+        "Nurofen 3x/day 3 days",
+        "Stomatophyte A mini on gums 3x/day 5-7 days"
+      ],
+      "recommendations_en": [
+        "replace toothbrush",
+        "fluoride toothpaste 1450ppm",
+        "follow-up in 2 weeks"
+      ],
+      "total_teeth_treated": 8
+    },
+    {
+      "case_id": "DENT-UA-P003",
+      "category": "pediatric",
+      "specialty": "pediatric_dentistry",
+      "diagnoses": [
+        {
+          "condition_en": "Acute medium caries of deciduous teeth 73, 82",
+          "condition_uk": "Гострий середній карієс 73, 82",
+          "icd_10": "K02.1",
+          "teeth": [
+            73,
+            82
+          ],
+          "surfaces": {
+            "73": "mesial",
+            "82": "mesial+distal"
+          },
+          "findings": "cavity within mantle dentin, softened, mildly pigmented",
+          "treatment": {
+            "procedures": [
+              "cavity preparation",
+              "chlorhexidine 2%",
+              "Estelite Asteria A1B restoration",
+              "grinding/polishing"
+            ],
+            "materials": [
+              "Chlorhexidine 2%",
+              "Estelite Asteria A1B"
+            ]
+          }
+        },
+        {
+          "condition_en": "Acute deep caries of deciduous teeth 74, 72, 81, 84",
+          "condition_uk": "Гострий глибокий карієс 74, 72, 81, 84",
+          "icd_10": "K02.1",
+          "teeth": [
+            74,
+            72,
+            81,
+            84
+          ],
+          "surfaces": {
+            "74": "occlusal",
+            "72": "distal",
+            "81": "distal",
+            "84": "occlusal"
+          },
+          "findings": "cavity within parapulpal dentin, softened, mildly pigmented",
+          "treatment": {
+            "procedures": [
+              "cavity preparation",
+              "chlorhexidine 2%",
+              "Estelite Asteria A1B restoration",
+              "grinding/polishing"
+            ],
+            "materials": [
+              "Chlorhexidine 2%",
+              "Estelite Asteria A1B"
+            ]
+          }
+        },
+        {
+          "condition_en": "Irreversible pulpitis of deciduous teeth 51, 61",
+          "condition_uk": "Незворотній пульпіт 51, 61",
+          "icd_10": "K04.0",
+          "teeth": [
+            51,
+            61
+          ],
+          "findings": "cavity communicating with pulp chamber, teeth destroyed to gum level; radiograph: periodontal ligament widening tooth 61",
+          "treatment": {
+            "anesthesia": "infiltration — Artiphrin",
+            "procedures": [
+              "cavity preparation",
+              "pulp chamber access",
+              "root canal preparation (NaOCl 3% + rotary files)",
+              "Rootfill canal obturation",
+              "radiographic control",
+              "ZOE + iodoform medicament",
+              "Riva liner",
+              "Estelite Asteria A1B restoration",
+              "grinding/polishing"
+            ],
+            "materials": [
+              "Artiphrin",
+              "NaOCl 3%",
+              "rotary files",
+              "Rootfill",
+              "ZOE + iodoform",
+              "Riva",
+              "Estelite Asteria A1B"
+            ]
+          }
+        }
+      ],
+      "medications": [
+        "Nurofen 3x/day 3 days",
+        "Stomatophyte A mini on gums 3x/day 5-7 days"
+      ],
+      "recommendations_en": [
+        "replace toothbrush",
+        "fluoride toothpaste 1450ppm",
+        "follow-up in 2 weeks"
+      ],
+      "total_teeth_treated": 8
+    },
+    {
+      "case_id": "DENT-UA-P004",
+      "category": "pediatric",
+      "specialty": "pediatric_dentistry",
+      "diagnoses": [
+        {
+          "condition_en": "Chronic fibrous pulpitis of deciduous teeth 55, 65, 75, 74, 84",
+          "condition_uk": "Хронічний фіброзний пульпіт 55, 65, 75, 74, 84",
+          "icd_10": "K04.03",
+          "teeth": [
+            55,
+            65,
+            75,
+            74,
+            84
+          ],
+          "chief_complaint_en": "Hole in tooth, brief pain after eating",
+          "findings": "cavity within parapulpal dentin; radiograph: <1mm to pulp chamber; probing +, percussion -",
+          "treatment": {
+            "anesthesia": "infiltration — Artiphrin 1.0ml",
+            "procedures": [
+              "cavity preparation",
+              "pulp chamber access",
+              "pulpotomy",
+              "hemostasis",
+              "chlorhexidine 2%",
+              "WellRoot medicament",
+              "Riva LC liner",
+              "Estelite restoration",
+              "grinding/polishing"
+            ],
+            "materials": [
+              "Artiphrin",
+              "Chlorhexidine 2%",
+              "WellRoot",
+              "Riva LC",
+              "Estelite"
+            ]
+          },
+          "note": "possible post-op sensitivity up to 14 days; if increasing pain — full endodontic treatment required"
+        },
+        {
+          "condition_en": "Acute/chronic deep caries of deciduous teeth 54, 64",
+          "condition_uk": "Гострий/хронічний глибокий карієс 54, 64",
+          "icd_10": "K02.1",
+          "teeth": [
+            54,
+            64
+          ],
+          "chief_complaint_en": "Hole in tooth",
+          "findings": "cavity within parapulpal dentin, softened, mildly pigmented; probing +, percussion -",
+          "treatment": {
+            "procedures": [
+              "cavity preparation",
+              "chlorhexidine 2%",
+              "Estelite restoration",
+              "grinding/polishing"
+            ],
+            "materials": [
+              "Chlorhexidine 2%",
+              "Estelite"
+            ]
+          }
+        }
+      ],
+      "recommendations_en": [
+        "follow-up in 3 months",
+        "mother informed of all complications/chipping risks",
+        "monitor for lip/cheek biting",
+        "no eating for 2 hours"
+      ],
+      "total_teeth_treated": 7,
+      "parent_informed": true
+    },
+    {
+      "case_id": "DENT-UA-P005",
+      "category": "pediatric",
+      "specialty": "pediatric_dentistry",
+      "diagnoses": [
+        {
+          "condition_en": "Chronic fibrous pulpitis of deciduous teeth 55, 85",
+          "condition_uk": "Хронічний фіброзний пульпіт 55, 85",
+          "icd_10": "K04.03",
+          "teeth": [
+            55,
+            85
+          ],
+          "chief_complaint_en": "Hole in tooth, brief pain after eating",
+          "findings": "cavity within parapulpal dentin; radiograph: <1mm to pulp chamber; probing +, percussion -",
+          "treatment": {
+            "anesthesia": "topical + infiltration — Artiphrin 1.0ml",
+            "procedures": [
+              "cavity preparation",
+              "pulp chamber access",
+              "pulpotomy",
+              "hemostasis",
+              "chlorhexidine 2%",
+              "WellRoot medicament",
+              "Riva LC liner",
+              "Estelite restoration",
+              "grinding/polishing"
+            ],
+            "materials": [
+              "Artiphrin",
+              "Chlorhexidine 2%",
+              "WellRoot",
+              "Riva LC",
+              "Estelite"
+            ]
+          },
+          "note": "possible post-op sensitivity up to 14 days; if increasing pain — full endo treatment 55, 85"
+        },
+        {
+          "condition_en": "Acute deep caries of deciduous teeth 74, 84, 54, 64, 65",
+          "condition_uk": "Гострий глибокий карієс 74, 84, 54, 64, 65",
+          "icd_10": "K02.1",
+          "teeth": [
+            74,
+            84,
+            54,
+            64,
+            65
+          ],
+          "chief_complaint_en": "Hole in tooth",
+          "findings": "cavity within parapulpal dentin, softened, mildly pigmented; probing +, percussion -",
+          "treatment": {
+            "procedures": [
+              "cavity preparation",
+              "chlorhexidine 2%",
+              "Estelite restoration",
+              "grinding/polishing"
+            ],
+            "materials": [
+              "Chlorhexidine 2%",
+              "Estelite"
+            ]
+          }
+        },
+        {
+          "condition_en": "Periodontitis of deciduous tooth 75 with fistula — extraction",
+          "condition_uk": "Періодонтит 75 зуба зі свіщем",
+          "icd_10": "K04.6",
+          "teeth": [
+            75
+          ],
+          "chief_complaint_en": "Fistula appearance in tooth area",
+          "findings": "cavity communicating with pulp chamber; radiograph: pathological root resorption, bone rarefaction in bifurcation zone",
+          "treatment": {
+            "procedures": [
+              "tooth extraction",
+              "hemostasis",
+              "hemostatic sponges"
+            ],
+            "materials": [
+              "hemostatic sponges"
+            ]
+          }
+        }
+      ],
+      "recommendations_en": [
+        "no hot food/drinks for 3 days",
+        "exclude dairy/grains for 3 days",
+        "no rinsing",
+        "no touching with dirty fingers",
+        "Nurofen age-appropriate dose for pain",
+        "follow-up in 3 months",
+        "mother warned: cavities in 54/64/65/74/84 were very deep — full endodontic treatment if pain develops"
+      ],
+      "total_teeth_treated": 8,
+      "parent_informed": true
+    }
+  ],
+  "metadata": {
+    "data_types": [
+      "clinical_notes",
+      "diagnosis",
+      "treatment_plan",
+      "materials_used",
+      "medications",
+      "radiographic_findings",
+      "complications",
+      "recommendations",
+      "parent_consent"
+    ],
+    "specialties_covered": [
+      "restorative_dentistry",
+      "endodontics",
+      "prosthodontics",
+      "implantology",
+      "pediatric_endodontics",
+      "pediatric_restorative",
+      "pediatric_surgery"
+    ],
+    "conditions_covered": [
+      "caries",
+      "deep_caries",
+      "pulpitis",
+      "periodontitis",
+      "demineralization",
+      "secondary_caries",
+      "pulpotomy",
+      "extraction",
+      "implant_rehabilitation"
+    ],
+    "age_groups": [
+      "adult",
+      "pediatric"
+    ],
+    "teeth_types": [
+      "permanent",
+      "deciduous"
+    ],
+    "format_version": "1.0",
+    "deidentified": true,
+    "bilingual": true,
+    "icd_10_coded": true,
+    "scalable_to": "10000+ cases from full-spectrum dental clinic"
+  }
+}
