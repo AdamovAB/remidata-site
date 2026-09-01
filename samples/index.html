@@ -1069,21 +1069,15 @@ function submitLeadForm(e) {
         'Time: ' + new Date().toISOString()
     );
     
-    // Open mailto in background
-    var mailLink = document.createElement('a');
-    mailLink.href = 'mailto:aa@remidata.co?subject=' + subject + '&body=' + body;
-    mailLink.style.display = 'none';
-    document.body.appendChild(mailLink);
+
     
-    // Also send via fetch to a webhook (if configured)
-    var webhookUrl = window.REMI_WEBHOOK;
-    if (webhookUrl) {
-        fetch(webhookUrl, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({name, email, company, role, dataset, time: new Date().toISOString()})
-        }).catch(function(){});
-    }
+    // Send to Google Sheets webhook
+    fetch('https://script.google.com/macros/s/AKfycbyu5gqZ5imORLDkfOrh7uSY98bJlC60uVAerVaypHNsJOFmaZNgKyZ0dJioHV1X4v0U8Q/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({name: name, email: email, company: company, role: role, dataset: dataset, time: new Date().toISOString()})
+    }).catch(function(err){ console.log('Webhook error:', err); });
     
     // Show success
     document.getElementById('leadForm').style.display = 'none';
