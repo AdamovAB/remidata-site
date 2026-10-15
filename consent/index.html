@@ -411,7 +411,7 @@
 
         document.querySelector('input[name="signDate"]').valueAsDate = new Date();
 
-        const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzrogItSkRS7JYY5xwQTBy6TCqcVxooQ7CNKJP_jrlwHt45bvg6zDWt0W0Wc0GP5dcC/exec';
+        const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxGwOZJnDZ1m95fqJwLvK95rMIMzuy1wTgI_gs4tFftmvWuc1V_-kEPb1KcXVAF_l02/exec';
 
         function submitForm(e) {
             e.preventDefault();
@@ -431,20 +431,18 @@
             data.signature = canvas.toDataURL('image/png');
             data.timestamp = new Date().toISOString();
 
-            // Send to Google Sheets via GET (CORS-safe for Apps Script)
-            var encodedData = encodeURIComponent(JSON.stringify(data));
-            var url = WEBHOOK_URL + '?data=' + encodedData;
-            
-            var btn = document.getElementById('submitBtn');
-            btn.disabled = true;
-            btn.textContent = 'Sending... / Enviando...';
-
-            var img = new Image();
-            img.onload = img.onerror = function() {
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(function() {
                 document.getElementById('consentForm').style.display = 'none';
                 document.getElementById('successMsg').style.display = 'block';
-            };
-            img.src = url;
+            }).catch(function() {
+                document.getElementById('consentForm').style.display = 'none';
+                document.getElementById('successMsg').style.display = 'block';
+            });
         }
     </script>
 </body>
