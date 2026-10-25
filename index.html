@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REMI Data | AI Training Data Collection</title>
+    <title>Custom Clinical & Human AI Training Data | REMI Data</title>
+    <meta name="description" content="REMI Data sources and prepares custom clinical, oncology, speech, motion and human datasets for AI training. Built to your project specifications.">
+    <link rel="canonical" href="https://remidata.co/">
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
@@ -15,10 +17,34 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-    <meta name="description" content="Licensed, consent-verified human data for AI training. Speech, face, motion, and environmental datasets worldwide.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "REMI Data",
+      "legalName": "REMI FS LLC",
+      "url": "https://remidata.co",
+      "description": "REMI Data sources and prepares custom clinical, oncology, speech, motion and human datasets for AI training.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-786-695-1465",
+      "email": "sales@remidata.co",
+      "founder": {
+        "@type": "Person",
+        "name": "Alexander Adamov"
+      }
+    }
+    </script>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -117,14 +143,14 @@
             font-weight: 500;
         }
         .hero h1 {
-            font-size: 56px;
+            font-size: 52px;
             font-weight: 500;
             line-height: 1.15;
             margin-bottom: 32px;
             letter-spacing: -0.5px;
         }
         .hero-desc {
-            max-width: 580px;
+            max-width: 640px;
             margin: 0 auto 20px;
         }
         .hero-desc p {
@@ -150,6 +176,7 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             font-family: 'Inter', sans-serif;
+            display: inline-block;
         }
         .btn-primary {
             background: var(--accent);
@@ -194,6 +221,10 @@
         .section {
             padding: 100px 0;
         }
+        .section-alt {
+            padding: 100px 0;
+            background: var(--light);
+        }
         .section-label {
             font-size: 12px;
             letter-spacing: 3px;
@@ -211,7 +242,7 @@
             font-size: 16px;
             color: var(--gray);
             margin-bottom: 56px;
-            max-width: 520px;
+            max-width: 560px;
             line-height: 1.7;
         }
         
@@ -253,11 +284,23 @@
             color: var(--gray);
             line-height: 1.7;
         }
+        .card-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card-link:hover { text-decoration: underline; }
         
         /* LANGUAGES */
-        .lang-section {
-            background: var(--light);
-            padding: 100px 0;
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
         }
         .region-group {
             margin-bottom: 40px;
@@ -271,11 +314,6 @@
             font-weight: 600;
             padding-bottom: 8px;
             border-bottom: 1px solid var(--border);
-        }
-        .lang-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
         }
         .lang-tag {
             background: var(--white);
@@ -301,7 +339,7 @@
             font-style: italic;
         }
         
-        /* WHY */
+        /* FEATURES */
         .features {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -369,14 +407,13 @@
             .nav-links { display: none; position: absolute; top: 70px; right: 32px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); flex-direction: column; gap: 12px; z-index: 100; }
             .nav-links.open { display: flex; }
             .hero { padding: 60px 0 80px; }
-            .hero h1 { font-size: 34px; }
+            .hero h1 { font-size: 32px; }
             .hero-desc p { font-size: 15px; }
             .stats { grid-template-columns: repeat(2, 1fr); gap: 32px; }
             .grid-3 { grid-template-columns: 1fr; }
             .lang-grid { grid-template-columns: repeat(2, 1fr); }
             .features { grid-template-columns: 1fr; gap: 32px; }
-            .section { padding: 72px 0; }
-            .lang-section { padding: 72px 0; }
+            .section, .section-alt { padding: 72px 0; }
             .section-title { font-size: 28px; }
             .cta-section h2 { font-size: 28px; }
             .container { padding: 0 20px; }
@@ -393,27 +430,25 @@
         <div class="nav-links">
             <a href="/">Home</a>
             <a href="/clinical/">Clinical Data</a>
+            <a href="/clinical/oncology-datasets/">Oncology</a>
             <a href="#data-types">Services</a>
-            <a href="#how-it-works">How It Works</a>
             <a href="/samples/">Samples</a>
-            <a href="#contact">Contact Us</a>
-            <a href="#contact" class="nav-cta">Request a Quote</a>
+            <a href="#contact">Contact</a>
+            <a href="mailto:sales@remidata.co" class="nav-cta">Request a Dataset</a>
         </div>
     </div>
 </nav>
 
 <section class="hero">
     <div class="container">
-        <div class="hero-label">The Collection Layer for AI</div>
-        <h1>Licensed Human Data<br>for AI Training</h1>
+        <div class="hero-label">Custom Data for AI</div>
+        <h1>Custom Clinical &amp; Human<br>Datasets for AI Training</h1>
         <div class="hero-desc">
-            <p>We build the pipeline that creates raw, licensed human data at scale and feeds it into the AI ecosystem.</p>
-            <p>Consent-verified speech, face, motion, and environmental data from native contributors worldwide.</p>
+            <p>We source and prepare buyer-defined clinical datasets — including oncology, pathology, medical imaging, and longitudinal patient data — alongside speech, motion, and other human datasets for AI development.</p>
         </div>
         <div class="hero-cta">
-            <a href="mailto:sales@remidata.co" class="btn btn-primary">Request a Dataset</a>
-            <a href="/samples/" class="btn btn-primary" style="background: #1a1a1a;">Browse Samples ↗</a>
-            <a href="#data-types" class="btn btn-outline">Explore Services</a>
+            <a href="mailto:sales@remidata.co?subject=Dataset%20Requirements" class="btn btn-primary">Discuss Your Data Requirements</a>
+            <a href="#data-types" class="btn btn-outline">Explore Our Data Capabilities</a>
         </div>
     </div>
 </section>
@@ -422,7 +457,7 @@
     <div class="container">
         <div class="stats">
             <div class="stat">
-                <div class="stat-number">13+</div>
+                <div class="stat-number">15+</div>
                 <div class="stat-label">Languages</div>
             </div>
             <div class="stat">
@@ -431,75 +466,95 @@
             </div>
             <div class="stat">
                 <div class="stat-number">9</div>
-                <div class="stat-label">Data Types</div>
+                <div class="stat-label">Data Categories</div>
             </div>
             <div class="stat">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Consent-Verified</div>
+                <div class="stat-number">Custom</div>
+                <div class="stat-label">Built to Spec</div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- DATA TYPES — Clinical & Oncology FIRST -->
 <section class="section" id="data-types">
     <div class="container">
-        <div class="section-label">What We Collect</div>
-        <h2 class="section-title">Data Types</h2>
-        <p class="section-desc">Comprehensive human data collection through a single contributor session.</p>
+        <div class="section-label">What We Provide</div>
+        <h2 class="section-title">Data Capabilities</h2>
+        <p class="section-desc">Custom data sourcing and preparation across clinical and human data domains.</p>
         <div class="grid-3">
+            <!-- 01: Clinical & Oncology — PRIMARY -->
             <div class="card">
                 <div class="card-num">01</div>
-                <h3>Speech &amp; Voice</h3>
-                <p>Prompted and spontaneous speech, digits, voice commands. Multiple dialects per language. WAV 16kHz+, full transcriptions.</p>
+                <h3>Clinical &amp; Oncology Data</h3>
+                <p>Custom sourcing and preparation of hospital-based clinical datasets, pathology images, medical imaging, patient records, treatment histories, and longitudinal outcomes through healthcare institutions in Ukraine.</p>
+                <a href="/clinical/" class="card-link">Explore Clinical Data →</a>
+                <br>
+                <a href="/clinical/oncology-datasets/" class="card-link">Custom Oncology Datasets →</a>
             </div>
+
+            <!-- 02: Speech & Voice -->
             <div class="card">
                 <div class="card-num">02</div>
+                <h3>Speech &amp; Voice Data</h3>
+                <p>Custom speech recording, multilingual and accented speech datasets, transcription, voice data annotation, and other speech AI requirements. 15+ languages with native speakers across 4 continents.</p>
+                <a href="/samples/" class="card-link">Browse Samples →</a>
+            </div>
+
+            <!-- 03: Accented Speech -->
+            <div class="card">
+                <div class="card-num">03</div>
+                <h3>Accented Speech</h3>
+                <p>Non-native speakers reading and speaking in foreign languages. Any L1→L2 combination with metadata including native language, proficiency level, and accent strength.</p>
+            </div>
+
+            <!-- 04: Face & Emotion -->
+            <div class="card">
+                <div class="card-num">04</div>
                 <h3>Face &amp; Emotion</h3>
                 <p>20+ facial expressions, 360° head rotation, diverse demographics. AI-ready face meshes and landmarks.</p>
             </div>
-            <div class="card">
-                <div class="card-num">03</div>
-                <h3>Motion &amp; Gestures</h3>
-                <p>Full-body movement, hand gestures, culturally-specific actions. Pose estimation data via MediaPipe.</p>
-            </div>
-            <div class="card">
-                <div class="card-num">04</div>
-                <h3>Accented Speech</h3>
-                <p>Non-native speakers reading and speaking in foreign languages. Ukrainian-accented English, Filipino-accented English, Spanish-accented German, and any L1→L2 combination. Metadata includes native language, proficiency level, and accent strength.</p>
-            </div>
+
+            <!-- 05: Motion & Vision -->
             <div class="card">
                 <div class="card-num">05</div>
-                <h3>AI Evaluation &amp; RLHF</h3>
-                <p>Human preference ranking, response quality assessment, safety evaluation. Multilingual evaluators across 13+ languages for LLM alignment.</p>
+                <h3>Motion, Vision &amp; Human Data</h3>
+                <p>Full-body movement, hand gestures, culturally-specific actions. Human motion, visual data, and other data-collection services relevant to AI and computer vision.</p>
             </div>
+
+            <!-- 06: AI Evaluation & RLHF -->
             <div class="card">
                 <div class="card-num">06</div>
-                <h3>Parallel Text Corpora</h3>
-                <p>Natural human translations across 13+ language pairs. Not machine translation — authentic, culturally-native text for LLM training.</p>
+                <h3>AI Evaluation &amp; RLHF</h3>
+                <p>Human preference ranking, response quality assessment, safety evaluation. Multilingual evaluators across 15+ languages for LLM alignment.</p>
             </div>
+
+            <!-- 07: Parallel Text -->
             <div class="card">
                 <div class="card-num">07</div>
-                <h3>Handwriting &amp; OCR</h3>
-                <p>Handwritten text samples across scripts: Cyrillic, Latin, Arabic, Devanagari, and more.</p>
+                <h3>Parallel Text Corpora</h3>
+                <p>Natural human translations across 15+ language pairs. Authentic, culturally-native text for LLM training — not machine translation.</p>
             </div>
+
+            <!-- 08: Handwriting & OCR -->
             <div class="card">
                 <div class="card-num">08</div>
-                <h3>Body &amp; Skin Imagery</h3>
-                <p>Photographs of body parts, skin, nails, and physical features. Diverse demographics and Fitzpatrick I-VI skin tones.</p>
+                <h3>Handwriting &amp; OCR</h3>
+                <p>Handwritten text samples across scripts: Cyrillic, Latin, Arabic, Devanagari, and more. Custom collection available.</p>
             </div>
+
+            <!-- 09: Body & Skin Imagery -->
             <div class="card">
                 <div class="card-num">09</div>
-                <h3>Clinical Data</h3>
-                <p>Custom retrospective and prospective clinical datasets including oncology, pathology, medical imaging, dermatology and dental data.</p>
-                <div style="margin-top: 16px;">
-                    <a href="/clinical/" style="color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Explore Clinical Data →</a>
-                </div>
+                <h3>Body &amp; Skin Imagery</h3>
+                <p>Photographs of body parts, skin, nails, and physical features. Diverse demographics and Fitzpatrick I-VI skin tones.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="lang-section" id="languages">
+<!-- LANGUAGES -->
+<section class="section-alt" id="languages">
     <div class="container">
         <div class="section-label">Global Reach</div>
         <h2 class="section-title">Languages &amp; Regions</h2>
@@ -558,125 +613,102 @@
     <div class="container">
         <div class="section-label">Process</div>
         <h2 class="section-title">How It Works</h2>
-        <p class="section-desc">From brief to delivery in four steps.</p>
+        <p class="section-desc">From brief to delivery.</p>
         <div class="grid-3" style="grid-template-columns: repeat(4, 1fr);">
             <div class="card">
                 <div class="card-num">01</div>
                 <h3>Brief</h3>
-                <p>You tell us what data you need — language, format, volume, demographics, recording conditions. We scope the project and send a quote.</p>
+                <p>You tell us what data you need — data type, specifications, volume, demographics, and intended use. We scope the project.</p>
             </div>
             <div class="card">
                 <div class="card-num">02</div>
-                <h3>Collect</h3>
-                <p>Our distributed contributor network records, photographs, or annotates according to your specifications. Every contributor signs a commercial consent form.</p>
+                <h3>Source &amp; Collect</h3>
+                <p>For clinical data, we evaluate hospital and laboratory sources. For human data, our contributor networks record, photograph, or annotate to your specifications.</p>
             </div>
             <div class="card">
                 <div class="card-num">03</div>
                 <h3>Validate</h3>
-                <p>Automated QC pipeline checks every file: SNR analysis, language verification, format compliance, metadata validation. Failed files are re-collected.</p>
+                <p>Quality control, format compliance, metadata validation. For clinical data: de-identification, structuring, and expert review where required.</p>
             </div>
             <div class="card">
                 <div class="card-num">04</div>
                 <h3>Deliver</h3>
-                <p>Clean, labeled datasets delivered via secure cloud transfer with full documentation: consent records, metadata, and quality reports.</p>
+                <p>Clean, labeled datasets delivered via secure transfer with full documentation, quality reports, and applicable rights documentation.</p>
             </div>
         </div>
     </div>
 </section>
 
+<!-- WHY REMI -->
 <section class="section" id="why">
     <div class="container">
         <div class="section-label">Our Approach</div>
         <h2 class="section-title">Why REMI Data</h2>
-        <p class="section-desc">Built for AI teams who need reliable, diverse, and legally cleared training data.</p>
+        <p class="section-desc">Built for AI teams who need reliable, diverse, and properly sourced training data.</p>
         <div class="features">
             <div class="feature">
                 <div class="feature-line"></div>
                 <div>
-                    <h4>Fully Licensed</h4>
-                    <p>Every contributor signs a commercial consent agreement. No scraping, no gray areas.</p>
+                    <h4>Custom Collection</h4>
+                    <p>Every dataset is built to your specifications — data type, format, volume, demographics, clinical endpoints, or language requirements.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-line"></div>
+                <div>
+                    <h4>Clinical &amp; Human Data</h4>
+                    <p>From hospital-sourced oncology datasets to multilingual speech recordings — clinical and human data through a single provider.</p>
                 </div>
             </div>
             <div class="feature">
                 <div class="feature-line"></div>
                 <div>
                     <h4>Quality Controlled</h4>
-                    <p>Automated QC pipeline: SNR analysis, language verification, format validation.</p>
+                    <p>Automated and expert QC processes. Clinical data receives specialist review. Human data is validated for format, content, and metadata.</p>
                 </div>
             </div>
             <div class="feature">
                 <div class="feature-line"></div>
                 <div>
-                    <h4>Rich Metadata</h4>
-                    <p>Gender, age, region, dialect — every data point comes with full demographic context.</p>
-                </div>
-            </div>
-            <div class="feature">
-                <div class="feature-line"></div>
-                <div>
-                    <h4>Custom Collection</h4>
-                    <p>Need 500 Kazakh speakers under 30? 200 Argentine Spanish dialogs? We build to spec.</p>
+                    <h4>Rights &amp; Licensing</h4>
+                    <p>Data rights and commercial licensing are documented for each project. For clinical data, consent, legal basis and usage rights are assessed per source.</p>
                 </div>
             </div>
             <div class="feature">
                 <div class="feature-line"></div>
                 <div>
                     <h4>Underrepresented Languages</h4>
-                    <p>Focus on languages AI still struggles with. Fill the gaps in your training data.</p>
+                    <p>Focus on languages AI still struggles with. Fill the gaps in your training data across 15+ languages.</p>
                 </div>
             </div>
             <div class="feature">
                 <div class="feature-line"></div>
                 <div>
-                    <h4>Fast Turnaround</h4>
-                    <p>Active contributor networks across 4 continents. Datasets delivered in days, not months.</p>
+                    <h4>Rich Metadata</h4>
+                    <p>Every data point comes with full context — demographics, clinical staging, dialect, or whatever metadata your application requires.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- ABOUT -->
 <section class="section" id="about">
     <div class="container">
         <div class="section-label">About</div>
         <h2 class="section-title">About REMI Data</h2>
-        <p class="section-desc">The collection layer for AI training data.</p>
+        <p class="section-desc">Custom clinical and human data sourcing for AI development.</p>
         
-        <div style="max-width: 720px; margin: 0 auto; line-height: 1.8; color: #ccc;">
-            <p>REMI Data is an AI data infrastructure project of REMI FS LLC, a Florida-registered company based in Miami. We collect, process, and deliver licensed human data for AI/ML training — speech recordings, facial expressions, body motion, medical imagery, handwriting, and more.</p>
+        <div style="max-width: 720px; margin: 0 auto; line-height: 1.8; color: var(--gray);">
+            <p>REMI Data is a US-based company organizing custom data collection, preparation, and project-specific commercial licensing for AI developers. Our activities encompass clinical datasets sourced through healthcare institutions in Ukraine, as well as human training data — speech, face, motion, and other modalities — collected through contributor networks across multiple countries and continents.</p>
             
-            <p>Founded in 2024 by Alexander Adamov, an entrepreneur with 25+ years of business experience in Ukraine and the United States. REMI Data combines deep operational expertise in managing distributed teams with scalable data collection technology. REMI Data is a member of the NVIDIA Inception program.</p>
-            
-            <p>We operate contributor networks across 6 countries and 4 continents, covering 13+ languages — with a focus on underrepresented languages that AI still struggles with.</p>
-        </div>
-
-        <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; flex-wrap: wrap;">
-            <div style="text-align: center;">
-                <div style="font-size: 2.5rem; font-weight: 700; color: #e87722;">13+</div>
-                <div style="color: #999; font-size: 0.9rem;">Languages</div>
-            </div>
-            <div style="text-align: center;">
-                <div style="font-size: 2.5rem; font-weight: 700; color: #e87722;">6</div>
-                <div style="color: #999; font-size: 0.9rem;">Countries</div>
-            </div>
-            <div style="text-align: center;">
-                <div style="font-size: 2.5rem; font-weight: 700; color: #e87722;">4</div>
-                <div style="color: #999; font-size: 0.9rem;">Continents</div>
-            </div>
-            <div style="text-align: center;">
-                <div style="font-size: 2.5rem; font-weight: 700; color: #e87722;">500+</div>
-                <div style="color: #999; font-size: 0.9rem;">Contributors</div>
-            </div>
-        </div>
-
-        <div style="max-width: 720px; margin: 3rem auto 0; text-align: center; color: #999; font-style: italic;">
-            We believe the best AI is trained on real human data — diverse, ethically sourced, and fully licensed. Our mission is to bridge the data gap between overrepresented and underrepresented communities, making AI work for everyone.
+            <p style="margin-top: 16px;">Founded in 2024 by Alexander Adamov, an entrepreneur with 25+ years of business experience in Ukraine and the United States. REMI Data is a member of the NVIDIA Inception program and is based in Miami, Florida.</p>
         </div>
     </div>
 </section>
 
 <!-- TEAM -->
-<section class="section" id="team">
+<section class="section" id="team" style="padding-top: 0;">
     <div class="container">
         <div class="section-label">Team</div>
         <h2 class="section-title">Leadership</h2>
@@ -695,8 +727,8 @@
 <section class="section" id="contact" style="background: var(--light);">
     <div class="container">
         <div class="section-label">Get Started</div>
-        <h2 class="section-title">Request a Quote</h2>
-        <p class="section-desc">Tell us what data you need. We'll scope, price, and deliver.</p>
+        <h2 class="section-title">Discuss Your Data Requirements</h2>
+        <p class="section-desc">Tell us what data you need. We'll evaluate feasibility, scope the project, and deliver.</p>
         <form id="quoteForm" style="max-width: 600px; margin: 2rem auto;" onsubmit="submitQuote(event)">
             <div style="margin-bottom: 1.5rem;">
                 <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text);">Name *</label>
@@ -707,12 +739,12 @@
                 <input type="text" name="company" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; font-size: 15px; font-family: 'Inter', sans-serif;">
             </div>
             <div style="margin-bottom: 1.5rem;">
-                <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text);">Email *</label>
+                <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text);">Work Email *</label>
                 <input type="email" name="email" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; font-size: 15px; font-family: 'Inter', sans-serif;">
             </div>
             <div style="margin-bottom: 1.5rem;">
                 <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text);">What data do you need? *</label>
-                <textarea name="message" required rows="5" placeholder="Describe the data type, language(s), volume, format, and any specific requirements." style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; font-size: 15px; font-family: 'Inter', sans-serif; resize: vertical;"></textarea>
+                <textarea name="message" required rows="5" placeholder="Describe the data type, specifications, volume, and any specific requirements." style="width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; font-size: 15px; font-family: 'Inter', sans-serif; resize: vertical;"></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer; font-size: 14px;">Submit Request</button>
         </form>
@@ -724,7 +756,7 @@
             var company = f.querySelector('[name=company]').value;
             var email = f.querySelector('[name=email]').value;
             var msg = f.querySelector('[name=message]').value;
-            var subject = encodeURIComponent('Quote Request from ' + name + ' (' + company + ')');
+            var subject = encodeURIComponent('Dataset Request from ' + name + ' (' + company + ')');
             var body = encodeURIComponent('Name: ' + name + '\nCompany: ' + company + '\nEmail: ' + email + '\n\n' + msg);
             window.location.href = 'mailto:sales@remidata.co?subject=' + subject + '&body=' + body;
         }
@@ -732,10 +764,24 @@
     </div>
 </section>
 
+<!-- DARK CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="section-label">Clinical Data</div>
+        <h2>Looking for Custom<br>Oncology Datasets?</h2>
+        <p>Hospital-sourced pathology, imaging, clinical records, molecular data, treatment histories and longitudinal outcomes.</p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+            <a href="/clinical/" class="btn btn-primary">Clinical Data Overview</a>
+            <a href="/clinical/oncology-datasets/" class="btn" style="border: 1px solid #555; color: #ccc;">Oncology Datasets</a>
+        </div>
+    </div>
+</section>
+
 <footer>
     <div class="container">
         <p>&copy; 2026 REMI FS LLC &middot; Miami, Florida<br>
-        <a href="mailto:sales@remidata.co">sales@remidata.co</a> &middot; +1 786-695-1465</p>
+        <a href="mailto:sales@remidata.co">sales@remidata.co</a> &middot; +1 786-695-1465<br>
+        <a href="/clinical/">Clinical Data</a> &middot; <a href="/clinical/oncology-datasets/">Oncology Datasets</a> &middot; <a href="/samples/">Samples</a></p>
     </div>
 </footer>
 

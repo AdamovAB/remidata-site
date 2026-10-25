@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Oncology Datasets for AI Training | REMI Data</title>
+    <meta name="description" content="Custom oncology data sourcing through Ukrainian medical providers. Pathology, imaging, linked clinical records, treatments and outcomes.">
+    <link rel="canonical" href="https://remidata.co/clinical/oncology-datasets/">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon-180.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Custom Oncology Datasets for AI Training",
+      "description": "Custom oncology data sourcing through Ukrainian medical providers. Pathology images, medical imaging, clinical records, molecular data, treatment histories and longitudinal outcomes — collected and prepared to buyer specifications.",
+      "provider": {
+        "@type": "Organization",
+        "name": "REMI Data",
+        "legalName": "REMI FS LLC",
+        "url": "https://remidata.co",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Miami",
+          "addressRegion": "FL",
+          "addressCountry": "US"
+        }
+      },
+      "areaServed": "Worldwide",
+      "url": "https://remidata.co/clinical/oncology-datasets/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://remidata.co/"},
+        {"@type": "ListItem", "position": 2, "name": "Clinical Data", "item": "https://remidata.co/clinical/"},
+        {"@type": "ListItem", "position": 3, "name": "Oncology Datasets", "item": "https://remidata.co/clinical/oncology-datasets/"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Can REMI Data source oncology datasets across different cancer indications?", "acceptedAnswer": {"@type": "Answer", "text": "REMI Data evaluates buyer-defined sourcing requirements across solid tumors, hematologic malignancies, and skin cancers. Potential sourcing configurations vary by diagnosis, required data modalities, available medical records, and clinical endpoints. Each project begins with a feasibility assessment through our Ukrainian institutional network."}},
+        {"@type": "Question", "name": "Can pathology images be linked to clinical records and treatment outcomes?", "acceptedAnswer": {"@type": "Answer", "text": "Patient-level linkage of pathology, clinical records, treatment and outcomes is a core capability we evaluate for each project. Linkage feasibility, completeness and data availability depend on the specific institutions, cancer type and requested clinical endpoints."}},
+        {"@type": "Question", "name": "Can datasets include molecular, imaging, and clinical modalities?", "acceptedAnswer": {"@type": "Answer", "text": "Multimodal datasets combining pathology, medical imaging, clinical records, molecular data, treatment histories and outcomes can be explored. Actual availability of each modality depends on the specific institutions, patient populations and data systems involved."}},
+        {"@type": "Question", "name": "Does REMI support retrospective and prospective collection?", "acceptedAnswer": {"@type": "Answer", "text": "Both models are supported. Retrospective collection draws on archived hospital records, pathology materials and imaging. Prospective collection organizes new data capture under buyer-defined protocols. Long-term survival data generally require existing longitudinal records or future follow-up periods."}},
+        {"@type": "Question", "name": "How is patient-level data linkage evaluated?", "acceptedAnswer": {"@type": "Answer", "text": "Linkage feasibility is assessed for each requested cohort based on the institution's record systems, patient identifiers, data completeness and available modalities. Complete multimodal linkage is not guaranteed for every case — missingness and completeness are reported as part of the feasibility assessment."}},
+        {"@type": "Question", "name": "How is eligible cohort availability established?", "acceptedAnswer": {"@type": "Answer", "text": "After receiving buyer specifications, REMI evaluates potential Ukrainian hospital and laboratory sources against the requested cancer indication, cohort size, data modalities, clinical endpoints and inclusion criteria. Feasibility findings are reported before any collection commitment."}},
+        {"@type": "Question", "name": "Can the data be used for commercial AI training?", "acceptedAnswer": {"@type": "Answer", "text": "Commercial AI-training rights are assessed and documented for each specific project. REMI does not assume that access to clinical data or de-identification alone establishes commercial licensing rights. Rights, consent and legal basis are verified with each data source."}},
+        {"@type": "Question", "name": "How does a custom oncology sourcing project begin?", "acceptedAnswer": {"@type": "Answer", "text": "Contact REMI Data with your cancer indication, required data modalities, target cohort size, clinical endpoints and intended AI application. We evaluate source feasibility, provide a structured assessment, and proceed to collection only after agreement on scope, governance and commercial terms."}}
+      ]
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --accent: #E8531E;
+            --accent-hover: #d14a18;
+            --dark: #1a1a1a;
+            --text: #3d3d3d;
+            --gray: #777;
+            --light: #f7f7f5;
+            --border: #e8e5e0;
+            --white: #fff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; color: var(--dark); font-weight: 500; }
+
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+
+        /* NAV */
+        nav { padding: 24px 0; position: relative; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.06); }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { text-decoration: none; display: flex; align-items: center; }
+        .logo img { height: 146px; width: auto; }
+        .nvidia-badge { display: inline-block; margin-left: 24px; }
+        .nvidia-badge img { height: 60px; width: auto; }
+        .hamburger { display: none; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { font-size: 13px; color: var(--gray); text-decoration: none; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-cta { background: var(--accent) !important; color: var(--white) !important; padding: 10px 24px !important; border-radius: 4px; transition: background 0.3s !important; }
+        .nav-cta:hover { background: var(--accent-hover) !important; }
+
+        /* BREADCRUMB */
+        .breadcrumb { padding: 16px 0; font-size: 13px; color: var(--gray); }
+        .breadcrumb a { color: var(--gray); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb span { margin: 0 8px; }
+
+        /* HERO */
+        .hero { padding: 60px 0 100px; text-align: center; background: linear-gradient(180deg, var(--white) 0%, var(--light) 100%); }
+        .hero-label { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; font-weight: 500; }
+        .hero h1 { font-size: 48px; font-weight: 500; line-height: 1.15; margin-bottom: 28px; letter-spacing: -0.5px; }
+        .hero-desc { max-width: 680px; margin: 0 auto; }
+        .hero-desc p { font-size: 16px; color: var(--gray); line-height: 1.8; margin-bottom: 12px; }
+        .hero-caps { margin-top: 32px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
+        .hero-caps span { margin: 0 6px; }
+        .hero-cta { margin-top: 40px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 14px 36px; border-radius: 4px; font-size: 13px; font-weight: 500; text-decoration: none; transition: all 0.3s; letter-spacing: 1px; text-transform: uppercase; font-family: 'Inter', sans-serif; display: inline-block; }
+        .btn-primary { background: var(--accent); color: var(--white); }
+        .btn-primary:hover { background: var(--accent-hover); }
+        .btn-outline { border: 1px solid var(--border); color: var(--text); background: transparent; }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* SECTIONS */
+        .section { padding: 100px 0; }
+        .section-alt { padding: 100px 0; background: var(--light); }
+        .section-label { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 500; }
+        .section-title { font-size: 38px; font-weight: 500; margin-bottom: 16px; }
+        .section-desc { font-size: 16px; color: var(--gray); margin-bottom: 56px; max-width: 640px; line-height: 1.7; }
+
+        /* CAPABILITY CARDS */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+        .cap-card { padding: 36px 28px; border: 1px solid var(--border); border-radius: 2px; background: var(--white); transition: all 0.3s; }
+        .cap-card:hover { border-color: var(--accent); box-shadow: 0 8px 32px rgba(0,0,0,0.06); transform: translateY(-2px); }
+        .cap-card h3 { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .cap-card ul { list-style: none; padding: 0; margin: 12px 0 0 0; }
+        .cap-card ul li { font-size: 13px; color: var(--gray); line-height: 1.9; padding-left: 16px; position: relative; }
+        .cap-card ul li::before { content: '·'; position: absolute; left: 0; color: var(--accent); font-weight: 700; font-size: 18px; line-height: 1.5; }
+
+        /* INDICATIONS */
+        .ind-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .ind-tag { background: var(--white); border: 1px solid var(--border); padding: 16px; font-size: 14px; font-weight: 400; text-align: center; transition: border-color 0.3s; color: var(--text); }
+        .ind-tag:hover { border-color: var(--accent); }
+
+        /* LINKAGE */
+        .linkage-visual { max-width: 700px; margin: 0 auto 48px; }
+        .linkage-hub { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+        .linkage-center { grid-column: 1 / -1; text-align: center; padding: 20px; background: var(--dark); color: var(--white); font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+        .linkage-node { padding: 14px 16px; border: 1px solid var(--border); background: var(--white); font-size: 13px; font-weight: 500; text-align: center; color: var(--text); transition: border-color 0.3s; }
+        .linkage-node:hover { border-color: var(--accent); }
+        .linkage-desc { max-width: 640px; margin: 40px auto 0; text-align: center; font-size: 15px; color: var(--gray); line-height: 1.8; }
+        .linkage-note { max-width: 640px; margin: 16px auto 0; text-align: center; font-size: 13px; color: var(--gray); font-style: italic; }
+
+        /* SCHEMA TABLE */
+        .schema-table { width: 100%; max-width: 720px; margin: 0 auto 24px; border-collapse: collapse; }
+        .schema-table th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); padding: 12px 16px; border-bottom: 2px solid var(--border); font-family: 'Inter', sans-serif; font-weight: 600; }
+        .schema-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 14px; }
+        .schema-table td:first-child { font-weight: 500; color: var(--dark); white-space: nowrap; }
+        .schema-table td:last-child { color: var(--gray); }
+        .schema-note { max-width: 720px; margin: 0 auto; font-size: 13px; color: var(--gray); font-style: italic; line-height: 1.7; }
+
+        /* DUAL COLUMNS */
+        .dual-col { padding: 40px 32px; border: 1px solid var(--border); background: var(--white); border-radius: 2px; }
+        .dual-col h3 { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); }
+        .dual-col p { font-size: 14px; color: var(--gray); line-height: 1.8; }
+        .dual-col ul { list-style: none; padding: 0; margin: 16px 0 0 0; }
+        .dual-col ul li { font-size: 13px; color: var(--gray); line-height: 1.9; padding-left: 16px; position: relative; }
+        .dual-col ul li::before { content: '·'; position: absolute; left: 0; color: var(--accent); font-weight: 700; font-size: 18px; line-height: 1.5; }
+
+        /* PROCESS */
+        .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+        .process-card { padding: 28px 20px; border: 1px solid var(--border); border-radius: 2px; background: var(--white); }
+        .process-num { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--border); margin-bottom: 14px; }
+        .process-card h3 { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: var(--accent); }
+        .process-card p { font-size: 13px; color: var(--gray); line-height: 1.7; }
+
+        /* GOVERNANCE */
+        .gov-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 64px; }
+        .gov-item { display: flex; gap: 20px; align-items: flex-start; }
+        .gov-line { width: 3px; min-height: 48px; background: var(--accent); flex-shrink: 0; margin-top: 2px; }
+        .gov-item h4 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--dark); }
+        .gov-item p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+        /* FAQ */
+        .faq-item { max-width: 760px; margin: 0 auto 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 10px; }
+        .faq-a { font-size: 14px; color: var(--gray); line-height: 1.8; }
+
+        /* CTA */
+        .cta-section { text-align: center; padding: 100px 0; background: var(--dark); color: var(--white); }
+        .cta-section .section-label { color: var(--accent); }
+        .cta-section h2 { color: var(--white); font-size: 38px; margin-bottom: 16px; }
+        .cta-section p { color: #999; font-size: 16px; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+
+        /* FOOTER */
+        footer { padding: 48px 0; text-align: center; color: var(--gray); font-size: 13px; border-top: 1px solid var(--border); line-height: 2; }
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hamburger { display: block; background: none; border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 20px; cursor: pointer; color: var(--dark); }
+            .nav-links { display: none; position: absolute; top: 70px; right: 32px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); flex-direction: column; gap: 12px; z-index: 100; }
+            .nav-links.open { display: flex; }
+            .hero { padding: 40px 0 60px; }
+            .hero h1 { font-size: 30px; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .ind-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .gov-grid { grid-template-columns: 1fr; gap: 32px; }
+            .linkage-hub { grid-template-columns: repeat(2, 1fr); }
+            .section, .section-alt { padding: 72px 0; }
+            .section-title { font-size: 28px; }
+            .cta-section { padding: 72px 0; }
+            .cta-section h2 { font-size: 28px; }
+            .container { padding: 0 20px; }
+        }
+        @media (max-width: 600px) {
+            .process-grid { grid-template-columns: 1fr; }
+            .ind-grid { grid-template-columns: 1fr; }
+            .linkage-hub { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="container">
+        <a href="/" class="logo"><img src="../../logo-remi.jpg" alt="REMI Data"></a>
+        <span class="nvidia-badge"><img src="../../nvidia-inception-badge-bw.svg" alt="NVIDIA Inception Program Member"></span>
+        <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/clinical/">Clinical Data</a>
+            <a href="/clinical/oncology-datasets/" class="active">Oncology</a>
+            <a href="/samples/">Samples</a>
+            <a href="/#contact">Contact</a>
+            <a href="mailto:sales@remidata.co?subject=Oncology%20Dataset%20Inquiry" class="nav-cta">Request a Dataset</a>
+        </div>
+    </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+    <div class="container">
+        <a href="/">Home</a><span>›</span><a href="/clinical/">Clinical Data</a><span>›</span>Oncology Datasets
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-label">Oncology Data</div>
+        <h1>Custom Oncology Datasets<br>for AI Training</h1>
+        <div class="hero-desc">
+            <p>Hospital-sourced pathology images, medical imaging, clinical records, molecular data, treatment histories, and longitudinal outcomes — collected and prepared to your project specifications.</p>
+            <p>REMI Data helps AI developers and life sciences companies evaluate and organize custom oncology data sourcing through healthcare institutions and laboratories in Ukraine.</p>
+        </div>
+        <div class="hero-caps">
+            Custom Hospital Sourcing <span>·</span> Multimodal Data <span>·</span> Same-Patient Linkage <span>·</span> Retrospective &amp; Prospective Collection
+        </div>
+        <div class="hero-cta">
+            <a href="mailto:sales@remidata.co?subject=Custom%20Oncology%20Dataset%20Request" class="btn btn-primary">Request a Custom Oncology Dataset</a>
+            <a href="mailto:sales@remidata.co?subject=Oncology%20Data%20Requirements%20Discussion" class="btn btn-outline">Discuss Your Data Requirements</a>
+        </div>
+    </div>
+</section>
+
+<!-- DATA CAPABILITIES -->
+<section class="section" id="capabilities">
+    <div class="container">
+        <div class="section-label">Data Capabilities</div>
+        <h2 class="section-title">Oncology Data Modalities</h2>
+        <p class="section-desc">Six core data modalities organized around buyer-defined oncology requirements. Actual fields, patient counts, linkage and source permissions depend on the specific project.</p>
+
+        <div class="grid-3">
+            <div class="cap-card">
+                <h3>Digital Pathology</h3>
+                <ul>
+                    <li>H&amp;E whole-slide images</li>
+                    <li>Immunohistochemistry (IHC)</li>
+                    <li>Pathology reports</li>
+                    <li>FFPE-associated data</li>
+                    <li>Slide digitization</li>
+                    <li>Histological grading and staging</li>
+                    <li>Pathologist annotation where available</li>
+                    <li>Scanner and image metadata</li>
+                </ul>
+            </div>
+
+            <div class="cap-card">
+                <h3>Medical Imaging</h3>
+                <ul>
+                    <li>CT</li>
+                    <li>MRI</li>
+                    <li>Diagnostic imaging</li>
+                    <li>Image acquisition metadata</li>
+                    <li>Imaging-to-diagnosis linkage</li>
+                    <li>Additional modalities subject to feasibility</li>
+                </ul>
+            </div>
+
+            <div class="cap-card">
+                <h3>Clinical &amp; EHR Data</h3>
+                <ul>
+                    <li>Diagnosis and medical history</li>
+                    <li>Demographics</li>
+                    <li>Cancer staging</li>
+                    <li>Laboratory results</li>
+                    <li>Clinical notes</li>
+                    <li>Biomarker measurements</li>
+                    <li>Longitudinal patient records</li>
+                </ul>
+            </div>
+
+            <div class="cap-card">
+                <h3>Molecular &amp; Genomic Data</h3>
+                <ul>
+                    <li>Molecular profiling</li>
+                    <li>Genetic mutations</li>
+                    <li>Biomarker results</li>
+                    <li>Bulk RNA-seq</li>
+                    <li>Single-cell RNA-seq</li>
+                    <li>Other multi-omics data where available</li>
+                </ul>
+            </div>
+
+            <div class="cap-card">
+                <h3>Treatment Histories</h3>
+                <ul>
+                    <li>Surgery</li>
+                    <li>Radiotherapy</li>
+                    <li>Chemotherapy</li>
+                    <li>Immunotherapy</li>
+                    <li>Hormonal therapy</li>
+                    <li>Targeted therapies</li>
+                    <li>Treatment dates and sequences</li>
+                    <li>Response to treatment</li>
+                </ul>
+            </div>
+
+            <div class="cap-card">
+                <h3>Longitudinal Outcomes</h3>
+                <ul>
+                    <li>Recurrence</li>
+                    <li>Progression</li>
+                    <li>Metastasis</li>
+                    <li>Disease-free survival</li>
+                    <li>Progression-free survival</li>
+                    <li>Overall survival</li>
+                    <li>Follow-up duration</li>
+                    <li>Outcome events and censoring</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CANCER INDICATIONS -->
+<section class="section-alt" id="indications">
+    <div class="container">
+        <div class="section-label">Indications</div>
+        <h2 class="section-title">Custom Datasets Across Oncology Indications</h2>
+        <p class="section-desc">REMI Data evaluates buyer-defined data sourcing requirements across solid tumors, hematologic malignancies, and skin cancers. Potential sourcing configurations vary by diagnosis, required data modalities, available medical records, treatment histories, and clinical endpoints.</p>
+
+        <div class="ind-grid">
+            <div class="ind-tag">Bladder Cancer / NMIBC</div>
+            <div class="ind-tag">Breast Cancer</div>
+            <div class="ind-tag">Colorectal Cancer</div>
+            <div class="ind-tag">Endometrial Cancer</div>
+            <div class="ind-tag">Leukemia / AML</div>
+            <div class="ind-tag">Liver Cancer / HCC</div>
+            <div class="ind-tag">Lung Cancer / NSCLC</div>
+            <div class="ind-tag">Melanoma &amp; Skin Cancer</div>
+            <div class="ind-tag">Pancreatic Cancer</div>
+            <div class="ind-tag">Prostate Cancer</div>
+            <div class="ind-tag">Other Solid Tumors</div>
+            <div class="ind-tag">Rare Cancers</div>
+        </div>
+
+        <p style="text-align: center; margin-top: 32px; font-size: 13px; color: var(--gray); font-style: italic;">This list represents potential areas for feasibility evaluation, not a catalogue of confirmed datasets.</p>
+    </div>
+</section>
+
+<!-- SAME-PATIENT LINKAGE -->
+<section class="section" id="linkage">
+    <div class="container">
+        <div class="section-label">Core Value</div>
+        <h2 class="section-title" style="text-align: center;">Multiple Data Modalities.<br>One Linked Patient Record.</h2>
+
+        <div class="linkage-visual">
+            <div class="linkage-center">De-Identified Patient Identifier</div>
+            <div class="linkage-hub">
+                <div class="linkage-node">Pathology</div>
+                <div class="linkage-node">Medical Imaging</div>
+                <div class="linkage-node">Clinical Records</div>
+                <div class="linkage-node">Molecular Data</div>
+                <div class="linkage-node">Treatment Timeline</div>
+                <div class="linkage-node">Longitudinal Outcomes</div>
+            </div>
+        </div>
+
+        <p class="linkage-desc">A useful oncology AI dataset often requires mapping images, diagnosis, treatments, and outcome events to the same patient, specimen, or clinical episode. Patient-level linkage enables multimodal model development, outcome prediction, and clinical validation.</p>
+        <p class="linkage-note">Linkage feasibility, completeness, and missingness are assessed for each requested cohort. Complete multimodal linkage is not guaranteed for every case.</p>
+    </div>
+</section>
+
+<!-- ILLUSTRATIVE SCHEMA -->
+<section class="section-alt" id="schema">
+    <div class="container">
+        <div class="section-label">Technical</div>
+        <h2 class="section-title" style="text-align: center;">Datasets Structured Around<br>Your AI Requirements</h2>
+        <p style="text-align: center; font-size: 16px; color: var(--gray); margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto;">Illustrative cancer-agnostic dataset schema. Actual content is defined by your project specifications.</p>
+
+        <table class="schema-table">
+            <thead>
+                <tr><th>Category</th><th>Example Fields</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Identifiers</td><td>patient_id, specimen_id, slide_id</td></tr>
+                <tr><td>Pathology</td><td>WSI file, histology, tumor grade</td></tr>
+                <tr><td>Clinical</td><td>diagnosis, TNM stage, laboratory values</td></tr>
+                <tr><td>Imaging</td><td>modality, image_id, acquisition metadata</td></tr>
+                <tr><td>Molecular</td><td>biomarkers, mutations, expression data</td></tr>
+                <tr><td>Treatment</td><td>treatment_type, treatment_start_date</td></tr>
+                <tr><td>Outcomes</td><td>recurrence, progression, survival</td></tr>
+                <tr><td>Follow-up</td><td>last_follow_up, censoring_status</td></tr>
+            </tbody>
+        </table>
+
+        <p class="schema-note">Illustrative data structure only. Actual dataset content, eligible patient counts, completeness, and commercial licensing are determined through feasibility assessment.</p>
+    </div>
+</section>
+
+<!-- RETROSPECTIVE & PROSPECTIVE -->
+<section class="section" id="collection-model">
+    <div class="container">
+        <div class="section-label">Collection Models</div>
+        <h2 class="section-title">Retrospective &amp; Prospective<br>Data Collection</h2>
+        <p class="section-desc">Two sourcing models for custom oncology datasets.</p>
+
+        <div class="grid-2">
+            <div class="dual-col">
+                <h3>Retrospective Collection</h3>
+                <p>Potential assessment of existing hospital archives and records:</p>
+                <ul>
+                    <li>Archived pathology material</li>
+                    <li>Existing hospital records</li>
+                    <li>Historical diagnostic imaging</li>
+                    <li>Treatment histories</li>
+                    <li>Recorded follow-up</li>
+                    <li>Available outcome data</li>
+                    <li>Digitization and abstraction requirements</li>
+                </ul>
+            </div>
+            <div class="dual-col">
+                <h3>Prospective Collection</h3>
+                <p>Potential organization of buyer-defined protocols:</p>
+                <ul>
+                    <li>Inclusion/exclusion criteria</li>
+                    <li>Clinical data collection</li>
+                    <li>Pathology and image acquisition</li>
+                    <li>Structured metadata</li>
+                    <li>Medical specialist involvement</li>
+                    <li>Quality assurance</li>
+                    <li>Follow-up procedures</li>
+                </ul>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 32px; font-size: 13px; color: var(--gray); font-style: italic; max-width: 640px; margin-left: auto; margin-right: auto;">Long-term survival data generally require existing longitudinal records or future follow-up periods. Immediate delivery of outcomes requiring years of observation should not be assumed.</p>
+    </div>
+</section>
+
+<!-- SOURCING PROCESS -->
+<section class="section-alt" id="process">
+    <div class="container">
+        <div class="section-label">Process</div>
+        <h2 class="section-title">Custom Sourcing Process</h2>
+        <p class="section-desc">From requirements to delivery in five steps.</p>
+
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-num">01</div>
+                <h3>Define</h3>
+                <p>Cancer indication, cohort size, data modalities, clinical endpoints, inclusion criteria, delivery format, geography, and intended AI use.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-num">02</div>
+                <h3>Feasibility</h3>
+                <p>Evaluate potential Ukrainian hospital and laboratory sources, case availability, completeness, technical specifications, and timelines.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-num">03</div>
+                <h3>Governance</h3>
+                <p>Review data permissions, legal requirements, de-identification, privacy, commercial AI training rights, and contractual restrictions.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-num">04</div>
+                <h3>Collection</h3>
+                <p>Where feasible and authorized, coordinate collection, digitization, clinical abstraction, linkage, normalization, annotation, and quality control.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-num">05</div>
+                <h3>Delivery</h3>
+                <p>Validate accepted data against agreed specifications and coordinate secure delivery and documentation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GOVERNANCE -->
+<section class="section" id="governance">
+    <div class="container">
+        <div class="section-label">Data Governance</div>
+        <h2 class="section-title">Clinical Data Governance</h2>
+        <p class="section-desc">Data governance and licensing requirements are evaluated and documented for each specific project. De-identification alone does not establish commercial licensing rights.</p>
+
+        <div class="gov-grid">
+            <div class="gov-item">
+                <div class="gov-line"></div>
+                <div>
+                    <h4>Legal Basis &amp; Consent</h4>
+                    <p>Applicable consent, legal basis and healthcare source permissions verified for each data source and intended use.</p>
+                </div>
+            </div>
+            <div class="gov-item">
+                <div class="gov-line"></div>
+                <div>
+                    <h4>Privacy &amp; Regulation</h4>
+                    <p>Ukrainian privacy and health-data regulations, HIPAA and GDPR considerations where applicable.</p>
+                </div>
+            </div>
+            <div class="gov-item">
+                <div class="gov-line"></div>
+                <div>
+                    <h4>De-Identification</h4>
+                    <p>De-identification and privacy safeguards applied according to project requirements and regulatory standards.</p>
+                </div>
+            </div>
+            <div class="gov-item">
+                <div class="gov-line"></div>
+                <div>
+                    <h4>Commercial AI Rights</h4>
+                    <p>Commercial AI-training rights assessed and documented per project. Access to data does not automatically create usage rights.</p>
+                </div>
+            </div>
+            <div class="gov-item">
+                <div class="gov-line"></div>
+                <div>
+                    <h4>Secure Transfer</h4>
+                    <p>Secure data transfer methods and data-use agreements structured for each delivery.</p>
+                </div>
+            </div>
+            <div class="gov-item">
+                <div class="gov-line"></div>
+                <div>
+                    <h4>Quality &amp; Traceability</h4>
+                    <p>Quality assurance, source verification and dataset traceability documented throughout the sourcing process.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-alt" id="faq">
+    <div class="container">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title" style="text-align: center; margin-bottom: 56px;">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-q">Can REMI Data source oncology datasets across different cancer indications?</div>
+            <div class="faq-a">REMI Data evaluates buyer-defined sourcing requirements across solid tumors, hematologic malignancies, and skin cancers. Potential sourcing configurations vary by diagnosis, required data modalities, available medical records, and clinical endpoints. Each project begins with a feasibility assessment through our Ukrainian institutional network.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Can pathology images be linked to clinical records and treatment outcomes?</div>
+            <div class="faq-a">Patient-level linkage of pathology, clinical records, treatment and outcomes is a core capability we evaluate for each project. Linkage feasibility, completeness and data availability depend on the specific institutions, cancer type and requested clinical endpoints.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Can datasets include molecular, imaging, and clinical modalities?</div>
+            <div class="faq-a">Multimodal datasets combining pathology, medical imaging, clinical records, molecular data, treatment histories and outcomes can be explored. Actual availability of each modality depends on the specific institutions, patient populations and data systems involved.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Does REMI support retrospective and prospective collection?</div>
+            <div class="faq-a">Both models are supported. Retrospective collection draws on archived hospital records, pathology materials and imaging. Prospective collection organizes new data capture under buyer-defined protocols. Long-term survival data generally require existing longitudinal records or future follow-up periods.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">How is patient-level data linkage evaluated?</div>
+            <div class="faq-a">Linkage feasibility is assessed for each requested cohort based on the institution's record systems, patient identifiers, data completeness and available modalities. Complete multimodal linkage is not guaranteed for every case — missingness and completeness are reported as part of the feasibility assessment.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">How is eligible cohort availability established?</div>
+            <div class="faq-a">After receiving buyer specifications, REMI evaluates potential Ukrainian hospital and laboratory sources against the requested cancer indication, cohort size, data modalities, clinical endpoints and inclusion criteria. Feasibility findings are reported before any collection commitment.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Can the data be used for commercial AI training?</div>
+            <div class="faq-a">Commercial AI-training rights are assessed and documented for each specific project. REMI does not assume that access to clinical data or de-identification alone establishes commercial licensing rights. Rights, consent and legal basis are verified with each data source.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">How does a custom oncology sourcing project begin?</div>
+            <div class="faq-a">Contact REMI Data with your cancer indication, required data modalities, target cohort size, clinical endpoints and intended AI application. We evaluate source feasibility, provide a structured assessment, and proceed to collection only after agreement on scope, governance and commercial terms.</div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+    <div class="container">
+        <div class="section-label">Get Started</div>
+        <h2>Tell Us About Your Oncology<br>Dataset Requirements</h2>
+        <p>Whether you're developing a digital pathology model, multimodal oncology AI system, diagnostic algorithm, or clinical outcome prediction model, REMI Data can review your requirements and evaluate potential sourcing options through Ukrainian medical providers.</p>
+        <a href="mailto:sales@remidata.co?subject=Oncology%20Dataset%20Feasibility%20Request" class="btn btn-primary">Request a Dataset Feasibility Assessment</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>&copy; 2026 REMI FS LLC &middot; Miami, Florida<br>
+        <a href="mailto:sales@remidata.co">sales@remidata.co</a> &middot; +1 786-695-1465<br>
+        <a href="/">Home</a> &middot; <a href="/clinical/">Clinical Data</a> &middot; <a href="/samples/">Samples</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
