@@ -17,8 +17,13 @@
   </url>
   <url>
     <loc>https://remidata.co/samples/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://remidata.co/samples/video-interview/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://remidata.co/consent/</loc>

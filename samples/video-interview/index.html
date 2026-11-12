@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Interview Speech Dataset — 26,000+ Hours | REMI Data</title>
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon-180.png">
+    <meta name="description" content="26,000+ hours of consented video interview speech. 97,000 speakers, 205 accents, 31 languages. Unscripted spontaneous speech with ASR transcripts. Licensed for AI training.">
+    <link rel="canonical" href="https://remidata.co/samples/video-interview/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --accent: #E8531E;
+            --accent-hover: #d14a18;
+            --dark: #1a1a1a;
+            --text: #3d3d3d;
+            --gray: #777;
+            --light: #f7f7f5;
+            --border: #e8e5e0;
+            --white: #fff;
+        }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); line-height: 1.7; background: var(--white); -webkit-font-smoothing: antialiased; }
+        h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; color: var(--dark); font-weight: 500; }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+
+        nav { padding: 24px 0; border-bottom: 1px solid var(--border); }
+        nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo img { height: 146px; width: auto; }
+        .logo { text-decoration: none; display: flex; align-items: center; }
+        .hamburger { display: none; }
+        .nvidia-badge { display: inline-block; margin-left: 24px; }
+        .nvidia-badge img { height: 60px; width: auto; opacity: 0.6; transition: opacity 0.2s; }
+        .nvidia-badge img:hover { opacity: 1; }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--gray); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--dark); }
+        .nav-cta { background: var(--accent) !important; color: var(--white) !important; padding: 10px 24px !important; border-radius: 6px; transition: background 0.2s !important; }
+        .nav-cta:hover { background: var(--accent-hover) !important; }
+
+        .hero { padding: 80px 0 48px; }
+        .hero h1 { font-size: 42px; margin-bottom: 16px; }
+        .hero .lead { font-size: 18px; color: var(--gray); max-width: 720px; margin-bottom: 32px; }
+        .breadcrumb { font-size: 13px; color: var(--gray); margin-bottom: 24px; }
+        .breadcrumb a { color: var(--accent); text-decoration: none; }
+
+        .stats-row { display: flex; gap: 40px; flex-wrap: wrap; margin-bottom: 48px; padding: 32px; background: var(--light); border-radius: 12px; }
+        .stat { text-align: center; flex: 1; min-width: 120px; }
+        .stat-num { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--dark); font-weight: 600; }
+        .stat-label { font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+        .section { margin-bottom: 48px; }
+        .section h2 { font-size: 28px; margin-bottom: 20px; }
+        .section h3 { font-size: 20px; margin-bottom: 12px; }
+
+        .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .detail-item { padding: 16px; border: 1px solid var(--border); border-radius: 8px; }
+        .detail-label { font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+        .detail-value { font-size: 14px; color: var(--dark); font-weight: 500; }
+
+        .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+        .tag { background: var(--light); color: var(--text); font-size: 13px; padding: 6px 14px; border-radius: 20px; }
+
+        .sample-preview { background: var(--light); border-radius: 12px; padding: 32px; margin-bottom: 48px; }
+        .sample-preview h3 { margin-bottom: 16px; }
+        .media-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+        .media-box { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+        .media-box h4 { font-family: 'Inter', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray); margin-bottom: 12px; }
+        .media-box video { width: 100%; border-radius: 6px; }
+        .media-box audio { width: 100%; margin-top: 8px; }
+
+        .transcript-box { background: #1a1a2e; color: #e0e0e0; padding: 24px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.7; max-height: 320px; overflow-y: auto; }
+        .ts { color: #7ec8e3; }
+
+        .accent-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+        .accent-table th { text-align: left; font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 12px; border-bottom: 2px solid var(--border); }
+        .accent-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); font-size: 14px; }
+        .accent-table tr:hover { background: var(--light); }
+
+        .use-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .use-case { padding: 20px; border: 1px solid var(--border); border-radius: 8px; }
+        .use-case-icon { font-size: 28px; margin-bottom: 8px; }
+        .use-case h4 { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+        .use-case p { font-size: 13px; color: var(--gray); }
+
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 6px; font-size: 15px; font-weight: 500; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+        .btn-primary { background: var(--accent); color: var(--white); }
+        .btn-primary:hover { background: var(--accent-hover); }
+        .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        .btn-outline:hover { border-color: var(--dark); color: var(--dark); }
+        .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+
+        .cta-section { background: var(--dark); padding: 80px 0; text-align: center; color: var(--white); }
+        .cta-section h2 { color: var(--white); font-size: 32px; margin-bottom: 16px; }
+        .cta-section p { color: #aaa; margin-bottom: 32px; font-size: 16px; }
+
+        footer { padding: 32px 0; text-align: center; font-size: 13px; color: var(--gray); }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        /* Lead Gate Modal */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: var(--white); border-radius: 12px; padding: 40px; max-width: 480px; width: 90%; position: relative; }
+        .modal h3 { font-size: 22px; margin-bottom: 8px; }
+        .modal p { color: var(--gray); font-size: 14px; margin-bottom: 24px; }
+        .modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--gray); }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--dark); margin-bottom: 4px; }
+        .form-group input { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; font-family: inherit; transition: border-color 0.2s; }
+        .form-group input:focus { outline: none; border-color: var(--accent); }
+        .form-submit { width: 100%; padding: 12px; background: var(--accent); color: var(--white); border: none; border-radius: 6px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+        .form-submit:hover { background: var(--accent-hover); }
+        .form-error { color: #d32f2f; font-size: 13px; margin-top: 8px; display: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 28px; }
+            .stats-row { gap: 20px; }
+            .media-row { grid-template-columns: 1fr; }
+            .detail-grid { grid-template-columns: 1fr; }
+            .nvidia-badge { display: none; }
+            .hamburger { display: block; background: none; border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 20px; cursor: pointer; color: var(--dark); }
+            .nav-links { display: none; position: absolute; top: 70px; right: 32px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); flex-direction: column; gap: 12px; z-index: 100; }
+            .nav-links.open { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="/" class="logo"><img src="../../logo-remi.jpg" alt="REMI Data"></a>
+        <span class="nvidia-badge"><img src="../../img/nvidia-inception.jpg" alt="NVIDIA Inception Program Member"></span>
+        <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#data-types">Services</a>
+            <a href="/samples/">Samples</a>
+            <a href="/clinical/">Clinical</a>
+            <a href="/#contact">Contact Us</a>
+            <a href="/#contact" class="nav-cta">Request a Quote</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / <a href="/samples/">Samples</a> / Video Interview Speech</div>
+        <h1>Video Interview Speech Dataset</h1>
+        <p class="lead">26,000+ hours of consented, unscripted video interview recordings. Single-speaker spontaneous speech with ASR transcripts, timestamped at the sentence level. 205 accents across 31 languages.</p>
+    </div>
+</section>
+
+<section class="container">
+    <div class="stats-row">
+        <div class="stat">
+            <div class="stat-num">26,000+</div>
+            <div class="stat-label">Licensable Hours</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">97,000+</div>
+            <div class="stat-label">Unique Speakers</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">205</div>
+            <div class="stat-label">Accents</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">31</div>
+            <div class="stat-label">Languages</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">107K+</div>
+            <div class="stat-label">Interviews</div>
+        </div>
+    </div>
+</section>
+
+<!-- Sample Preview -->
+<section class="container">
+    <div class="sample-preview">
+        <h3>Sample Preview</h3>
+        <p style="color: var(--gray); font-size: 14px; margin-bottom: 20px;">60-second excerpt from a US English interview. Speaker discusses a workplace scenario — typical of the dataset's spontaneous, unscripted speech style.</p>
+        <div class="media-row">
+            <div class="media-box">
+                <h4>🎥 Video</h4>
+                <video controls preload="metadata">
+                    <source src="interview-sample.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+            </div>
+            <div class="media-box">
+                <h4>🔊 Audio (WAV)</h4>
+                <audio controls preload="metadata">
+                    <source src="interview-sample.wav" type="audio/wav">
+                </audio>
+                <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">16 kHz · mono · PCM 16-bit</p>
+            </div>
+        </div>
+
+        <h4 style="font-family: 'Inter', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray); margin-bottom: 12px;">📝 Transcript Excerpt (with timestamps)</h4>
+        <div class="transcript-box">
+<span class="ts">[00:00.620 → 00:06.100]</span>  Yes, I've worked in different positions where I had to promote a tool.
+<span class="ts">[00:06.580 → 00:14.320]</span>  I'll go back to my time when I was working for [REDACTED] and I was creating the PMO from the ground up.
+<span class="ts">[00:14.520 → 00:26.000]</span>  And I had to implement a brand new tool called AHA that would act as a single source of truth and a system of record for project managers.
+<span class="ts">[00:26.640 → 00:27.980]</span>  They didn't like it.
+<span class="ts">[00:28.720 → 00:40.380]</span>  They were used to doing things their own way. But being the forefront of this project, I had to educate them of the benefit they will derive when utilizing this tool, how to save time,
+<span class="ts">[00:40.540 → 00:48.120]</span>  how to streamline progress reports for them, how it will help them know who in their team are
+<span class="ts">[00:48.120 → 00:56.760]</span>  underutilized when they're doing utilization reports, and also how this particular tool will
+<span class="ts">[00:56.760 → 01:00.000]</span>  just make their life so easy.
+        </div>
+    </div>
+</section>
+
+<!-- Dataset Details -->
+<section class="container section">
+    <h2>Dataset Specifications</h2>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <div class="detail-label">Content Type</div>
+            <div class="detail-value">Job interview recordings — one person answering questions</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Speech Style</div>
+            <div class="detail-value">Unscripted, spontaneous answers (not read from a script)</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Speakers per Recording</div>
+            <div class="detail-value">1 (interviewer is AI-generated and not recorded)</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Video Resolution</div>
+            <div class="detail-value">640×480 (SD webcam capture)</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Audio Sample Rate</div>
+            <div class="detail-value">48 kHz (stereo or mono, single voice)</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Audio SNR</div>
+            <div class="detail-value">Median 37 dB (83% of clips ≥ 25 dB)</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Video Codec</div>
+            <div class="detail-value">H.264 (MP4), some VP8/VP9 (WebM)</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Frame Rate</div>
+            <div class="detail-value">~15 fps median (variable, browser capture)</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Voice Activity</div>
+            <div class="detail-value">93% median (speech share of recorded time)</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Mouth Visible</div>
+            <div class="detail-value">95% of seconds (both mouth corners detected)</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Median Clip Length</div>
+            <div class="detail-value">54 seconds (p90: 122 s, max: 30 min)</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Full Catalogue Size</div>
+            <div class="detail-value">~7.6 TB (301 MB/hour with video + audio)</div>
+        </div>
+    </div>
+</section>
+
+<!-- Transcripts -->
+<section class="container section">
+    <h2>Transcripts & Annotations</h2>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <div class="detail-label">Transcript Coverage</div>
+            <div class="detail-value">99.7% of hours carry an ASR transcript</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Timestamps</div>
+            <div class="detail-value">Sentence-level start/end times (98.7% coverage)</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Transcript Type</div>
+            <div class="detail-value">Machine-generated (ASR) — not human-verified</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Language Label Accuracy</div>
+            <div class="detail-value">95% (validated against Whisper on 230 random clips)</div>
+        </div>
+    </div>
+</section>
+
+<!-- Language & Accent Coverage -->
+<section class="container section">
+    <h2>Language & Accent Coverage</h2>
+    <p style="color: var(--gray); margin-bottom: 20px;">91.6% English with global accent diversity. 30+ non-English languages with 1+ hour each. 20 accents exceed 100 hours.</p>
+
+    <h3 style="font-size: 18px;">Top Represented Regions</h3>
+    <table class="accent-table">
+        <thead>
+            <tr><th>Region</th><th>Key Countries</th><th>Languages</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>North America</td><td>United States, Canada</td><td>English</td></tr>
+            <tr><td>South Asia</td><td>India, Pakistan, Bangladesh</td><td>English, Hindi, Urdu, Bengali</td></tr>
+            <tr><td>Africa</td><td>Nigeria, Kenya, Ghana, South Africa, Egypt</td><td>English, French, Arabic</td></tr>
+            <tr><td>Europe</td><td>United Kingdom, Germany, France, Poland</td><td>English, German, French, Polish</td></tr>
+            <tr><td>Middle East</td><td>UAE, Israel</td><td>English, Arabic, Hebrew</td></tr>
+            <tr><td>Southeast Asia</td><td>Philippines, Singapore</td><td>English, Tagalog</td></tr>
+            <tr><td>South America</td><td>Argentina, Brazil</td><td>Spanish, Portuguese</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- Use Cases -->
+<section class="container section">
+    <h2>Use Cases</h2>
+    <div class="use-cases">
+        <div class="use-case">
+            <div class="use-case-icon">🗣️</div>
+            <h4>ASR & Speech Recognition</h4>
+            <p>Train and evaluate speech-to-text models on diverse accented English and 30+ other languages.</p>
+        </div>
+        <div class="use-case">
+            <div class="use-case-icon">🎯</div>
+            <h4>Speaker Identification</h4>
+            <p>97,000+ unique speakers for speaker verification, voice biometrics, and diarization models.</p>
+        </div>
+        <div class="use-case">
+            <div class="use-case-icon">👄</div>
+            <h4>Lip Reading & Visual Speech</h4>
+            <p>95% mouth visibility. SD video with aligned audio and transcripts for audio-visual speech models.</p>
+        </div>
+        <div class="use-case">
+            <div class="use-case-icon">🌍</div>
+            <h4>Accent & Dialect Research</h4>
+            <p>205 accent categories (language × country). Study accent variation at scale across global populations.</p>
+        </div>
+        <div class="use-case">
+            <div class="use-case-icon">📊</div>
+            <h4>NLP & Conversation Analysis</h4>
+            <p>Unscripted professional speech for language modeling, fluency analysis, and workplace NLP.</p>
+        </div>
+        <div class="use-case">
+            <div class="use-case-icon">🔊</div>
+            <h4>Audio Quality & Enhancement</h4>
+            <p>Real-world SNR distribution (median 37 dB) for noise robustness benchmarking and enhancement models.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Growth -->
+<section class="container section">
+    <h2>Catalogue Growth</h2>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <div class="detail-label">Coverage Period</div>
+            <div class="detail-value">June 2025 — present (continuously growing)</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Current Run Rate</div>
+            <div class="detail-value">~2,300 new hours per month</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Licensing Model</div>
+            <div class="detail-value">All hours are consented and ready to license — no collection delay</div>
+        </div>
+    </div>
+</section>
+
+<!-- Consent & Restrictions -->
+<section class="container section">
+    <h2>Consent & Licensing</h2>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <div class="detail-label">Speaker Consent</div>
+            <div class="detail-value">Every recording from a speaker who consented to data sharing</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Privacy</div>
+            <div class="detail-value">No speaker names, emails, or employer names in delivered data</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Restrictions</div>
+            <div class="detail-value">Voiceprints, faceprints, facial animation, lip-sync avatars, and synthetic voice cloning are outside the consent scope</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Opt-Out</div>
+            <div class="detail-value">Speakers who opted out after consent are excluded from the catalogue</div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<div class="container actions">
+    <a href="#" onclick="openLeadGate('video-interview-sample', 'Video Interview Speech — Sample Clips'); return false;" class="btn btn-primary">⬇ Download Sample Clips</a>
+    <a href="mailto:aa@remidata.co?subject=Video%20Interview%20Speech%20Dataset%20—%20Inquiry" class="btn btn-outline">📧 Contact Us About This Dataset</a>
+    <a href="/samples/" class="btn btn-outline">← Back to All Samples</a>
+</div>
+
+<section class="cta-section">
+    <div class="container">
+        <h2>Need a Custom Subset?</h2>
+        <p>Filter by language, accent, region, clip length, or audio quality. We can deliver exactly the slice you need.</p>
+        <a href="mailto:aa@remidata.co?subject=Video%20Interview%20Dataset%20—%20Custom%20Subset" class="btn btn-primary" style="font-size: 16px; padding: 14px 32px;">Request Custom Subset</a>
+    </div>
+</section>
+
+<!-- Lead Gate Modal -->
+<div class="modal-overlay" id="leadModal">
+    <div class="modal">
+        <button class="modal-close" onclick="closeLeadGate()">&times;</button>
+        <h3>Get Sample Data</h3>
+        <p id="modalDesc">Enter your details to access sample clips.</p>
+        <form id="leadForm" onsubmit="submitLeadForm(event)">
+            <input type="hidden" id="leadDataset" value="">
+            <div class="form-group">
+                <label for="leadName">Full Name *</label>
+                <input type="text" id="leadName" required placeholder="John Smith">
+            </div>
+            <div class="form-group">
+                <label for="leadEmail">Work Email * <span style="font-weight:400;color:var(--gray);font-size:11px;">(no personal email)</span></label>
+                <input type="email" id="leadEmail" required placeholder="john@yourcompany.com">
+            </div>
+            <div class="form-group">
+                <label for="leadCompany">Company *</label>
+                <input type="text" id="leadCompany" required placeholder="Acme AI Corp">
+            </div>
+            <div class="form-group">
+                <label for="leadRole">Role (optional)</label>
+                <input type="text" id="leadRole" placeholder="ML Engineer, Data Scientist...">
+            </div>
+            <button type="submit" class="form-submit">Download Sample</button>
+            <div class="form-error" id="formError">Please fill in all required fields.</div>
+        </form>
+        <div id="formSuccess" style="display:none; text-align:center; padding:20px 0;">
+            <div style="font-size:48px; margin-bottom:16px;">✅</div>
+            <h3 style="margin-bottom:8px;">Thank you!</h3>
+            <p style="color:var(--gray);">Your download has started. We'll follow up within 24 hours.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 REMI FS LLC &middot; Miami, Florida<br>
+        <a href="mailto:sales@remidata.co">sales@remidata.co</a> &middot; +1 786-695-1465</p>
+    </div>
+</footer>
+
+<script>
+function openLeadGate(dataset, label) {
+    document.getElementById('leadDataset').value = dataset;
+    document.getElementById('modalDesc').textContent = 'Enter your details to access: ' + label;
+    document.getElementById('leadForm').style.display = 'block';
+    document.getElementById('formSuccess').style.display = 'none';
+    document.getElementById('formError').style.display = 'none';
+    document.getElementById('leadModal').classList.add('active');
+    if (typeof gtag === 'function') gtag('event', 'sample_click', { 'dataset': dataset, 'label': label });
+}
+function closeLeadGate() { document.getElementById('leadModal').classList.remove('active'); }
+document.getElementById('leadModal').addEventListener('click', function(e) { if (e.target === this) closeLeadGate(); });
+
+function submitLeadForm(e) {
+    e.preventDefault();
+    var name = document.getElementById('leadName').value.trim();
+    var email = document.getElementById('leadEmail').value.trim();
+    var company = document.getElementById('leadCompany').value.trim();
+    var role = document.getElementById('leadRole').value.trim();
+    var dataset = document.getElementById('leadDataset').value;
+
+    if (!name || !email || !company) {
+        document.getElementById('formError').textContent = 'Please fill in all required fields.';
+        document.getElementById('formError').style.display = 'block';
+        return;
+    }
+
+    var blockedDomains = ['gmail.com','yahoo.com','hotmail.com','outlook.com','aol.com','icloud.com','mail.com','protonmail.com','zoho.com','yandex.com','yandex.ru','mail.ru','rambler.ru','ukr.net','i.ua','meta.ua','live.com','msn.com','me.com','inbox.com','gmx.com','gmx.net','fastmail.com','tutanota.com','pm.me','hey.com','duck.com','qq.com','163.com','126.com','sina.com','foxmail.com','yahoo.co.uk','yahoo.co.jp','hotmail.co.uk','googlemail.com'];
+    var emailDomain = email.split('@')[1].toLowerCase();
+    if (blockedDomains.indexOf(emailDomain) !== -1) {
+        document.getElementById('formError').textContent = 'Please use your work email address.';
+        document.getElementById('formError').style.display = 'block';
+        document.getElementById('leadEmail').focus();
+        return;
+    }
+
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', { 'dataset': dataset, 'company': company });
+
+    fetch('https://script.google.com/macros/s/AKfycbyu5gqZ5imORLDkfOrh7uSY98bJlC60uVAerVaypHNsJOFmaZNgKyZ0dJioHV1X4v0U8Q/exec', {
+        method: 'POST',
+        body: JSON.stringify({name: name, email: email, company: company, role: role, dataset: dataset, time: new Date().toISOString()}),
+        redirect: 'follow'
+    }).catch(function(err){ console.log('Webhook error:', err); });
+
+    try {
+        var leads = JSON.parse(localStorage.getItem('remi_leads') || '[]');
+        leads.push({name:name, email:email, company:company, role:role, dataset:dataset, time:new Date().toISOString()});
+        localStorage.setItem('remi_leads', JSON.stringify(leads));
+    } catch(ex) {}
+
+    // Download both video and audio samples
+    var files = ['interview-sample.mp4', 'interview-sample.wav'];
+    files.forEach(function(file) {
+        var a = document.createElement('a');
+        a.href = file;
+        a.download = file;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    });
+
+    document.getElementById('leadForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    setTimeout(function() { closeLeadGate(); }, 3000);
+}
+</script>
+
+</body>
+</html>
